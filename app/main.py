@@ -410,8 +410,10 @@ def create_app():
 
     return app
 
+# Gunicorn이 임포트할 수 있도록 모듈 레벨에서 app 생성
+app = create_app()
+
 if __name__ == "__main__":
-    app = create_app()
     gc = CardGrader()
     print(f"Qwen: {'ON' if gc.qwen else 'OFF'}")
     print("Server: http://127.0.0.1:5218")
