@@ -345,8 +345,8 @@ $('bannerDesc').textContent=`${b.name} (${b.code}) — 한국판 ${fmt(b.price_k
 
 function renderHomeBoxes(){
 const sorted=[...allBoxes].sort((a,b)=>{
-const eva=a.hits.reduce((s,h)=>{try{return s+h.p/int(h.rate.split('/')[1])}catch{return s}},0);
-const evb=b.hits.reduce((s,h)=>{try{return s+h.p/int(h.rate.split('/')[1])}catch{return s}},0);
+const eva=a.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
+const evb=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
 return (evb/b.price_kr)-(eva/a.price_kr);
 }).slice(0,6);
 $('homeBoxes').innerHTML=sorted.map(b=>{
