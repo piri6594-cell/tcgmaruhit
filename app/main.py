@@ -118,8 +118,16 @@ class CardGrader:
         h, w = img.shape[:2]
         if max(h, w) > 1200:
             s = 1200 / max(h, w); img = cv2.resize(img, (int(w * s), int(h * s)))
+        # 이미지 품질 체크
+        quality = self._check_quality(img)
+        
         pts = self._detect(img)
-        card = self._correct(img, pts) if pts is not None else cv2.resize(img, (self.CW, self.CH))
+        if pts is not None:
+            card = self._correct(img, pts)
+            card_detected = True
+        else:
+            card = cv2.resize(img, (self.CW, self.CH))
+            card_detected = False
         cen = self._centering(card)
         ann = self._annotate(card, cen)
         crops = self._crop(card)
@@ -131,11 +139,91 @@ class CardGrader:
             corners = {k: "AI 분석 미가동 (API 키 필요)" for k in ['top_left','top_right','bottom_left','bottom_right']}
             surface = "AI 분석 미가동 (API 키 필요)"
         ov, notes = self._combine(cen, corners, surface)
+        
+        # 카드 식별 (Gemini/Qwen으로 카드 텍스트 읽기)
+        card_name = ""
+        card_identified = False
+        if self.backend in ("qwen", "gemini"):
+            card_name = self._identify_card(card)
+            if card_name:
+                card_identified = True
+        
         return {"centering": asdict(cen), "qwen_corners": corners, "qwen_surface": surface,
                 "overall_grade_range": ov[0], "overall_min_score": ov[1], "overall_confidence": ov[2],
                 "notes": notes, "annotated_b64": self._b64(ann), "corrected_b64": self._b64(card),
                 "backend": self.backend,
+                "card_detected": card_detected,
+                "card_name": card_name,
+                "card_identified": card_identified,
+                "quality": quality,
                 "disclaimer": "참고용이며 실제 PSA/BGS/CGC 결과와 다를 수 있습니다."}
+
+    def _check_quality(self, img):
+        """이미지 품질 체크 — 빛 반사, 해상도, 흐림"""
+        h, w = int(img.shape[0]), int(img.shape[1])
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        # 빛 반사: 밝은 픽셀 비율
+        bright_ratio = float((gray > 240).sum()) / float(h * w)
+        # 흐림 정도: 라플라시안 분산
+        blur_score = float(cv2.Laplacian(gray, cv2.CV_64F).var())
+        # 해상도 충분?
+        resolution_ok = bool(min(h, w) >= 400)
+        # 빛 반사 심함?
+        glare_warning = bool(bright_ratio > 0.12)
+        # 흐림 경고
+        blur_warning = bool(blur_score < 50)
+        quality_ok = bool(resolution_ok and not glare_warning and not blur_warning)
+        return {
+            "width": w, "height": h,
+            "resolution_ok": resolution_ok,
+            "bright_ratio": round(bright_ratio, 3),
+            "glare_warning": glare_warning,
+            "blur_score": round(blur_score, 1),
+            "blur_warning": blur_warning,
+            "quality_ok": quality_ok,
+        }
+
+    def _identify_card(self, card_img):
+        """카드 텍스트를 읽어 포켓몬 이름 식별"""
+        b64 = self._b64(card_img)
+        prompt = ("트레이딩 카드 전체 사진이다. 이 카드의 정보를 읽어라.\n"
+                  "1. 포켓몬 이름 (한국어)\n"
+                  "2. HP 숫자\n"
+                  "3. 카드에 적힌 번호 (예: 054/088)\n"
+                  "형식:\n이름:(이름)\nHP:(숫자)\n번호:(번호)\n"
+                  "모르면 '불가'라고 써라.")
+        try:
+            if self.backend == "gemini":
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.gemini_model}:generateContent?key={self.gemini_key}"
+                payload = {
+                    "contents": [{"parts": [
+                        {"text": prompt},
+                        {"inline_data": {"mime_type": "image/jpeg", "data": b64}}
+                    ]}],
+                    "generationConfig": {"temperature": 0.1, "maxOutputTokens": 100}
+                }
+                r = requests.post(url, json=payload, timeout=60)
+                data = r.json()
+                text = data.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+            else:
+                r = requests.post(f"{self.QURL}/chat/completions", json={
+                    "model": self.MODEL,
+                    "messages": [{"role": "user", "content": [
+                        {"type": "text", "text": "<|think_off|>\n" + prompt},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}
+                    ]}],
+                    "max_tokens": 100, "temperature": 0.1
+                }, timeout=60)
+                text = r.json().get("choices", [{}])[0].get("message", {}).get("content", "")
+            # 이름 추출
+            for line in text.strip().split("\n"):
+                if "이름:" in line or "이름 :" in line:
+                    name = line.split(":")[-1].strip()
+                    if name and name != "불가":
+                        return name
+            return ""
+        except:
+            return ""
 
     def _detect(self, img):
         g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

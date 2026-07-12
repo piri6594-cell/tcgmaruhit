@@ -212,19 +212,39 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-fi
 <!-- 진단 -->
 <div id="p-grade" class="panel">
 <div class="wrap">
-<div class="upload-area" id="uploadZone">
-<div class="upload-icon">📸</div>
-<p>카드 사진을 올리면 센터링 + 모서리 + 표면 분석</p>
-<p style="font-size:11px;margin-top:4px">밝은 곳에서 카드 전체가 잘 보이게</p>
-<input type="file" id="fileInput" accept="image/*" style="display:none">
+<!-- 카메라 영역 -->
+<div id="cameraArea" style="position:relative;margin:14px 0">
+  <div style="position:relative;width:100%;max-width:360px;margin:0 auto;aspect-ratio:5/7;background:var(--card);border-radius:12px;overflow:hidden">
+    <video id="cameraVideo" autoplay playsinline style="width:100%;height:100%;object-fit:cover"></video>
+    <canvas id="overlayCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+    <!-- 가이드 박스 -->
+    <div id="guideBox" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+      <div id="guideFrame" style="width:72%;height:88%;border:3px dashed rgba(212,166,78,0.5);border-radius:8px;transition:border-color .3s;display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center;color:rgba(212,166,78,0.6);font-size:13px" id="guideText">카드를 여기에 맞춰주세요</div>
+      </div>
+    </div>
+    <!-- 상태 표시 -->
+    <div id="cameraStatus" style="position:absolute;top:8px;left:8px;right:8px;display:flex;gap:6px;justify-content:center">
+      <span id="glareWarn" class="cam-warn" style="display:none;background:rgba(196,74,74,0.85);padding:3px 10px;border-radius:12px;font-size:11px;color:#fff">⚠️ 빛 반사 — 각도를 바꿔주세요</span>
+      <span id="alignWarn" class="cam-warn" style="display:none;background:rgba(200,154,62,0.85);padding:3px 10px;border-radius:12px;font-size:11px;color:#fff">카드를 가이드에 맞춰주세요</span>
+      <span id="readyOk" style="display:none;background:rgba(90,158,90,0.85);padding:3px 10px;border-radius:12px;font-size:11px;color:#fff">✓ 찰영 준비 완료</span>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:12px;display:flex;gap:8px;justify-content:center">
+    <button class="btn" id="btnStartCamera" onclick="startCamera()">📷 카메라 시작</button>
+    <button class="btn btn-gold" id="btnCapture" onclick="capturePhoto()" disabled style="opacity:.5">📸 촬영</button>
+    <button class="btn" id="btnRetake" onclick="retakePhoto()" style="display:none">🔄 다시 찍기</button>
+    <button class="btn" id="btnUpload" onclick="document.getElementById('fileInputAlt').click()">📁 파일 선택</button>
+    <input type="file" id="fileInputAlt" accept="image/*" style="display:none" onchange="handleFileAlt(this.files[0])">
+  </div>
+  <div id="previewBox" style="display:none;text-align:center;margin:10px 0"><img id="previewImg" style="max-width:100%;border-radius:8px"></div>
 </div>
-<div id="previewBox" style="display:none;text-align:center;margin:10px 0"><img id="previewImg" style="max-width:100%;border-radius:8px"></div>
-<div id="gradeLoading" class="loading-overlay" style="display:none"><div class="spinner"></div><p>분석 중… 센터링 + Qwen 5영역</p></div>
+<div id="gradeLoading" class="loading-overlay" style="display:none"><div class="spinner"></div><p id="loadingText">분석 중…</p></div>
 <div id="gradeResults" style="display:none"></div>
 <div id="saveBar" class="save-bar" style="display:none">
 <h3>도감에 저장</h3>
 <div class="row">
-<div style="flex:2"><label>카드 이름</label><input type="text" id="svName" placeholder="피카츄 ex"></div>
+<div style="flex:2"><label>카드 이름</label><input type="text" id="svName" placeholder="자동 식별 결과"></div>
 <div style="flex:1"><label>판본</label><select id="svLang"><option value="kr">한국판</option><option value="jp">일본판</option><option value="en">영어판</option></select></div>
 </div>
 <div class="row">
@@ -417,28 +437,125 @@ $('boxModal').style.display='block';
 }
 function closeBoxModal(){$('boxModal').style.display='none'}
 
-// ═══ 진단 ═══
-const uz=$('uploadZone'),fi=$('fileInput');
-uz.addEventListener('click',()=>fi.click());
-uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover')});
-uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
-uz.addEventListener('drop',e=>{e.preventDefault();uz.classList.remove('dragover');if(e.dataTransfer.files.length)doAnalyze(e.dataTransfer.files[0])});
-fi.addEventListener('change',()=>{if(fi.files.length)doAnalyze(fi.files[0])});
+// ═══ 진단 — 카메라 + 가이드 ═══
+let cameraStream=null,cameraReady=false,lastGrade=null;
+let analyzeCheckTimer=null;
 
-function doAnalyze(file){
+async function startCamera(){
+try{
+cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment',width:{ideal:1080},height:{ideal:1920}}});
+$('cameraVideo').srcObject=cameraStream;
+$('btnStartCamera').style.display='none';
+$('btnCapture').style.display='inline-block';
+await new Promise(r=>$('cameraVideo').onloadedmetadata=r);
+cameraReady=true;
+// 실시간 품질 체크 시작
+if(analyzeCheckTimer)clearInterval(analyzeCheckTimer);
+analyzeCheckTimer=setInterval(checkCardQuality,800);
+}catch(e){
+alert('카메라를 시작할 수 없습니다: '+e.message+'\n\n파일 선택 버튼을 사용하세요.');
+}
+}
+
+function checkCardQuality(){
+if(!cameraReady)return;
+const v=$('cameraVideo');const c=$('overlayCanvas');
+const vw=v.videoWidth,vh=v.videoHeight;
+if(!vw)return;
+c.width=vw;c.height=vh;
+const ctx=c.getContext('2d');
+ctx.drawImage(v,0,0,vw,vh);
+const imgData=ctx.getImageData(0,0,vw,vh);
+const data=imgData.data;
+// 빛 반사 감지: 240 이상 픽셀 비율
+let bright=0,total=0;
+for(let i=0;i<data.length;i+=16){total++;if(data[i]>240&&data[i+1]>240&&data[i+2]>240)bright++;}
+const brightRatio=bright/total;
+// 가이드 표시 업데이트
+const frame=$('guideFrame');
+const hasGlare=brightRatio>0.12;
+if(hasGlare){
+frame.style.borderColor='rgba(196,74,74,0.7)';
+$('glareWarn').style.display='inline-block';
+$('alignWarn').style.display='none';
+$('readyOk').style.display='none';
+$('btnCapture').disabled=true;$('btnCapture').style.opacity=.5;
+}else{
+$('glareWarn').style.display='none';
+frame.style.borderColor='rgba(90,158,90,0.7)';
+$('readyOk').style.display='inline-block';
+$('alignWarn').style.display='none';
+$('btnCapture').disabled=false;$('btnCapture').style.opacity=1;
+}
+}
+
+function capturePhoto(){
+if(!cameraReady)return;
+const v=$('cameraVideo');
+const vw=v.videoWidth,vh=v.videoHeight;
+const c=document.createElement('canvas');
+// 카드 비율로 크롭 (5:7)
+const targetRatio=5/7;
+let cw=vw,ch=Math.round(vw/targetRatio);
+if(ch>vh){ch=vh;cw=Math.round(vh*targetRatio);}
+const sx=Math.round((vw-cw)/2),sy=Math.round((vh-ch)/2);
+c.width=cw;c.height=ch;
+const ctx=c.getContext('2d');
+ctx.drawImage(v,sx,sy,cw,ch,0,0,cw,ch);
+c.toBlob(blob=>{
+const file=new File([blob],'capture.jpg',{type:'image/jpeg'});
+stopCamera();
+doAnalyze(file);
+},'image/jpeg',0.92);
+}
+
+function stopCamera(){
+if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;}
+cameraReady=false;
+if(analyzeCheckTimer){clearInterval(analyzeCheckTimer);analyzeCheckTimer=null;}
+$('cameraVideo').style.display='none';
+$('guideBox').style.display='none';
+$('cameraStatus').style.display='none';
+}
+
+function retakePhoto(){
+$('gradeResults').style.display='none';
+$('saveBar').style.display='none';
+$('previewBox').style.display='none';
+$('cameraVideo').style.display='block';
+$('guideBox').style.display='flex';
+$('cameraStatus').style.display='flex';
+$('btnCapture').style.display='inline-block';
+$('btnRetake').style.display='none';
+startCamera();
+}
+
+function handleFileAlt(file){
+if(!file)return;
+stopCamera();
+$('btnStartCamera').style.display='none';
+$('btnCapture').style.display='none';
 const r=new FileReader();
 r.onload=e=>{$('previewImg').src=e.target.result;$('previewBox').style.display='block'};
 r.readAsDataURL(file);
-uz.style.display='none';
+doAnalyze(file);
+}
+
+function doAnalyze(file){
 $('gradeLoading').style.display='block';
+$('loadingText').textContent='분석 중… 센터링 + AI 비전 5영역';
 $('gradeResults').style.display='none';
 $('saveBar').style.display='none';
+$('btnCapture').style.display='none';
+$('btnRetake').style.display='inline-block';
 const fd=new FormData();fd.append('image',file);
 fetch('/api/analyze',{method:'POST',body:fd}).then(r=>r.json()).then(d=>{
 if(d.error)throw new Error(d.error);
 lastGrade=d;
 renderGrade(d);
 $('saveBar').style.display='block';
+// 카드 식별 결과가 있으면 이름 자동 입력
+if(d.card_identified&&d.card_name)$('svName').value=d.card_name;
 }).catch(e=>{
 $('gradeLoading').innerHTML=`<p style="color:var(--red)">오류: ${e.message}</p><p style="margin-top:10px"><button class="btn" onclick="location.reload()">다시</button></p>`;
 return;
@@ -453,11 +570,28 @@ const rn={top_left:'왼쪽 위',top_right:'오른쪽 위',bottom_left:'왼쪽 �
 function renderGrade(d){
 const c=d.centering;const ms=d.overall_min_score;
 const gc=ms>=10?'var(--green)':ms>=9?'var(--orange)':'var(--red)';
+// 카드 식별 결과
+let cardInfo='';
+if(d.card_identified&&d.card_name){
+cardInfo=`<div style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="font-size:20px">🃏</span><div><div style="font-size:12px;color:var(--muted)">식별된 카드</div><div style="font-size:16px;font-weight:700">${esc(d.card_name)}</div></div></div>`;
+}
+// 품질 경고
+let qualityWarn='';
+if(d.quality){
+const q=d.quality;const warns=[];
+if(q.glare_warning)warns.push('⚠️ 빛 반사 감지 — 스크래치로 오판될 수 있음');
+if(q.blur_warning)warns.push('⚠️ 사진이 흐림 — 정확도 저하');
+if(!q.resolution_ok)warns.push('⚠️ 해상도 부족 — 더 가까이서 촬영');
+if(!d.card_detected)warns.push('⚠️ 카드 영역 감지 실패 — 가이드에 맞춰 촬영');
+if(warns.length)qualityWarn=`<div style="background:rgba(200,154,62,0.1);border:1px solid rgba(200,154,62,0.3);border-radius:8px;padding:10px 14px;margin-bottom:12px">${warns.map(w=>`<div style="font-size:12px;color:var(--orange);padding:2px 0">${w}</div>`).join('')}</div>`;
+}
 $('gradeResults').innerHTML=`
+${cardInfo}
+${qualityWarn}
 <div class="result-box" style="text-align:center">
 <div style="font-size:12px;color:var(--muted)">종합 등급 구간</div>
 <div class="grade-big" style="color:${gc}">${d.overall_grade_range}</div>
-<div style="font-size:12px;color:var(--muted)">신뢰도: ${d.overall_confidence}</div>
+<div style="font-size:12px;color:var(--muted)">신뢰도: ${d.overall_confidence}${d.backend==='gemini'?' (Gemini)':' (Qwen)'}</div>
 <div style="text-align:left;margin-top:12px">${d.notes.map(n=>`<div style="font-size:13px;padding:3px 0">• ${n}</div>`).join('')}</div>
 </div>
 <div class="result-box">
@@ -472,7 +606,7 @@ $('gradeResults').innerHTML=`
 <div style="text-align:center;margin-top:10px"><img src="data:image/jpeg;base64,${d.annotated_b64}" style="max-width:100%;border-radius:6px"></div>
 </div>
 <div class="result-box">
-<h3>Qwen 비전 — 모서리·표면</h3>
+<h3>AI 비전 — 모서리·표면</h3>
 ${Object.entries(d.qwen_corners).map(([k,v])=>`<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--muted);margin-bottom:3px">${rn[k]||k}</div><div class="qwen-out">${esc(v)}</div></div>`).join('')}
 <div style="margin-bottom:10px"><div style="font-size:12px;color:var(--muted);margin-bottom:3px">표면 중앙</div><div class="qwen-out">${esc(d.qwen_surface)}</div></div>
 </div>
