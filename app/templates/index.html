@@ -316,6 +316,7 @@ renderTrend(t.dataset.filter);
 
 // ═══ 데이터 로드 ═══
 async function initData(){
+try{
 const [br,hr,cr]=await Promise.all([
 fetch('/api/boxes').then(r=>r.json()),
 fetch('/api/hit-cards').then(r=>r.json()),
@@ -325,12 +326,13 @@ allBoxes=br;allHits=hr;
 $('hBoxes').textContent=allBoxes.length;
 $('hHits').textContent=allHits.length;
 $('hColl').textContent=cr.count;
-// 홈
 renderHomeBoxes();renderHomeHits();renderBanner();
-// 박스
 renderBoxes();
-// 트렌딩
 renderTrend('all');
+}catch(e){
+console.error('initData error:',e);
+$('homeHits').innerHTML='<div style="color:var(--muted);padding:20px;text-align:center">데이터 로드 실패: '+e.message+'</div>';
+}
 }
 
 function fmt(n){return n.toLocaleString()}
