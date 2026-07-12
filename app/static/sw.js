@@ -1,4 +1,4 @@
-const CACHE = 'tcg-v03';
+const CACHE = 'tcg-v06';
 const ASSETS = ['/', '/manifest.json', '/sw.js'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).catch(() => {}));
@@ -10,6 +10,13 @@ self.addEventListener('activate', e => {
 });
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+  // HTML과 API는 항상 네트워크 우선 (캐시 안 함)
+  const url = new URL(e.request.url);
+  if (url.pathname === '/' || url.pathname.startsWith('/api/')) {
+    e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+    return;
+  }
+  // 정적 파일만 캐시
   e.respondWith(
     caches.match(e.request).then(cached => {
       const fetchPromise = fetch(e.request).then(response => {
