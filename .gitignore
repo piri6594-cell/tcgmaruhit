@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+app/uploads/
+data/collection.json
+verification/
+scripts/
+tests/
+*.zip
+*.png
+*.jpg
+*.jpeg
+.git

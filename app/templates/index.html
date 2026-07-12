@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0c0b09">
+<link rel="manifest" href="/manifest.json">
+<title>TCGMARUHIT — 포켓몬 카드 도감·시세·진단</title>
+<style>
+:root{--bg:#0c0b09;--card:#14110e;--text:#e8e3d8;--muted:#8a847a;--dim:#5a554d;--line:#231f1a;--accent:#f0ebe0;--gold:#d4a64e;--green:#5a9e5a;--red:#c44a4a;--blue:#4a7a9e;--orange:#c89a3e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Pretendard","Malgun Gothic",sans-serif;font-size:14px;line-height:1.65;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 14px}
+/* 헤더 */
+header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;justify-content:space-between;height:52px}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.04em;color:var(--accent)}
+.logo span{color:var(--gold)}
+.header-stats{display:flex;gap:12px;font-size:11px;color:var(--muted)}
+.header-stat{text-align:center}
+.header-stat b{display:block;font-size:14px;color:var(--text)}
+.hamburger{width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:6px}
+.hamburger:hover{background:var(--card)}
+.hamburger svg{width:20px;height:20px;stroke:var(--text)}
+/* 탭 */
+.tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);position:sticky;top:52px;z-index:49;background:rgba(12,11,9,.95);backdrop-filter:blur(8px);-ms-overflow-style:none;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:10px 16px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:.15s}
+.tab.active{color:var(--accent);border-bottom-color:var(--gold)}
+.tab:hover{color:var(--text)}
+/* 배너 */
+.banner{margin:14px 0;padding:20px 18px;border-radius:14px;border:1px solid var(--line);position:relative;overflow:hidden}
+.banner-dark{background:linear-gradient(135deg,#1a1510,#0f0d0a)}
+.banner h2{font-size:18px;font-weight:700;margin-bottom:6px}
+.banner p{color:var(--muted);font-size:13px}
+.banner-tags{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.banner-tag{padding:3px 10px;border-radius:20px;font-size:11px;border:1px solid var(--line);color:var(--muted)}
+/* 박스 그리드 */
+.box-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:14px 0}
+.box-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;transition:transform .15s,border-color .15s}
+.box-card:hover{transform:translateY(-2px);border-color:var(--dim)}
+.box-card .bn{font-weight:700;font-size:14px;margin-bottom:4px}
+.box-card .bc{color:var(--dim);font-size:11px}
+.box-card .bp{margin-top:8px;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums}
+.box-card .bp small{font-size:11px;color:var(--muted);font-weight:400}
+.box-card .bev{font-size:11px;margin-top:2px}
+.evgood{color:var(--green)}.evbad{color:var(--red)}.evmid{color:var(--orange)}
+/* 박스 상세 */
+.box-detail{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);overflow-y:auto}
+.box-detail-in{max-width:680px;margin:40px auto;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px 20px}
+.box-detail .close{float:right;cursor:pointer;font-size:24px;color:var(--muted);line-height:1}
+.hit-list{margin:16px 0}
+.hit-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.hit-row:last-child{border:0}
+.hit-name{flex:1}
+.hit-rarity{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-left:6px}
+.r-SR{background:#2a1f10;color:var(--gold)}.r-SAR{background:#1a1520;color:#b89ee8}.r-AR{background:#101820;color:var(--blue)}.r-R{background:#201a10;color:var(--orange)}.r-master{background:#2a1010;color:#ff6b6b}
+.hit-price{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;min-width:80px}
+.hit-rate{color:var(--dim);font-size:11px;text-align:right;min-width:50px}
+.ev-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px 0;text-align:center}
+.ev-box .ev-val{font-size:28px;font-weight:800}
+.ev-box .ev-label{color:var(--muted);font-size:12px}
+/* 트렌딩 */
+.trend-section{margin:20px 0}
+.trend-tabs{display:flex;gap:6px;margin-bottom:12px}
+.trend-tab{padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;color:var(--muted);border:1px solid var(--line)}
+.trend-tab.active{color:var(--accent);border-color:var(--accent)}
+.trend-list{display:flex;flex-direction:column;gap:0}
+.trend-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);gap:10px}
+.trend-rank{width:24px;font-weight:700;color:var(--dim);text-align:center}
+.trend-name{flex:1;font-size:14px}
+.trend-name small{display:block;color:var(--dim);font-size:11px}
+.trend-price{font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.trend-change{font-size:11px;text-align:right;min-width:60px}
+.up{color:var(--green)}.down{color:var(--red)}
+/* 진단 */
+.upload-area{border:2px dashed #33312d;border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:.2s;margin:14px 0}
+.upload-area:hover{border-color:var(--muted);background:var(--card)}
+.upload-area.dragover{border-color:var(--gold);background:var(--card)}
+.upload-icon{font-size:36px;margin-bottom:8px}
+.upload-area p{color:var(--muted);font-size:13px}
+.result-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}
+.result-box h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--accent)}
+.grade-big{font-size:36px;font-weight:800;text-align:center;padding:16px 0}
+.grade-table{width:100%;border-collapse:collapse}
+.grade-table td,.grade-table th{padding:6px;border-bottom:1px solid var(--line);font-size:13px}
+.grade-table th{text-align:left;color:var(--muted);font-weight:500}
+.grade-table td{text-align:right;font-variant-numeric:tabular-nums}
+.qwen-out{font-size:13px;white-space:pre-wrap;padding:8px 0;border-bottom:1px solid var(--line)}
+.qwen-out:last-child{border:0}
+/* 도감 */
+.coll-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.coll-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 8px;text-align:center}
+.coll-box .lb{font-size:10px;color:var(--muted);margin-bottom:4px}
+.coll-box .vl{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+.coll-table{width:100%;border-collapse:collapse;font-size:13px}
+.coll-table th,.coll-table td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.coll-table th:first-child,.coll-table td:first-child{text-align:left}
+.coll-table thead th{color:var(--muted);font-size:11px;font-weight:500}
+.coll-empty{text-align:center;color:var(--muted);padding:48px 20px}
+/* 정산 */
+.settle-in{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.settle-in input{flex:1;min-width:100px;padding:8px 10px;background:var(--card);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:14px;font-variant-numeric:tabular-nums}
+.settle-in label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.settle-table{width:100%;border-collapse:collapse;font-size:13px}
+.settle-table th,.settle-table td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.settle-table th:first-child,.settle-table td:first-child{text-align:left}
+.settle-table thead th{color:var(--muted);font-size:11px}
+.btn{display:inline-block;padding:8px 18px;border:1px solid var(--muted);border-radius:6px;cursor:pointer;font-size:14px;color:var(--text);background:transparent}
+.btn:hover{background:var(--card)}
+.btn-gold{border-color:var(--gold);background:var(--gold);color:#0c0b09;font-weight:700}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-red{border-color:var(--red);color:var(--red)}
+.save-bar{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:14px}
+.save-bar h3{font-size:14px;font-weight:600;margin-bottom:10px}
+.save-bar .row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.save-bar input,.save-bar select{flex:1;min-width:80px;padding:6px 8px;background:var(--bg);border:1px solid var(--line);border-radius:5px;color:var(--text);font-size:13px}
+.save-bar label{font-size:10px;color:var(--muted);display:block;margin-bottom:2px}
+.loading-overlay{text-align:center;padding:40px}
+.spinner{width:32px;height:32px;border:3px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.panel{display:none}.panel.active{display:block}
+.disclaimer{text-align:center;color:var(--dim);font-size:11px;padding:16px 0;border-top:1px solid var(--line);margin-top:20px}
+.health-dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:4px}
+@media(max-width:600px){
+.box-grid{grid-template-columns:repeat(2,1fr)}
+.coll-summary{grid-template-columns:repeat(2,1fr)}
+.header-stats{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="header-in">
+<div class="logo">TCG<span>MARU</span>HIT</div>
+<div class="header-stats">
+<div class="header-stat"><b id="hBoxes">12</b>박스</div>
+<div class="header-stat"><b id="hHits">0</b>히트카드</div>
+<div class="header-stat"><b id="hColl">0</b>도감</div>
+</div>
+<div class="hamburger" onclick="toggleMenu()">
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</div>
+</div>
+</div>
+</header>
+
+<div class="wrap">
+<div class="tabs">
+<div class="tab active" data-t="home">홈</div>
+<div class="tab" data-t="boxes">박스</div>
+<div class="tab" data-t="trending">트렌딩</div>
+<div class="tab" data-t="grade">진단</div>
+<div class="tab" data-t="settle">정산</div>
+<div class="tab" data-t="collection">도감</div>
+</div>
+</div>
+
+<!-- 홈 -->
+<div id="p-home" class="panel active">
+<div class="wrap">
+<div class="banner banner-dark">
+<h2>📦 이번주 주목 박스</h2>
+<p id="bannerDesc">불러오는 중...</p>
+<div class="banner-tags">
+<span class="banner-tag" id="bannerTag1">한국판</span>
+<span class="banner-tag" id="bannerTag2">30팩</span>
+</div>
+</div>
+
+<div class="trend-section">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+<h3 style="font-size:16px;font-weight:700">🔥 히트카드 순위</h3>
+<span style="font-size:12px;color:var(--muted)">예상 시세 기준</span>
+</div>
+<div id="homeHits" class="trend-list"></div>
+</div>
+
+<div class="trend-section">
+<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">📦 인기 박스</h3>
+<div id="homeBoxes" class="box-grid"></div>
+</div>
+</div>
+</div>
+
+<!-- 박스 -->
+<div id="p-boxes" class="panel">
+<div class="wrap">
+<h3 style="font-size:18px;font-weight:700;margin:16px 0">박스 전체</h3>
+<div id="boxesGrid" class="box-grid"></div>
+</div>
+</div>
+
+<!-- 트렌딩 -->
+<div id="p-trending" class="panel">
+<div class="wrap">
+<h3 style="font-size:18px;font-weight:700;margin:16px 0">히트카드 전체</h3>
+<div class="trend-tabs">
+<div class="trend-tab active" data-filter="all">전체</div>
+<div class="trend-tab" data-filter="SR">SR</div>
+<div class="trend-tab" data-filter="SAR">SAR</div>
+<div class="trend-tab" data-filter="AR">AR</div>
+<div class="trend-tab" data-filter="master">master</div>
+</div>
+<div id="trendList" class="trend-list"></div>
+</div>
+</div>
+
+<!-- 진단 -->
+<div id="p-grade" class="panel">
+<div class="wrap">
+<div class="upload-area" id="uploadZone">
+<div class="upload-icon">📸</div>
+<p>카드 사진을 올리면 센터링 + 모서리 + 표면 분석</p>
+<p style="font-size:11px;margin-top:4px">밝은 곳에서 카드 전체가 잘 보이게</p>
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+</div>
+<div id="previewBox" style="display:none;text-align:center;margin:10px 0"><img id="previewImg" style="max-width:100%;border-radius:8px"></div>
+<div id="gradeLoading" class="loading-overlay" style="display:none"><div class="spinner"></div><p>분석 중… 센터링 + Qwen 5영역</p></div>
+<div id="gradeResults" style="display:none"></div>
+<div id="saveBar" class="save-bar" style="display:none">
+<h3>도감에 저장</h3>
+<div class="row">
+<div style="flex:2"><label>카드 이름</label><input type="text" id="svName" placeholder="피카츄 ex"></div>
+<div style="flex:1"><label>판본</label><select id="svLang"><option value="kr">한국판</option><option value="jp">일본판</option><option value="en">영어판</option></select></div>
+</div>
+<div class="row">
+<div style="flex:1"><label>원가</label><input type="number" id="svCost" value="0" min="0"></div>
+<div style="flex:1"><label>시세</label><input type="number" id="svPrice" value="0" min="0"></div>
+<div style="flex:1"><label>상태</label><select id="svCond"><option value="raw">Raw</option><option value="psa9">PSA 9</option><option value="psa10">PSA 10</option></select></div>
+</div>
+<button class="btn btn-gold btn-sm" onclick="saveCard()">도감에 등록</button>
+<span id="svResult" style="margin-left:8px;font-size:12px"></span>
+</div>
+</div>
+</div>
+
+<!-- 정산 -->
+<div id="p-settle" class="panel">
+<div class="wrap">
+<h3 style="font-size:18px;font-weight:700;margin:16px 0 12px">정산예상액</h3>
+<div class="settle-in">
+<div style="flex:1"><label>판매가 (원)</label><input type="number" id="stPrice" value="12000" min="0"></div>
+<div style="flex:1"><label>내 원가 (원)</label><input type="number" id="stCost" value="10000" min="0"></div>
+</div>
+<button class="btn btn-gold" onclick="calcSettle()">계산</button>
+<div id="settleOut" style="margin-top:16px"></div>
+</div>
+</div>
+
+<!-- 도감 -->
+<div id="p-collection" class="panel">
+<div class="wrap">
+<div id="collSummary" class="coll-summary"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0">
+<h3 style="font-size:16px;font-weight:700">내 도감</h3>
+<button class="btn btn-sm" onclick="loadColl()">새로고침</button>
+</div>
+<div id="collList"></div>
+</div>
+</div>
+
+<!-- 박스 상세 모달 -->
+<div id="boxModal" class="box-detail" onclick="if(event.target===this)closeBoxModal()">
+<div class="box-detail-in" id="boxModalContent"></div>
+</div>
+
+<div class="wrap"><p class="disclaimer">데이터는 참고용이며 실제 거래가와 다를 수 있습니다 · TCGMARUHIT</p></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let allHits=[],allBoxes=[],lastGrade=null;
+
+// 탭
+document.querySelectorAll('.tab').forEach(t=>{
+t.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+t.classList.add('active');
+$('p-'+t.dataset.t).classList.add('active');
+if(t.dataset.t==='collection')loadColl();
+});
+});
+
+// 트렌드 필터
+document.querySelectorAll('.trend-tab').forEach(t=>{
+t.addEventListener('click',()=>{
+document.querySelectorAll('.trend-tab').forEach(x=>x.classList.remove('active'));
+t.classList.add('active');
+renderTrend(t.dataset.filter);
+});
+});
+
+// ═══ 데이터 로드 ═══
+async function initData(){
+const [br,hr,cr]=await Promise.all([
+fetch('/api/boxes').then(r=>r.json()),
+fetch('/api/hit-cards').then(r=>r.json()),
+fetch('/api/collection/summary').then(r=>r.json()),
+]);
+allBoxes=br;allHits=hr;
+$('hBoxes').textContent=allBoxes.length;
+$('hHits').textContent=allHits.length;
+$('hColl').textContent=cr.count;
+// 홈
+renderHomeBoxes();renderHomeHits();renderBanner();
+// 박스
+renderBoxes();
+// 트렌딩
+renderTrend('all');
+}
+
+function fmt(n){return n.toLocaleString()}
+function evClass(r){return r>=80?'evgood':r>=40?'evmid':'evbad'}
+
+function renderBanner(){
+if(!allBoxes.length)return;
+const sorted=[...allBoxes].sort((a,b)=>b.price_kr-a.price_kr);
+const b=sorted[0];
+$('bannerDesc').textContent=`${b.name} (${b.code}) — 한국판 ${fmt(b.price_kr)}원 · 일본판 ${fmt(b.price_jp)}원`;
+}
+
+function renderHomeBoxes(){
+const sorted=[...allBoxes].sort((a,b)=>{
+const eva=a.hits.reduce((s,h)=>{try{return s+h.p/int(h.rate.split('/')[1])}catch{return s}},0);
+const evb=b.hits.reduce((s,h)=>{try{return s+h.p/int(h.rate.split('/')[1])}catch{return s}},0);
+return (evb/b.price_kr)-(eva/a.price_kr);
+}).slice(0,6);
+$('homeBoxes').innerHTML=sorted.map(b=>{
+const ev=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
+const ratio=Math.round(ev/b.price_kr*100);
+return `<div class="box-card" onclick="openBox('${b.id}')">
+<div class="bn">${b.name}</div>
+<div class="bc">${b.code} · ${b.packs}팩</div>
+<div class="bp">${fmt(b.price_kr)}<small>원</small></div>
+<div class="bev ${evClass(ratio)}">EV ${ratio}%</div>
+</div>`;
+}).join('');
+}
+
+function renderHomeHits(){
+const sorted=[...allHits].sort((a,b)=>b.est_price-a.est_price).slice(0,8);
+$('homeHits').innerHTML=sorted.map((h,i)=>`
+<div class="trend-row">
+<div class="trend-rank">${i+1}</div>
+<div class="trend-name">${h.name}<small>${h.box_name} · ${h.pull_rate}</small></div>
+<div class="trend-price">${fmt(h.est_price)}원</div>
+</div>`).join('');
+}
+
+function renderBoxes(){
+$('boxesGrid').innerHTML=allBoxes.map(b=>{
+const ev=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
+const ratio=Math.round(ev/b.price_kr*100);
+return `<div class="box-card" onclick="openBox('${b.id}')">
+<div class="bn">${b.name}</div>
+<div class="bc">${b.code} · ${b.packs}팩</div>
+<div class="bp">${fmt(b.price_kr)}<small>원</small></div>
+<div class="bev ${evClass(ratio)}">EV ${ratio}% · ${b.hits.length}히트</div>
+</div>`;
+}).join('');
+}
+
+function renderTrend(filter){
+const filtered=filter==='all'?allHits:allHits.filter(h=>h.rarity===filter);
+const sorted=filtered.sort((a,b)=>b.est_price-a.est_price);
+$('trendList').innerHTML=sorted.map((h,i)=>`
+<div class="trend-row">
+<div class="trend-rank">${i+1}</div>
+<div class="trend-name">${h.name}<small>${h.box_name} · ${h.pull_rate}</small></div>
+<div style="text-align:right"><span class="hit-rarity r-${h.rarity}">${h.rarity}</span></div>
+<div class="trend-price">${fmt(h.est_price)}원</div>
+</div>`).join('');
+}
+
+// ═══ 박스 상세 ═══
+function openBox(id){
+const b=allBoxes.find(x=>x.id===id);
+if(!b)return;
+let ev=0;
+b.hits.forEach(h=>{try{ev+=h.p/parseInt(h.rate.split('/')[1])}catch{}});
+const ratio=Math.round(ev/b.price_kr*100);
+$('boxModalContent').innerHTML=`
+<span class="close" onclick="closeBoxModal()">×</span>
+<h2 style="font-size:24px;font-weight:800;margin-bottom:4px">${b.name}</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:16px">${b.code} · ${b.lang==='kr'?'한국판':b.lang} · ${b.packs}팩 · ${b.cpp}장/팩 · ${b.release}</p>
+<p style="color:var(--text);margin-bottom:8px">${b.desc}</p>
+<div class="ev-box">
+<div class="ev-label">박스 기대값 (EV)</div>
+<div class="ev-val ${evClass(ratio)}">${ratio}%</div>
+<div style="color:var(--muted);font-size:12px">박스가 ${fmt(b.price_kr)}원일 때 히트카드 기대 수익 ${fmt(Math.round(ev))}원</div>
+</div>
+<div style="display:flex;gap:12px;margin-bottom:16px">
+<div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:11px;color:var(--muted)">한국판 시세</div>
+<div style="font-size:18px;font-weight:700">${fmt(b.price_kr)}원</div>
+</div>
+<div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:11px;color:var(--muted)">일본판 시세</div>
+<div style="font-size:18px;font-weight:700">${fmt(b.price_jp)}원</div>
+</div>
+</div>
+<h3 style="font-size:16px;font-weight:700;margin:16px 0 8px">🎯 히트카드 (${b.hits.length}종)</h3>
+<div class="hit-list">
+${b.hits.map(h=>`
+<div class="hit-row">
+<div class="hit-name">${h.n} <span class="hit-rarity r-${h.r}">${h.r}</span></div>
+<div class="hit-rate">${h.rate}</div>
+<div class="hit-price">${fmt(h.p)}원</div>
+</div>`).join('')}
+</div>
+`;
+$('boxModal').style.display='block';
+}
+function closeBoxModal(){$('boxModal').style.display='none'}
+
+// ═══ 진단 ═══
+const uz=$('uploadZone'),fi=$('fileInput');
+uz.addEventListener('click',()=>fi.click());
+uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover')});
+uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
+uz.addEventListener('drop',e=>{e.preventDefault();uz.classList.remove('dragover');if(e.dataTransfer.files.length)doAnalyze(e.dataTransfer.files[0])});
+fi.addEventListener('change',()=>{if(fi.files.length)doAnalyze(fi.files[0])});
+
+function doAnalyze(file){
+const r=new FileReader();
+r.onload=e=>{$('previewImg').src=e.target.result;$('previewBox').style.display='block'};
+r.readAsDataURL(file);
+uz.style.display='none';
+$('gradeLoading').style.display='block';
+$('gradeResults').style.display='none';
+$('saveBar').style.display='none';
+const fd=new FormData();fd.append('image',file);
+fetch('/api/analyze',{method:'POST',body:fd}).then(r=>r.json()).then(d=>{
+if(d.error)throw new Error(d.error);
+lastGrade=d;
+renderGrade(d);
+$('saveBar').style.display='block';
+}).catch(e=>{
+$('gradeLoading').innerHTML=`<p style="color:var(--red)">오류: ${e.message}</p><p style="margin-top:10px"><button class="btn" onclick="location.reload()">다시</button></p>`;
+return;
+});
+$('gradeLoading').style.display='none';
+$('gradeResults').style.display='block';
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+const rn={top_left:'왼쪽 위',top_right:'오른쪽 위',bottom_left:'왼쪽 아래',bottom_right:'오른쪽 아래'};
+
+function renderGrade(d){
+const c=d.centering;const ms=d.overall_min_score;
+const gc=ms>=10?'var(--green)':ms>=9?'var(--orange)':'var(--red)';
+$('gradeResults').innerHTML=`
+<div class="result-box" style="text-align:center">
+<div style="font-size:12px;color:var(--muted)">종합 등급 구간</div>
+<div class="grade-big" style="color:${gc}">${d.overall_grade_range}</div>
+<div style="font-size:12px;color:var(--muted)">신뢰도: ${d.overall_confidence}</div>
+<div style="text-align:left;margin-top:12px">${d.notes.map(n=>`<div style="font-size:13px;padding:3px 0">• ${n}</div>`).join('')}</div>
+</div>
+<div class="result-box">
+<h3>센터링 측정</h3>
+<table class="grade-table">
+<tr><th>수평 (좌/우)</th><td><b>${c.horizontal_ratio}</b></td></tr>
+<tr><th>수직 (상/하)</th><td><b>${c.vertical_ratio}</b></td></tr>
+<tr><th>수평 편차</th><td style="color:${c.horizontal_worst<=55?'var(--green)':c.horizontal_worst<=60?'var(--orange)':'var(--red)'}">${c.horizontal_worst}%</td></tr>
+<tr><th>수직 편차</th><td style="color:${c.vertical_worst<=55?'var(--green)':c.vertical_worst<=60?'var(--orange)':'var(--red)'}">${c.vertical_worst}%</td></tr>
+<tr><th>센터링 등급</th><td><b>PSA ${c.centering_grade}</b></td></tr>
+</table>
+<div style="text-align:center;margin-top:10px"><img src="data:image/jpeg;base64,${d.annotated_b64}" style="max-width:100%;border-radius:6px"></div>
+</div>
+<div class="result-box">
+<h3>Qwen 비전 — 모서리·표면</h3>
+${Object.entries(d.qwen_corners).map(([k,v])=>`<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--muted);margin-bottom:3px">${rn[k]||k}</div><div class="qwen-out">${esc(v)}</div></div>`).join('')}
+<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--muted);margin-bottom:3px">표면 중앙</div><div class="qwen-out">${esc(d.qwen_surface)}</div></div>
+</div>
+<p style="text-align:center;color:var(--dim);font-size:11px;padding:8px 0">${d.disclaimer}</p>
+`;
+}
+
+async function saveCard(){
+const name=$('svName').value.trim()||'미입력';
+const lang=$('svLang').value;
+const cost=parseInt($('svCost').value)||0;
+const price=parseInt($('svPrice').value)||0;
+const cond=$('svCond').value;
+const r=await fetch('/api/collection',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,lang,cost,current_price:price,condition:cond,grade_range:lastGrade?.overall_grade_range||''})});
+const d=await r.json();
+$('svResult').innerHTML=`<span style="color:var(--green)">저장 #${d.id}</span>`;
+}
+
+// ═══ 정산 ═══
+async function calcSettle(){
+const sp=parseInt($('stPrice').value)||0;
+const cp=parseInt($('stCost').value)||0;
+const r=await fetch('/api/settle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sale_price:sp,cost:cp})});
+const data=await r.json();
+const sorted=[...data].sort((a,b)=>b.profit-a.profit);
+const best=sorted[0];
+$('settleOut').innerHTML=`
+<div class="result-box" style="text-align:center">
+<div style="font-size:12px;color:var(--muted)">최적 채널</div>
+<div class="grade-big" style="color:${best.profit>=0?'var(--green)':'var(--red)'}">${best.channel}</div>
+<div style="font-size:13px;color:var(--muted)">순수입 ${fmt(best.net_income)}원 · 손익 ${best.profit>=0?'+':''}${fmt(best.profit)}원 · ROI ${best.roi}%</div>
+</div>
+<table class="settle-table">
+<thead><tr><th>채널</th><th>수수료</th><th>순수입</th><th>손익</th><th>ROI</th></tr></thead>
+<tbody>${sorted.map(r=>`<tr><td>${r.channel}</td><td>${fmt(r.fee_total)}</td><td>${fmt(r.net_income)}</td><td style="color:${r.profit>=0?'var(--green)':'var(--red)'}">${r.profit>=0?'+':''}${fmt(r.profit)}</td><td style="color:${r.roi>=0?'var(--green)':'var(--red)'}">${r.roi}%</td></tr>`).join('')}</tbody>
+</table>`;
+}
+
+// ═══ 도감 ═══
+async function loadColl(){
+const [r1,r2]=await Promise.all([
+fetch('/api/collection').then(r=>r.json()),
+fetch('/api/collection/summary').then(r=>r.json()),
+]);
+$('hColl').textContent=r2.count;
+$('collSummary').innerHTML=`
+<div class="coll-box"><div class="lb">카드 수</div><div class="vl">${r2.count}</div></div>
+<div class="coll-box"><div class="lb">총 원가</div><div class="vl">${fmt(r2.total_cost)}</div></div>
+<div class="coll-box"><div class="lb">총 시세</div><div class="vl">${fmt(r2.total_value)}</div></div>
+<div class="coll-box"><div class="lb">총 손익</div><div class="vl" style="color:${r2.total_profit>=0?'var(--green)':'var(--red)'}">${r2.total_profit>=0?'+':''}${fmt(r2.total_profit)}</div></div>
+`;
+const lm={kr:'한국판',jp:'일본판',en:'영어판'};
+const cm={raw:'Raw',psa9:'PSA9',psa10:'PSA10'};
+if(r1.count===0){
+$('collList').innerHTML='<div class="coll-empty">도감이 비어있습니다.<br>진단 탭에서 카드 사진을 올리고 저장해 보세요.</div>';
+return;
+}
+$('collList').innerHTML=`<table class="coll-table">
+<thead><tr><th>카드</th><th>판본</th><th>상태</th><th>원가</th><th>시세</th><th>손익</th><th></th></tr></thead>
+<tbody>${r1.cards.map(c=>{
+const p=(c.current_price||0)-(c.cost||0);
+return `<tr><td>${esc(c.name||'')}</td><td>${lm[c.lang]||c.lang||''}</td><td>${cm[c.condition]||c.condition||''}</td><td>${fmt(c.cost||0)}</td><td>${fmt(c.current_price||0)}</td><td style="color:${p>=0?'var(--green)':'var(--red)'}">${p>=0?'+':''}${fmt(p)}</td><td><button class="btn btn-sm btn-red" onclick="delCard(${c.id})">삭제</button></td></tr>`;
+}).join('')}</tbody></table>`;
+}
+
+async function delCard(id){
+await fetch(`/api/collection/${id}`,{method:'DELETE'});
+loadColl();
+}
+
+// ═══ 초기화 ═══
+fetch('/api/health').then(r=>r.json()).then(d=>{});
+initData();
+if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
+</script>
+</body>
+</html>
