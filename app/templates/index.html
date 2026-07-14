@@ -373,28 +373,26 @@ $('homeBoxes').innerHTML=sorted.map(b=>{
 const ev=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
 const ratio=Math.round(ev/b.price_kr*100);
 const rp=b.retail_price||b.price_kr;
-const premium=b.price_kr>rp?`<span style="color:var(--orange);font-size:10px"> 시장가 +${Math.round((b.price_kr/rp-1)*100)}%</span>`:'';
-return `<div class="box-card" onclick="openBox('${b.id}')" style="position:relative">
-${b.img?`<img src="/api/box-image/${b.id}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">`:''}
-<div class="bn">${b.name}</div>
-<div class="bc">${b.code} · ${b.packs}팩</div>
-<div class="bp">${fmt(b.price_kr)}<small>원</small>${premium}</div>
-${rp&&rp!==b.price_kr?`<div style="font-size:10px;color:var(--muted)">공식가 ${fmt(rp)}원</div>`:''}
-<div class="bev ${evClass(ratio)}">EV ${ratio}%</div>
-</div>`;
+const premium=b.price_kr>rp?'<span style="color:var(--orange);font-size:10px"> 시장가 +'+Math.round((b.price_kr/rp-1)*100)+'%</span>':'';
+const boxImg=b.img?'<img src="/api/box-image/'+b.id+'" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">':'';
+const retail=(rp&&rp!==b.price_kr)?'<div style="font-size:10px;color:var(--muted)">공식가 '+fmt(rp)+'원</div>':'';
+return '<div class="box-card" onclick="openBox(\''+b.id+'\')" style="position:relative">'
++boxImg
++'<div class="bn">'+b.name+'</div>'
++'<div class="bc">'+b.code+' · '+b.packs+'팩</div>'
++'<div class="bp">'+fmt(b.price_kr)+'<small>원</small>'+premium+'</div>'
++retail
++'<div class="bev '+evClass(ratio)+'">EV '+ratio+'%</div>'
++'</div>';
 }).join('');
 }
 
 function renderHomeHits(){
 const sorted=[...allHits].sort((a,b)=>b.est_price-a.est_price).slice(0,8);
-$('homeHits').innerHTML=sorted.map((h,i)=>`
-<div class="trend-row">
-<div class="trend-rank">${i+1}</div>
-${h.card_img?`<img src="${h.card_img}" style="width:32px;height:45px;object-fit:cover;border-radius:3px;flex-shrink:0">`:'<div style="width:32px"></div>'}
-<div class="trend-name">${h.name}<small>${h.box_name} · ${h.pull_rate}</small></div>
-<div style="text-align:right"><span style="font-size:9px;color:var(--dim);background:var(--card);padding:1px 5px;border-radius:3px">추정가</span></div>
-<div class="trend-price">${fmt(h.est_price)}원</div>
-</div>`).join('');
+$('homeHits').innerHTML=sorted.map((h,i)=>{
+var img=h.card_img?'<img src="'+h.card_img+'" style="width:32px;height:45px;object-fit:cover;border-radius:3px;flex-shrink:0">':'<div style="width:32px"></div>';
+return '<div class="trend-row"><div class="trend-rank">'+(i+1)+'</div>'+img+'<div class="trend-name">'+h.name+'<small>'+h.box_name+' · '+h.pull_rate+'</small></div><div style="text-align:right"><span style="font-size:9px;color:var(--dim);background:var(--card);padding:1px 5px;border-radius:3px">추정가</span></div><div class="trend-price">'+fmt(h.est_price)+'원</div></div>';
+}).join('');
 }
 
 function renderBoxes(){
@@ -402,28 +400,19 @@ $('boxesGrid').innerHTML=allBoxes.map(b=>{
 const ev=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
 const ratio=Math.round(ev/b.price_kr*100);
 const rp=b.retail_price||b.price_kr;
-return `<div class="box-card" onclick="openBox('${b.id}')" style="position:relative">
-${b.img?`<img src="/api/box-image/${b.id}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">`:''}
-<div class="bn">${b.name}</div>
-<div class="bc">${b.code} · ${b.packs}팩</div>
-<div class="bp">${fmt(b.price_kr)}<small>원</small></div>
-${rp&&rp!==b.price_kr?`<div style="font-size:10px;color:var(--muted)">공식가 ${fmt(rp)}원</div>`:''}
-<div class="bev ${evClass(ratio)}">EV ${ratio}% · ${b.hits.length}히트</div>
-</div>`;
+var boxImg=b.img?'<img src="/api/box-image/'+b.id+'" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">':'';
+var retail=(rp&&rp!==b.price_kr)?'<div style="font-size:10px;color:var(--muted)">공식가 '+fmt(rp)+'원</div>':'';
+return '<div class="box-card" onclick="openBox(\''+b.id+'\')" style="position:relative">'+boxImg+'<div class="bn">'+b.name+'</div><div class="bc">'+b.code+' · '+b.packs+'팩</div><div class="bp">'+fmt(b.price_kr)+'<small>원</small></div>'+retail+'<div class="bev '+evClass(ratio)+'">EV '+ratio+'% · '+b.hits.length+'히트</div></div>';
 }).join('');
 }
 
 function renderTrend(filter){
 const filtered=filter==='all'?allHits:allHits.filter(h=>h.rarity===filter);
 const sorted=filtered.sort((a,b)=>b.est_price-a.est_price);
-$('trendList').innerHTML=sorted.map((h,i)=>`
-<div class="trend-row">
-<div class="trend-rank">${i+1}</div>
-${h.card_img?`<img src="${h.card_img}" style="width:40px;height:56px;object-fit:cover;border-radius:4px;flex-shrink:0">`:'<div style="width:40px"></div>'}
-<div class="trend-name">${h.name}<small>${h.box_name} · ${h.pull_rate}</small></div>
-<div style="text-align:right"><span class="hit-rarity r-${h.rarity}">${h.rarity}</span><br><span style="font-size:9px;color:var(--dim)">추정가</span></div>
-<div class="trend-price">${fmt(h.est_price)}원</div>
-</div>`).join('');
+$('trendList').innerHTML=sorted.map((h,i)=>{
+var img=h.card_img?'<img src="'+h.card_img+'" style="width:40px;height:56px;object-fit:cover;border-radius:4px;flex-shrink:0">':'<div style="width:40px"></div>';
+return '<div class="trend-row"><div class="trend-rank">'+(i+1)+'</div>'+img+'<div class="trend-name">'+h.name+'<small>'+h.box_name+' · '+h.pull_rate+'</small></div><div style="text-align:right"><span class="hit-rarity r-'+h.rarity+'">'+h.rarity+'</span><br><span style="font-size:9px;color:var(--dim)">추정가</span></div><div class="trend-price">'+fmt(h.est_price)+'원</div></div>';
+}).join('');
 }
 
 function renderTrades(trades){
@@ -446,38 +435,28 @@ allHits.forEach(function(h){cardThumbs[h.name]=h.card_img||''});
 let ev=0;
 b.hits.forEach(h=>{try{ev+=h.p/parseInt(h.rate.split('/')[1])}catch{}});
 const ratio=Math.round(ev/b.price_kr*100);
-$('boxModalContent').innerHTML=`
-<span class="close" onclick="closeBoxModal()">×</span>
-${b.img?`<img src="/api/box-image/${b.id}" style="width:100%;max-width:300px;aspect-ratio:5/7;object-fit:cover;border-radius:10px;margin:0 auto 16px;display:block">`:''}
-<h2 style="font-size:24px;font-weight:800;margin-bottom:4px">${b.name}</h2>
-<p style="color:var(--muted);font-size:13px;margin-bottom:16px">${b.code} · ${b.lang==='kr'?'한국판':b.lang} · ${b.packs}팩 · ${b.cpp}장/팩 · ${b.release}</p>
-<p style="color:var(--text);margin-bottom:8px">${b.desc}</p>
-<div class="ev-box">
-<div class="ev-label">박스 기대값 (EV) — 입력값 기준 지표</div>
-<div class="ev-val ${evClass(ratio)}">${ratio}%</div>
-<div style="color:var(--muted);font-size:12px">시장 시세 ${fmt(b.price_kr)}원 기준 히트카드 합산 추정 ${fmt(Math.round(ev))}원</div>
-${b.retail_price&&b.retail_price!==b.price_kr?`<div style="color:var(--dim);font-size:11px;margin-top:4px">공식 소매가 ${fmt(b.retail_price)}원 → 시장 프리미엄 +${Math.round((b.price_kr/b.retail_price-1)*100)}%</div>`:''}
-</div>
-<div style="display:flex;gap:12px;margin-bottom:16px">
-<div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--muted)">시장 시세</div>
-<div style="font-size:18px;font-weight:700">${fmt(b.price_kr)}원</div>
-</div>
-<div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--muted)">공식 소매가</div>
-<div style="font-size:18px;font-weight:700">${fmt(b.retail_price||b.price_kr)}원</div>
-</div>
-</div>
-<h3 style="font-size:16px;font-weight:700;margin:16px 0 8px">🎯 히트카드 (${b.hits.length}종)</h3>
-<div class="hit-list">
-${b.hits.map(h=>`
-<div class="hit-row">
-<div class="hit-name">${cardThumbs[h.n]?'<img src="'+cardThumbs[h.n]+'" style="width:30px;height:42px;object-fit:cover;border-radius:3px;vertical-align:middle;margin-right:6px">':''} ${h.n} <span class="hit-rarity r-${h.r}">${h.r}</span></div>
-<div class="hit-rate">${h.rate}</div>
-<div class="hit-price">${fmt(h.p)}원</div>
-</div>`).join('')}
-</div>`;
-`;
+$('boxModalContent').innerHTML=
+'<span class="close" onclick="closeBoxModal()">×</span>'
++(b.img?'<img src="/api/box-image/'+b.id+'" style="width:100%;max-width:300px;aspect-ratio:5/7;object-fit:cover;border-radius:10px;margin:0 auto 16px;display:block">':'')
++'<h2 style="font-size:24px;font-weight:800;margin-bottom:4px">'+b.name+'</h2>'
++'<p style="color:var(--muted);font-size:13px;margin-bottom:16px">'+b.code+' · '+(b.lang==='kr'?'한국판':b.lang)+' · '+b.packs+'팩 · '+b.cpp+'장/팩 · '+b.release+'</p>'
++'<p style="color:var(--text);margin-bottom:8px">'+b.desc+'</p>'
++'<div class="ev-box"><div class="ev-label">박스 기대값 (EV) — 입력값 기준 지표</div>'
++'<div class="ev-val '+evClass(ratio)+'">'+ratio+'%</div>'
++'<div style="color:var(--muted);font-size:12px">시장 시세 '+fmt(b.price_kr)+'원 기준 히트카드 합산 추정 '+fmt(Math.round(ev))+'원</div>'
++(b.retail_price&&b.retail_price!==b.price_kr?'<div style="color:var(--dim);font-size:11px;margin-top:4px">공식 소매가 '+fmt(b.retail_price)+'원 → 시장 프리미엄 +'+Math.round((b.price_kr/b.retail_price-1)*100)+'%</div>':'')
++'</div>'
++'<div style="display:flex;gap:12px;margin-bottom:16px">'
++'<div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--muted)">시장 시세</div><div style="font-size:18px;font-weight:700">'+fmt(b.price_kr)+'원</div></div>'
++'<div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--muted)">공식 소매가</div><div style="font-size:18px;font-weight:700">'+fmt(b.retail_price||b.price_kr)+'원</div></div>'
++'</div>'
++'<h3 style="font-size:16px;font-weight:700;margin:16px 0 8px">🎯 히트카드 ('+b.hits.length+'종)</h3>'
++'<div class="hit-list">'
++b.hits.map(function(h){
+var thumb=cardThumbs[h.n]?'<img src="'+cardThumbs[h.n]+'" style="width:30px;height:42px;object-fit:cover;border-radius:3px;vertical-align:middle;margin-right:6px">':'';
+return '<div class="hit-row"><div class="hit-name">'+thumb+' '+h.n+' <span class="hit-rarity r-'+h.r+'">'+h.r+'</span></div><div class="hit-rate">'+h.rate+'</div><div class="hit-price">'+fmt(h.p)+'원</div></div>';
+}).join('')
++'</div>';
 $('boxModal').style.display='block';
 }
 function closeBoxModal(){$('boxModal').style.display='none'}
