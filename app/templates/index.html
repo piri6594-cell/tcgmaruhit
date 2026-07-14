@@ -376,7 +376,7 @@ const rp=b.retail_price||b.price_kr;
 const premium=b.price_kr>rp?`<span style="color:var(--orange);font-size:10px"> 시장가 +${Math.round((b.price_kr/rp-1)*100)}%</span>`:'';
 const so=b.sold_out?'<span style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:2px 6px;border-radius:4px">품절</span>':'';
 return `<div class="box-card" onclick="openBox('${b.id}')" style="position:relative">
-${b.img?`<img src="${b.img}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">${so}`:''}
+${b.img?`<img src="/api/box-image/${b.id}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">${so}`:''}
 <div class="bn">${b.name}</div>
 <div class="bc">${b.code} · ${b.packs}팩</div>
 <div class="bp">${fmt(b.price_kr)}<small>원</small>${premium}</div>
@@ -404,7 +404,7 @@ const ratio=Math.round(ev/b.price_kr*100);
 const rp=b.retail_price||b.price_kr;
 const so=b.sold_out?'<span style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:2px 6px;border-radius:4px">품절</span>':'';
 return `<div class="box-card" onclick="openBox('${b.id}')" style="position:relative">
-${b.img?`<img src="${b.img}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">${so}`:''}
+${b.img?`<img src="/api/box-image/${b.id}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">${so}`:''}
 <div class="bn">${b.name}</div>
 <div class="bc">${b.code} · ${b.packs}팩</div>
 <div class="bp">${fmt(b.price_kr)}<small>원</small></div>
@@ -446,7 +446,7 @@ b.hits.forEach(h=>{try{ev+=h.p/parseInt(h.rate.split('/')[1])}catch{}});
 const ratio=Math.round(ev/b.price_kr*100);
 $('boxModalContent').innerHTML=`
 <span class="close" onclick="closeBoxModal()">×</span>
-${b.img?`<img src="${b.img}" style="width:100%;max-width:300px;aspect-ratio:5/7;object-fit:cover;border-radius:10px;margin:0 auto 16px;display:block">`:''}
+${b.img?`<img src="/api/box-image/${b.id}" style="width:100%;max-width:300px;aspect-ratio:5/7;object-fit:cover;border-radius:10px;margin:0 auto 16px;display:block">`:''}
 <h2 style="font-size:24px;font-weight:800;margin-bottom:4px">${b.name} ${b.sold_out?'<span style="font-size:12px;color:var(--red)">품절</span>':''}</h2>
 <p style="color:var(--muted);font-size:13px;margin-bottom:16px">${b.code} · ${b.lang==='kr'?'한국판':b.lang} · ${b.packs}팩 · ${b.cpp}장/팩 · ${b.release}</p>
 <p style="color:var(--text);margin-bottom:8px">${b.desc}</p>

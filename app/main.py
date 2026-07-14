@@ -474,10 +474,15 @@ def create_app():
     @app.route("/sw.js")
     def sw(): return send_file(os.path.join(sdir, "sw.js"), mimetype="application/javascript")
 
-    @app.route("/box-img/<path:filename>")
-    def box_img(filename):
-        from flask import abort
-        p = os.path.join(sdir, "box_images", filename)
+    @app.route("/api/box-image/<bid>")
+    def box_image(bid):
+        from flask import abort, send_file
+        b = get_box(bid)
+        if not b: abort(404)
+        img_name = b.get("img","")
+        # img is "/box-img/blackbolt.png" -> filename = "blackbolt.png"
+        fname = img_name.split("/")[-1] if img_name else f"{bid}.png"
+        p = os.path.join(sdir, "box_images", fname)
         if not os.path.exists(p): abort(404)
         return send_file(p)
 
