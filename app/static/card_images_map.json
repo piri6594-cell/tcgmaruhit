@@ -118,5 +118,41 @@
     "name": "Sylveon",
     "img_small": "https://images.pokemontcg.io/xyp/XY04.png",
     "img_large": "https://images.pokemontcg.io/xyp/XY04_hires.png"
+  },
+  "티탱크": {
+    "id": "sv7-107",
+    "name": "Archaludon",
+    "img_small": "https://images.pokemontcg.io/sv7/107.png",
+    "img_large": "https://images.pokemontcg.io/sv7/107_hires.png"
+  },
+  "푸크린": {
+    "id": "ex14-13",
+    "name": "Wigglytuff",
+    "img_small": "https://images.pokemontcg.io/ex14/13.png",
+    "img_large": "https://images.pokemontcg.io/ex14/13_hires.png"
+  },
+  "니힐제로": {
+    "id": "sv6-126",
+    "name": "Pecharunt",
+    "img_small": "https://images.pokemontcg.io/sv6/126.png",
+    "img_large": "https://images.pokemontcg.io/sv6/126_hires.png"
+  },
+  "메가다크라이": {
+    "id": "xy8-124",
+    "name": "Darkrai",
+    "img_small": "https://images.pokemontcg.io/xy8/124.png",
+    "img_large": "https://images.pokemontcg.io/xy8/124_hires.png"
+  },
+  "이슬의 기력": {
+    "id": "sv2-185",
+    "name": "Iono",
+    "img_small": "https://images.pokemontcg.io/sv2/185.png",
+    "img_large": "https://images.pokemontcg.io/sv2/185_hires.png"
+  },
+  "악비라르": {
+    "id": "dp1-100",
+    "name": "Infernape",
+    "img_small": "https://images.pokemontcg.io/dp1/100.png",
+    "img_large": "https://images.pokemontcg.io/dp1/100_hires.png"
   }
 }
