@@ -22,11 +22,35 @@ try:
             CARD_IMG_MAP = json.load(_f)
 except: pass
 
-def _get_card_img(card_name_ko):
-    name_clean = card_name_ko.replace(" ex","").replace(" SR","").replace(" SAR","").replace(" AR","").replace(" R","").replace(" master","").replace(" VMAX","").replace(" VSTAR","").strip()
-    entry = CARD_IMG_MAP.get(name_clean)
-    if entry:
-        return entry.get("img_small","")
+def _card_lookup_keys(box_id, box_code, card_name_ko, rarity):
+    return [
+        f"{box_id}|{card_name_ko}|{rarity}",
+        f"{box_id}|{card_name_ko}",
+        f"{box_code}|{card_name_ko}|{rarity}",
+        f"{box_code}|{card_name_ko}",
+    ]
+
+def _get_card_meta(card_name_ko, box_id="", box_code="", rarity=""):
+    """Return card metadata only when the match is set/card-number based.
+
+    A previous version matched images by cleaned Korean name only. That can show a
+    different print of the same Pokemon, so images are now opt-in: each mapping
+    must be keyed by box/card/rarity and carry match_status.
+    """
+    for key in _card_lookup_keys(box_id, box_code, card_name_ko, rarity):
+        entry = CARD_IMG_MAP.get(key)
+        if entry:
+            return entry
+    return {
+        "match_status": "unverified",
+        "image_status": "not_shown",
+        "reason": "set_card_number_required",
+    }
+
+def _get_card_img(card_name_ko, box_id="", box_code="", rarity=""):
+    entry = _get_card_meta(card_name_ko, box_id, box_code, rarity)
+    if entry.get("image_status") == "image_verified":
+        return entry.get("img_small", "")
     return ""
 
 BOXES = [
@@ -74,9 +98,14 @@ def get_all_hits():
     out = []
     for b in BOXES:
         for h in b.get("hits", []):
+            card_meta = _get_card_meta(h["n"], b["id"], b["code"], h["r"])
             out.append({"name": h["n"], "rarity": h["r"], "est_price": h["p"], "pull_rate": h["rate"],
                         "box_id": b["id"], "box_name": b["name"], "code": b["code"], "box_img": b.get("img",""),
-                        "card_img": _get_card_img(h["n"])})
+                        "card_img": _get_card_img(h["n"], b["id"], b["code"], h["r"]),
+                        "card_no": card_meta.get("local_id", ""),
+                        "tcgdex_set": card_meta.get("tcgdex_set", ""),
+                        "card_img_status": card_meta.get("image_status", "not_shown"),
+                        "card_match_status": card_meta.get("match_status", "unverified")})
     return out
 
 def box_ev(box):

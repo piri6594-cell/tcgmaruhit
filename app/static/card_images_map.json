@@ -1,158 +1,87 @@
 {
-  "두빅굴": {
-    "id": "sv2-130",
-    "name": "Paldean Clodsire ex",
-    "img_small": "https://images.pokemontcg.io/sv2/130.png",
-    "img_large": "https://images.pokemontcg.io/sv2/130_hires.png"
+  "whiteflare|레시라무 ex SR|SR": {
+    "match_status": "exact_set_number_verified",
+    "image_status": "source_has_no_image",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "SV11W",
+    "local_id": "160",
+    "tcgdex_card_id": "SV11W-160",
+    "ja_name": "レシラムex",
+    "tcgdex_rarity": "Ultra Rare",
+    "img_small": "",
+    "source": "https://api.tcgdex.net/v2/ja/cards/SV11W-160"
   },
-  "무쿠무쿠": {
-    "id": "ex12-11",
-    "name": "Muk",
-    "img_small": "https://images.pokemontcg.io/ex12/11.png",
-    "img_large": "https://images.pokemontcg.io/ex12/11_hires.png"
+  "whiteflare|수댕이 SAR|SAR": {
+    "match_status": "card_number_found_app_rarity_review_needed",
+    "image_status": "source_has_no_image",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "SV11W",
+    "local_id": "102",
+    "tcgdex_card_id": "SV11W-102",
+    "ja_name": "ミジュマル",
+    "tcgdex_rarity": "Illustration rare",
+    "img_small": "",
+    "source": "https://api.tcgdex.net/v2/ja/cards/SV11W-102"
   },
-  "레시라무": {
-    "id": "bwp-BW004",
-    "name": "Reshiram",
-    "img_small": "https://images.pokemontcg.io/bwp/BW004.png",
-    "img_large": "https://images.pokemontcg.io/bwp/BW004_hires.png"
+  "infernox|리자몽 ex SR|SR": {
+    "match_status": "exact_set_number_verified",
+    "image_status": "source_has_no_image",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "M2",
+    "local_id": "094",
+    "tcgdex_card_id": "M2-094",
+    "ja_name": "メガリザードンXex",
+    "tcgdex_rarity": "Ultra Rare",
+    "img_small": "",
+    "source": "https://api.tcgdex.net/v2/ja/cards/M2-094"
   },
-  "가디안": {
-    "id": "ex9-4",
-    "name": "Gardevoir",
-    "img_small": "https://images.pokemontcg.io/ex9/4.png",
-    "img_large": "https://images.pokemontcg.io/ex9/4_hires.png"
+  "infernox|리자몽 ex SAR|SAR": {
+    "match_status": "exact_set_number_verified",
+    "image_status": "source_has_no_image",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "M2",
+    "local_id": "110",
+    "tcgdex_card_id": "M2-110",
+    "ja_name": "メガリザードンXex",
+    "tcgdex_rarity": "Special illustration rare",
+    "img_small": "",
+    "source": "https://api.tcgdex.net/v2/ja/cards/M2-110"
   },
-  "수댕이": {
-    "id": "hgss1-9",
-    "name": "Quagsire",
-    "img_small": "https://images.pokemontcg.io/hgss1/9.png",
-    "img_large": "https://images.pokemontcg.io/hgss1/9_hires.png"
+  "infernox|빛나 SAR|SAR": {
+    "match_status": "exact_set_number_verified",
+    "image_status": "source_has_no_image",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "M2",
+    "local_id": "115",
+    "tcgdex_card_id": "M2-115",
+    "ja_name": "ヒカリ",
+    "tcgdex_rarity": "Special illustration rare",
+    "img_small": "",
+    "source": "https://api.tcgdex.net/v2/ja/cards/M2-115"
   },
-  "리자몽": {
-    "id": "gym2-2",
-    "name": "Blaine's Charizard",
-    "img_small": "https://images.pokemontcg.io/gym2/2.png",
-    "img_large": "https://images.pokemontcg.io/gym2/2_hires.png"
+  "infernox|푸크린 AR|AR": {
+    "match_status": "exact_set_number_verified",
+    "image_status": "source_has_no_image",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "M2",
+    "local_id": "091",
+    "tcgdex_card_id": "M2-091",
+    "ja_name": "プクリン",
+    "tcgdex_rarity": "Illustration rare",
+    "img_small": "",
+    "source": "https://api.tcgdex.net/v2/ja/cards/M2-091"
   },
-  "빛나": {
-    "id": "sv2-185",
-    "name": "Iono",
-    "img_small": "https://images.pokemontcg.io/sv2/185.png",
-    "img_large": "https://images.pokemontcg.io/sv2/185_hires.png"
-  },
-  "메가제라오라": {
-    "id": "me1-50",
-    "name": "Mega Manectric ex",
-    "img_small": "https://images.pokemontcg.io/me1/50.png",
-    "img_large": "https://images.pokemontcg.io/me1/50_hires.png"
-  },
-  "한카리아스": {
-    "id": "pop9-1",
-    "name": "Garchomp",
-    "img_small": "https://images.pokemontcg.io/pop9/1.png",
-    "img_large": "https://images.pokemontcg.io/pop9/1_hires.png"
-  },
-  "루카리오": {
-    "id": "pop6-2",
-    "name": "Lucario",
-    "img_small": "https://images.pokemontcg.io/pop6/2.png",
-    "img_large": "https://images.pokemontcg.io/pop6/2_hires.png"
-  },
-  "뮤츠": {
-    "id": "basep-3",
-    "name": "Mewtwo",
-    "img_small": "https://images.pokemontcg.io/basep/3.png",
-    "img_large": "https://images.pokemontcg.io/basep/3_hires.png"
-  },
-  "나옹": {
-    "id": "base6-6",
-    "name": "Dark Persian",
-    "img_small": "https://images.pokemontcg.io/base6/6.png",
-    "img_large": "https://images.pokemontcg.io/base6/6_hires.png"
-  },
-  "이브이": {
-    "id": "mcd19-12",
-    "name": "Eevee",
-    "img_small": "https://images.pokemontcg.io/mcd19/12.png",
-    "img_large": "https://images.pokemontcg.io/mcd19/12_hires.png"
-  },
-  "아르세우스": {
-    "id": "dpp-DP50",
-    "name": "Arceus",
-    "img_small": "https://images.pokemontcg.io/dpp/DP50.png",
-    "img_large": "https://images.pokemontcg.io/dpp/DP50_hires.png"
-  },
-  "리피아": {
-    "id": "bw5-6",
-    "name": "Leafeon",
-    "img_small": "https://images.pokemontcg.io/bw5/6.png",
-    "img_large": "https://images.pokemontcg.io/bw5/6_hires.png"
-  },
-  "디안시": {
-    "id": "sma-SV36",
-    "name": "Diancie",
-    "img_small": "https://images.pokemontcg.io/sma/SV36.png",
-    "img_large": "https://images.pokemontcg.io/sma/SV36_hires.png"
-  },
-  "메가리자몽X": {
-    "id": "me2-13",
-    "name": "Mega Charizard X ex",
-    "img_small": "https://images.pokemontcg.io/me2/13.png",
-    "img_large": "https://images.pokemontcg.io/me2/13_hires.png"
-  },
-  "피카츄": {
-    "id": "basep-1",
-    "name": "Pikachu",
-    "img_small": "https://images.pokemontcg.io/basep/1.png",
-    "img_large": "https://images.pokemontcg.io/basep/1_hires.png"
-  },
-  "블래키": {
-    "id": "hgss3-10",
-    "name": "Umbreon",
-    "img_small": "https://images.pokemontcg.io/hgss3/10.png",
-    "img_large": "https://images.pokemontcg.io/hgss3/10_hires.png"
-  },
-  "님피아": {
-    "id": "xyp-XY04",
-    "name": "Sylveon",
-    "img_small": "https://images.pokemontcg.io/xyp/XY04.png",
-    "img_large": "https://images.pokemontcg.io/xyp/XY04_hires.png"
-  },
-  "티탱크": {
-    "id": "sv7-107",
-    "name": "Archaludon",
-    "img_small": "https://images.pokemontcg.io/sv7/107.png",
-    "img_large": "https://images.pokemontcg.io/sv7/107_hires.png"
-  },
-  "푸크린": {
-    "id": "ex14-13",
-    "name": "Wigglytuff",
-    "img_small": "https://images.pokemontcg.io/ex14/13.png",
-    "img_large": "https://images.pokemontcg.io/ex14/13_hires.png"
-  },
-  "니힐제로": {
-    "id": "sv6-126",
-    "name": "Pecharunt",
-    "img_small": "https://images.pokemontcg.io/sv6/126.png",
-    "img_large": "https://images.pokemontcg.io/sv6/126_hires.png"
-  },
-  "메가다크라이": {
-    "id": "xy8-124",
-    "name": "Darkrai",
-    "img_small": "https://images.pokemontcg.io/xy8/124.png",
-    "img_large": "https://images.pokemontcg.io/xy8/124_hires.png"
-  },
-  "이슬의 기력": {
-    "id": "sv2-185",
-    "name": "Iono",
-    "img_small": "https://images.pokemontcg.io/sv2/185.png",
-    "img_large": "https://images.pokemontcg.io/sv2/185_hires.png"
-  },
-  "악비라르": {
-    "id": "dp1-100",
-    "name": "Infernape",
-    "img_small": "https://images.pokemontcg.io/dp1/100.png",
-    "img_large": "https://images.pokemontcg.io/dp1/100_hires.png"
+  "ninjaspinner|한카리아스 ex SR|SR": {
+    "match_status": "exact_set_number_verified",
+    "image_status": "image_verified",
+    "tcgdex_lang": "ja",
+    "tcgdex_set": "SV9a",
+    "local_id": "080",
+    "tcgdex_card_id": "SV9a-080",
+    "ja_name": "シロナのガブリアスex",
+    "tcgdex_rarity": "Ultra Rare",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV9a/080/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV9a/080/high.webp",
+    "source": "https://api.tcgdex.net/v2/ja/cards/SV9a-080"
   }
 }

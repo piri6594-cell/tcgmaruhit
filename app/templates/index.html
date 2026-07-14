@@ -431,7 +431,7 @@ function openBox(id){
 const b=allBoxes.find(x=>x.id===id);
 if(!b)return;
 var cardThumbs={};
-allHits.forEach(function(h){cardThumbs[h.name]=h.card_img||''});
+allHits.forEach(function(h){cardThumbs[h.box_id+'|'+h.name]=h.card_img||''});
 let ev=0;
 b.hits.forEach(h=>{try{ev+=h.p/parseInt(h.rate.split('/')[1])}catch{}});
 const ratio=Math.round(ev/b.price_kr*100);
@@ -453,7 +453,7 @@ $('boxModalContent').innerHTML=
 +'<h3 style="font-size:16px;font-weight:700;margin:16px 0 8px">🎯 히트카드 ('+b.hits.length+'종)</h3>'
 +'<div class="hit-list">'
 +b.hits.map(function(h){
-var thumb=cardThumbs[h.n]?'<img src="'+cardThumbs[h.n]+'" style="width:30px;height:42px;object-fit:cover;border-radius:3px;vertical-align:middle;margin-right:6px">':'';
+var thumb=cardThumbs[b.id+'|'+h.n]?'<img src="'+cardThumbs[b.id+'|'+h.n]+'" style="width:30px;height:42px;object-fit:cover;border-radius:3px;vertical-align:middle;margin-right:6px">':'';
 return '<div class="hit-row"><div class="hit-name">'+thumb+' '+h.n+' <span class="hit-rarity r-'+h.r+'">'+h.r+'</span></div><div class="hit-rate">'+h.rate+'</div><div class="hit-price">'+fmt(h.p)+'원</div></div>';
 }).join('')
 +'</div>';
