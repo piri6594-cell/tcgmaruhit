@@ -1,0 +1,122 @@
+{
+  "두빅굴": {
+    "id": "sv2-130",
+    "name": "Paldean Clodsire ex",
+    "img_small": "https://images.pokemontcg.io/sv2/130.png",
+    "img_large": "https://images.pokemontcg.io/sv2/130_hires.png"
+  },
+  "무쿠무쿠": {
+    "id": "ex12-11",
+    "name": "Muk",
+    "img_small": "https://images.pokemontcg.io/ex12/11.png",
+    "img_large": "https://images.pokemontcg.io/ex12/11_hires.png"
+  },
+  "레시라무": {
+    "id": "bwp-BW004",
+    "name": "Reshiram",
+    "img_small": "https://images.pokemontcg.io/bwp/BW004.png",
+    "img_large": "https://images.pokemontcg.io/bwp/BW004_hires.png"
+  },
+  "가디안": {
+    "id": "ex9-4",
+    "name": "Gardevoir",
+    "img_small": "https://images.pokemontcg.io/ex9/4.png",
+    "img_large": "https://images.pokemontcg.io/ex9/4_hires.png"
+  },
+  "수댕이": {
+    "id": "hgss1-9",
+    "name": "Quagsire",
+    "img_small": "https://images.pokemontcg.io/hgss1/9.png",
+    "img_large": "https://images.pokemontcg.io/hgss1/9_hires.png"
+  },
+  "리자몽": {
+    "id": "gym2-2",
+    "name": "Blaine's Charizard",
+    "img_small": "https://images.pokemontcg.io/gym2/2.png",
+    "img_large": "https://images.pokemontcg.io/gym2/2_hires.png"
+  },
+  "빛나": {
+    "id": "sv2-185",
+    "name": "Iono",
+    "img_small": "https://images.pokemontcg.io/sv2/185.png",
+    "img_large": "https://images.pokemontcg.io/sv2/185_hires.png"
+  },
+  "메가제라오라": {
+    "id": "me1-50",
+    "name": "Mega Manectric ex",
+    "img_small": "https://images.pokemontcg.io/me1/50.png",
+    "img_large": "https://images.pokemontcg.io/me1/50_hires.png"
+  },
+  "한카리아스": {
+    "id": "pop9-1",
+    "name": "Garchomp",
+    "img_small": "https://images.pokemontcg.io/pop9/1.png",
+    "img_large": "https://images.pokemontcg.io/pop9/1_hires.png"
+  },
+  "루카리오": {
+    "id": "pop6-2",
+    "name": "Lucario",
+    "img_small": "https://images.pokemontcg.io/pop6/2.png",
+    "img_large": "https://images.pokemontcg.io/pop6/2_hires.png"
+  },
+  "뮤츠": {
+    "id": "basep-3",
+    "name": "Mewtwo",
+    "img_small": "https://images.pokemontcg.io/basep/3.png",
+    "img_large": "https://images.pokemontcg.io/basep/3_hires.png"
+  },
+  "나옹": {
+    "id": "base6-6",
+    "name": "Dark Persian",
+    "img_small": "https://images.pokemontcg.io/base6/6.png",
+    "img_large": "https://images.pokemontcg.io/base6/6_hires.png"
+  },
+  "이브이": {
+    "id": "mcd19-12",
+    "name": "Eevee",
+    "img_small": "https://images.pokemontcg.io/mcd19/12.png",
+    "img_large": "https://images.pokemontcg.io/mcd19/12_hires.png"
+  },
+  "아르세우스": {
+    "id": "dpp-DP50",
+    "name": "Arceus",
+    "img_small": "https://images.pokemontcg.io/dpp/DP50.png",
+    "img_large": "https://images.pokemontcg.io/dpp/DP50_hires.png"
+  },
+  "리피아": {
+    "id": "bw5-6",
+    "name": "Leafeon",
+    "img_small": "https://images.pokemontcg.io/bw5/6.png",
+    "img_large": "https://images.pokemontcg.io/bw5/6_hires.png"
+  },
+  "디안시": {
+    "id": "sma-SV36",
+    "name": "Diancie",
+    "img_small": "https://images.pokemontcg.io/sma/SV36.png",
+    "img_large": "https://images.pokemontcg.io/sma/SV36_hires.png"
+  },
+  "메가리자몽X": {
+    "id": "me2-13",
+    "name": "Mega Charizard X ex",
+    "img_small": "https://images.pokemontcg.io/me2/13.png",
+    "img_large": "https://images.pokemontcg.io/me2/13_hires.png"
+  },
+  "피카츄": {
+    "id": "basep-1",
+    "name": "Pikachu",
+    "img_small": "https://images.pokemontcg.io/basep/1.png",
+    "img_large": "https://images.pokemontcg.io/basep/1_hires.png"
+  },
+  "블래키": {
+    "id": "hgss3-10",
+    "name": "Umbreon",
+    "img_small": "https://images.pokemontcg.io/hgss3/10.png",
+    "img_large": "https://images.pokemontcg.io/hgss3/10_hires.png"
+  },
+  "님피아": {
+    "id": "xyp-XY04",
+    "name": "Sylveon",
+    "img_small": "https://images.pokemontcg.io/xyp/XY04.png",
+    "img_large": "https://images.pokemontcg.io/xyp/XY04_hires.png"
+  }
+}

@@ -14,6 +14,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 박스 데이터
 # ═════════════════════════════════════════════════════════════
 
+CARD_IMG_MAP = {}
+try:
+    _p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "card_images_map.json")
+    if os.path.exists(_p):
+        with open(_p, "r", encoding="utf-8") as _f:
+            CARD_IMG_MAP = json.load(_f)
+except: pass
+
+def _get_card_img(card_name_ko):
+    name_clean = card_name_ko.replace(" ex","").replace(" SR","").replace(" SAR","").replace(" AR","").replace(" R","").replace(" master","").replace(" VMAX","").replace(" VSTAR","").strip()
+    entry = CARD_IMG_MAP.get(name_clean)
+    if entry:
+        return entry.get("img_small","")
+    return ""
+
 BOXES = [
     {"id":"blackbolt","name":"블랙볼트","code":"SV11B","lang":"kr","release":"2026-04","packs":30,"cpp":5,"price_kr":135000,"retail_price":40000,"price_jp":235000,"sold_out":True,"img":"/box-img/blackbolt.png","desc":"티탱크 ex, 두빅굴, 무쿠무쿠",
      "hits":[{"n":"티탱크 ex SR","r":"SR","p":45000,"rate":"1/30"},{"n":"두빅굴 SAR","r":"SAR","p":80000,"rate":"1/60"},{"n":"무쿠무쿠 SAR","r":"SAR","p":60000,"rate":"1/60"},{"n":"티탱크 ex AR","r":"AR","p":12000,"rate":"1/10"}]},
@@ -60,7 +75,8 @@ def get_all_hits():
     for b in BOXES:
         for h in b.get("hits", []):
             out.append({"name": h["n"], "rarity": h["r"], "est_price": h["p"], "pull_rate": h["rate"],
-                        "box_id": b["id"], "box_name": b["name"], "code": b["code"], "box_img": b.get("img","")})
+                        "box_id": b["id"], "box_name": b["name"], "code": b["code"], "box_img": b.get("img",""),
+                        "card_img": _get_card_img(h["n"])})
     return out
 
 def box_ev(box):
