@@ -6,7 +6,5 @@ verification/
 scripts/
 tests/
 *.zip
-*.png
-*.jpg
-*.jpeg
+app/static/box_images/*.png
 .git
