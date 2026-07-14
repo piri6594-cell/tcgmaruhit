@@ -483,8 +483,7 @@ def create_app():
         fname = img_name.split("/")[-1] if img_name else f"{bid}.png"
         sdir2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
         p = os.path.join(sdir2, "box_images", fname)
-        if not os.path.exists(p):
-            return jsonify({"error":"img_not_found","path":p,"sdir":sdir2,"cwd":os.getcwd(),"file":os.path.abspath(__file__),"exists_static":os.path.exists(sdir2),"exists_box":os.path.exists(os.path.join(sdir2,"box_images"))}), 404
+        if not os.path.exists(p): abort(404)
         return send_file(p)
 
     @app.route("/api/boxes")
