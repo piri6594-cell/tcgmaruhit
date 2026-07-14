@@ -6,5 +6,4 @@ verification/
 scripts/
 tests/
 *.zip
-app/static/box_images/*.png
 .git
