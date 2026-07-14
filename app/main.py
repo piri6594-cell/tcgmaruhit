@@ -101,7 +101,7 @@ class CardGrader:
         # 1순위: 로컬 Qwen, 2순위: Gemini API
         self.qwen = False
         self.gemini_key = os.environ.get("GEMINI_API_KEY", "")
-        self.gemini_model = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash-lite")
+        self.gemini_model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite")
         self.backend = "none"
         try:
             if requests.get(f"{self.QURL}/models", timeout=3).status_code == 200:
@@ -111,6 +111,14 @@ class CardGrader:
             pass
         if not self.qwen and self.gemini_key:
             self.backend = "gemini"
+
+    @property
+    def active_model(self):
+        if self.backend == "qwen":
+            return self.MODEL
+        if self.backend == "gemini":
+            return self.gemini_model
+        return None
 
     def process(self, path):
         img = cv2.imread(path)
@@ -494,7 +502,7 @@ def create_app():
 
     @app.route("/api/health")
     def health():
-        return jsonify({"server":"ok","qwen":grader.qwen,"backend":grader.backend,"model":grader.MODEL})
+        return jsonify({"server":"ok","qwen":grader.qwen,"backend":grader.backend,"model":grader.active_model})
 
     return app
 

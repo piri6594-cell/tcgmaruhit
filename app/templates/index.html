@@ -682,7 +682,8 @@ loadColl();
 // ═══ 초기화 ═══
 fetch('/api/health').then(r=>r.json()).then(d=>{});
 initData();
-if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
+// SW 일시 비활성화 (캐시 문제 해결 후 재활성화)
+// if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
 </script>
 </body>
 </html>
