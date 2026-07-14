@@ -388,10 +388,12 @@ class CardGrader:
         return base64.b64encode(buf).decode("utf-8")
 
 # ═════════════════════════════════════════════════════════════
-# 도감
+# 도감 + 구독
 # ═════════════════════════════════════════════════════════════
 
 COLL_DIR = os.path.join(BASE_DIR, "data")
+FREE_LIMIT = 50
+PREMIUM_PRICE = 4900
 
 def _load_coll():
     p = os.path.join(COLL_DIR, "collection.json")
@@ -403,6 +405,40 @@ def _save_coll(cards):
     os.makedirs(COLL_DIR, exist_ok=True)
     with open(os.path.join(COLL_DIR, "collection.json"), "w", encoding="utf-8") as f:
         json.dump(cards, f, ensure_ascii=False, indent=2)
+
+# ── 사용자/구독 관리 ──────────────────────────────────────────
+
+def _users_path():
+    return os.path.join(COLL_DIR, "users.json")
+
+def _load_users():
+    p = _users_path()
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f: return json.load(f)
+    return {}
+
+def _save_users(users):
+    os.makedirs(COLL_DIR, exist_ok=True)
+    with open(_users_path(), "w", encoding="utf-8") as f:
+        json.dump(users, f, ensure_ascii=False, indent=2)
+
+def _get_user(device_id):
+    users = _load_users()
+    u = users.get(device_id, {"device_id": device_id, "premium": False, "premium_until": None, "joined": datetime.now().isoformat()})
+    return u
+
+def _set_user(device_id, user):
+    users = _load_users()
+    users[device_id] = user
+    _save_users(users)
+
+def _is_premium(user):
+    if not user.get("premium"): return False
+    until = user.get("premium_until")
+    if not until: return False
+    try:
+        return datetime.fromisoformat(until) > datetime.now()
+    except: return False
 
 # ═════════════════════════════════════════════════════════════
 # Flask
@@ -454,15 +490,27 @@ def create_app():
 
     @app.route("/api/collection", methods=["GET"])
     def coll_list():
-        c = _load_coll(); return jsonify({"cards": c, "count": len(c)})
+        device_id = request.args.get("device_id", "anon")
+        user = _get_user(device_id)
+        all_cards = _load_coll()
+        c = [card for card in all_cards if card.get("device_id", "anon") == device_id]
+        premium = _is_premium(user)
+        return jsonify({"cards": c, "count": len(c), "premium": premium, "limit": None if premium else FREE_LIMIT})
 
     @app.route("/api/collection", methods=["POST"])
     def coll_add():
-        d = request.json; cards = _load_coll()
-        d["id"] = (max([c.get("id",0) for c in cards], default=0)+1) if cards else 1
+        d = request.json or {}
+        device_id = d.pop("device_id", "") or "anon"
+        user = _get_user(device_id)
+        cards = [c for c in _load_coll() if c.get("device_id", "anon") == device_id]
+        premium = _is_premium(user)
+        if not premium and len(cards) >= FREE_LIMIT:
+            return jsonify({"error":"free_limit","limit":FREE_LIMIT,"message":f"무료 도감은 {FREE_LIMIT}장까지 가능합니다. 프리미엄 구독으로 무제한 이용하세요."}), 403
+        d["device_id"] = device_id
+        d["id"] = (max([c.get("id",0) for c in _load_coll()], default=0)+1) if _load_coll() else 1
         d["added_at"] = datetime.now().isoformat()
-        cards.append(d); _save_coll(cards)
-        return jsonify({"status":"ok","id":d["id"],"count":len(cards)})
+        all_cards = _load_coll(); all_cards.append(d); _save_coll(all_cards)
+        return jsonify({"status":"ok","id":d["id"],"count":len(cards)+1,"premium":premium,"limit":None if premium else FREE_LIMIT})
 
     @app.route("/api/collection/<int:cid>", methods=["DELETE"])
     def coll_del(cid):
@@ -471,12 +519,15 @@ def create_app():
 
     @app.route("/api/collection/summary")
     def coll_sum():
-        cards = _load_coll()
+        device_id = request.args.get("device_id", "anon")
+        user = _get_user(device_id)
+        cards = [c for c in _load_coll() if c.get("device_id", "anon") == device_id]
+        premium = _is_premium(user)
         tc = sum(c.get("cost",0) for c in cards)
         tv = sum(c.get("current_price",0) for c in cards)
         tp = tv - tc
         tr = round(tp/tc*100,1) if tc > 0 else 0
-        return jsonify({"count":len(cards),"total_cost":tc,"total_value":tv,"total_profit":tp,"total_roi":tr})
+        return jsonify({"count":len(cards),"total_cost":tc,"total_value":tv,"total_profit":tp,"total_roi":tr,"premium":premium,"limit":None if premium else FREE_LIMIT})
 
     @app.route("/api/collection/refresh", methods=["POST"])
     def coll_refresh():
@@ -499,6 +550,61 @@ def create_app():
     def api_settle():
         d = request.json
         return jsonify(calc_settle(int(d.get("sale_price",0)), int(d.get("cost",0))))
+
+    @app.route("/api/subscription", methods=["GET"])
+    def sub_status():
+        device_id = request.args.get("device_id", "anon")
+        user = _get_user(device_id)
+        premium = _is_premium(user)
+        cards = [c for c in _load_coll() if c.get("device_id", "anon") == device_id]
+        return jsonify({
+            "device_id": device_id,
+            "premium": premium,
+            "premium_until": user.get("premium_until"),
+            "card_count": len(cards),
+            "free_limit": FREE_LIMIT,
+            "price": PREMIUM_PRICE,
+            "remaining_free": max(0, FREE_LIMIT - len(cards)) if not premium else -1,
+        })
+
+    @app.route("/api/subscription/activate", methods=["POST"])
+    def sub_activate():
+        """Toss Payments 웹훅 또는 수동 활성화."""
+        d = request.json or {}
+        device_id = d.get("device_id", "")
+        if not device_id:
+            return jsonify({"error":"device_id 필요"}), 400
+        # 실결제 연동 시 여기서 Toss 결제 검증 (orderId, paymentKey, amount)
+        # 지금은 웹훅 기반 활성화만 처리
+        user = _get_user(device_id)
+        user["premium"] = True
+        from datetime import timedelta
+        user["premium_until"] = (datetime.now() + timedelta(days=30)).isoformat()
+        user["activated_at"] = datetime.now().isoformat()
+        _set_user(device_id, user)
+        return jsonify({"status":"ok","device_id":device_id,"premium":True,"premium_until":user["premium_until"]})
+
+    @app.route("/api/subscription/webhook", methods=["POST"])
+    def toss_webhook():
+        """Toss Payments 웹훅 수신."""
+        d = request.json or {}
+        # Toss 결제 완료 콜백: orderId에 device_id 인코딩
+        # orderId 형식: "tcg_{device_id}_{timestamp}"
+        order_id = d.get("orderId", "")
+        status = d.get("status", "")
+        if status == "DONE" and order_id.startswith("tcg_"):
+            parts = order_id.split("_", 2)
+            if len(parts) >= 3:
+                device_id = parts[1]
+                user = _get_user(device_id)
+                user["premium"] = True
+                from datetime import timedelta
+                user["premium_until"] = (datetime.now() + timedelta(days=30)).isoformat()
+                user["payment_key"] = d.get("paymentKey","")
+                user["amount"] = d.get("totalAmount", 0)
+                _set_user(device_id, user)
+                return jsonify({"status":"ok","activated":True,"device_id":device_id})
+        return jsonify({"status":"ignored"}), 200
 
     @app.route("/api/health")
     def health():

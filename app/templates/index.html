@@ -274,6 +274,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-fi
 <!-- 도감 -->
 <div id="p-collection" class="panel">
 <div class="wrap">
+<div id="collPremiumBanner" style="margin:12px 0"></div>
 <div id="collSummary" class="coll-summary"></div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0">
 <h3 style="font-size:16px;font-weight:700">내 도감</h3>
@@ -293,6 +294,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-fi
 <script>
 const $=id=>document.getElementById(id);
 let allHits=[],allBoxes=[],lastGrade=null;
+
+// device_id (localStorage 기반, 가입 없음)
+function getDeviceId(){
+let id=localStorage.getItem('tcg_device_id');
+if(!id){id='d'+Date.now()+Math.random().toString(36).slice(2,8);localStorage.setItem('tcg_device_id',id);}
+return id;
+}
+const DEVICE_ID=getDeviceId();
 
 // 탭
 document.querySelectorAll('.tab').forEach(t=>{
@@ -320,7 +329,7 @@ try{
 const [br,hr,cr]=await Promise.all([
 fetch('/api/boxes').then(r=>r.json()),
 fetch('/api/hit-cards').then(r=>r.json()),
-fetch('/api/collection/summary').then(r=>r.json()),
+fetch('/api/collection/summary?device_id='+DEVICE_ID).then(r=>r.json()),
 ]);
 allBoxes=br;allHits=hr;
 $('hBoxes').textContent=allBoxes.length;
@@ -622,8 +631,12 @@ const lang=$('svLang').value;
 const cost=parseInt($('svCost').value)||0;
 const price=parseInt($('svPrice').value)||0;
 const cond=$('svCond').value;
-const r=await fetch('/api/collection',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,lang,cost,current_price:price,condition:cond,grade_range:lastGrade?.overall_grade_range||''})});
+const r=await fetch('/api/collection',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({device_id:DEVICE_ID,name,lang,cost,current_price:price,condition:cond,grade_range:lastGrade?.overall_grade_range||''})});
 const d=await r.json();
+if(r.status===403&&d.error==='free_limit'){
+$('svResult').innerHTML=`<span style="color:var(--gold)">무료 한도(${d.limit}장)에 도달했습니다. <a href="#p-collection" onclick="switchTab('collection')" style="color:var(--gold);text-decoration:underline">프리미엄 구독</a>으로 무제한 이용하세요.</span>`;
+return;
+}
 $('svResult').innerHTML=`<span style="color:var(--green)">저장 #${d.id}</span>`;
 }
 
@@ -648,12 +661,29 @@ $('settleOut').innerHTML=`
 }
 
 // ═══ 도감 ═══
+function switchTab(name){
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+document.querySelector(`.tab[data-t="${name}"]`)?.classList.add('active');
+$('p-'+name).classList.add('active');
+if(name==='collection')loadColl();
+}
+
 async function loadColl(){
 const [r1,r2]=await Promise.all([
-fetch('/api/collection').then(r=>r.json()),
-fetch('/api/collection/summary').then(r=>r.json()),
+fetch('/api/collection?device_id='+DEVICE_ID).then(r=>r.json()),
+fetch('/api/collection/summary?device_id='+DEVICE_ID).then(r=>r.json()),
 ]);
 $('hColl').textContent=r2.count;
+
+// 구독 배너
+const sr=await fetch('/api/subscription?device_id='+DEVICE_ID).then(r=>r.json());
+if(sr.premium){
+$('collPremiumBanner').innerHTML=`<div style="background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center"><div><span style="color:var(--gold);font-weight:700">PREMIUM</span> <span style="color:var(--muted);font-size:12px">무제한 도감 · ${new Date(sr.premium_until).toLocaleDateString('ko-KR')}까지</span></div></div>`;
+}else{
+const pct=Math.round(sr.card_count/sr.free_limit*100);
+$('collPremiumBanner').innerHTML=`<div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-weight:700;font-size:14px">무료 플랜</span><span style="color:var(--muted);font-size:12px">${sr.card_count}/${sr.free_limit}장</span></div><div style="height:6px;background:var(--line);border-radius:3px;overflow:hidden"><div style="height:100%;width:${Math.min(pct,100)}%;background:${pct>=80?'var(--gold)':'var(--blue)'};border-radius:3px"></div></div><div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center"><span style="color:var(--muted);font-size:12px">월 4,900원 · 무제한 도감 + 시세 자동 갱신</span><button class="btn btn-gold btn-sm" onclick="startPremium()">업그레이드</button></div></div>`;
+}
 $('collSummary').innerHTML=`
 <div class="coll-box"><div class="lb">카드 수</div><div class="vl">${r2.count}</div></div>
 <div class="coll-box"><div class="lb">총 원가</div><div class="vl">${fmt(r2.total_cost)}</div></div>
@@ -682,6 +712,19 @@ loadColl();
 // ═══ 초기화 ═══
 fetch('/api/health').then(r=>r.json()).then(d=>{});
 initData();
+
+// 결제 (Toss 연동 전 개발 모드)
+async function startPremium(){
+const r=await fetch('/api/subscription/activate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({device_id:DEVICE_ID})});
+const d=await r.json();
+if(d.status==='ok'){
+alert('프리미엄이 활성화되었습니다! (개발 모드)');
+loadColl();
+}else{
+alert('활성화 실패: '+JSON.stringify(d));
+}
+}
+
 // SW 일시 비활성화 (캐시 문제 해결 후 재활성화)
 // if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
 </script>
