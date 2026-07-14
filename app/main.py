@@ -15,29 +15,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ═════════════════════════════════════════════════════════════
 
 BOXES = [
-    {"id":"blackbolt","name":"블랙볼트","code":"SV11B","lang":"kr","release":"2026-04","packs":30,"cpp":5,"price_kr":135000,"retail_price":40000,"price_jp":235000,"sold_out":True,"img":"/static/box_images/blackbolt.png","desc":"티탱크 ex, 두빅굴, 무쿠무쿠",
+    {"id":"blackbolt","name":"블랙볼트","code":"SV11B","lang":"kr","release":"2026-04","packs":30,"cpp":5,"price_kr":135000,"retail_price":40000,"price_jp":235000,"sold_out":True,"img":"/box-img/blackbolt.png","desc":"티탱크 ex, 두빅굴, 무쿠무쿠",
      "hits":[{"n":"티탱크 ex SR","r":"SR","p":45000,"rate":"1/30"},{"n":"두빅굴 SAR","r":"SAR","p":80000,"rate":"1/60"},{"n":"무쿠무쿠 SAR","r":"SAR","p":60000,"rate":"1/60"},{"n":"티탱크 ex AR","r":"AR","p":12000,"rate":"1/10"}]},
-    {"id":"whiteflare","name":"화이트플레어","code":"SV11A","lang":"kr","release":"2026-04","packs":30,"cpp":5,"price_kr":110000,"retail_price":40000,"price_jp":200000,"sold_out":True,"img":"/static/box_images/whiteflare.png","desc":"레시라무 ex, 가디안, 수댕이",
+    {"id":"whiteflare","name":"화이트플레어","code":"SV11A","lang":"kr","release":"2026-04","packs":30,"cpp":5,"price_kr":110000,"retail_price":40000,"price_jp":200000,"sold_out":True,"img":"/box-img/whiteflare.png","desc":"레시라무 ex, 가디안, 수댕이",
      "hits":[{"n":"레시라무 ex SR","r":"SR","p":120000,"rate":"1/30"},{"n":"가디안 SAR","r":"SAR","p":90000,"rate":"1/60"},{"n":"수댕이 SAR","r":"SAR","p":25000,"rate":"1/60"},{"n":"레시라무 ex AR","r":"AR","p":15000,"rate":"1/10"}]},
-    {"id":"infernox","name":"인페르노X","code":"SV10a","lang":"kr","release":"2026-03","packs":30,"cpp":5,"price_kr":63000,"retail_price":30000,"price_jp":120000,"sold_out":True,"img":"/static/box_images/infernox.png","desc":"리자몽 ex, 빛나, 푸크린",
+    {"id":"infernox","name":"인페르노X","code":"SV10a","lang":"kr","release":"2026-03","packs":30,"cpp":5,"price_kr":63000,"retail_price":30000,"price_jp":120000,"sold_out":True,"img":"/box-img/infernox.png","desc":"리자몽 ex, 빛나, 푸크린",
      "hits":[{"n":"리자몽 ex SR","r":"SR","p":35000,"rate":"1/30"},{"n":"리자몽 ex SAR","r":"SAR","p":120000,"rate":"1/90"},{"n":"빛나 SAR","r":"SAR","p":18000,"rate":"1/60"},{"n":"푸크린 AR","r":"AR","p":3000,"rate":"1/10"}]},
-    {"id":"nihilzero","name":"니힐제로","code":"SV12","lang":"kr","release":"2026-06","packs":30,"cpp":5,"price_kr":35000,"retail_price":30000,"price_jp":80000,"sold_out":True,"img":"/static/box_images/nihilzero.png","desc":"니힐제로, 신규 메카닉",
+    {"id":"nihilzero","name":"니힐제로","code":"SV12","lang":"kr","release":"2026-06","packs":30,"cpp":5,"price_kr":35000,"retail_price":30000,"price_jp":80000,"sold_out":True,"img":"/box-img/nihilzero.png","desc":"니힐제로, 신규 메카닉",
      "hits":[{"n":"니힐제로 SR","r":"SR","p":15000,"rate":"1/30"},{"n":"니힐제로 SAR","r":"SAR","p":40000,"rate":"1/60"}]},
-    {"id":"abyss","name":"어비스아이","code":"SV10b","lang":"kr","release":"2026-03","packs":30,"cpp":5,"price_kr":48000,"retail_price":45000,"price_jp":95000,"sold_out":True,"img":"/static/box_images/abyss.png","desc":"메가다크라이 ex, 메가제라오라 ex",
+    {"id":"abyss","name":"어비스아이","code":"SV10b","lang":"kr","release":"2026-03","packs":30,"cpp":5,"price_kr":48000,"retail_price":45000,"price_jp":95000,"sold_out":True,"img":"/box-img/abyss.png","desc":"메가다크라이 ex, 메가제라오라 ex",
      "hits":[{"n":"메가다크라이 ex SR","r":"SR","p":50000,"rate":"1/30"},{"n":"메가제라오라 ex SAR","r":"SAR","p":35000,"rate":"1/60"},{"n":"이슬의 기력 SAR","r":"SAR","p":12000,"rate":"1/60"},{"n":"무쿠무쿠 SAR","r":"SAR","p":40000,"rate":"1/60"}]},
-    {"id":"ninjaspinner","name":"닌자스피너","code":"SV9a","lang":"kr","release":"2026-02","packs":30,"cpp":5,"price_kr":40000,"retail_price":30000,"price_jp":75000,"sold_out":True,"img":"/static/box_images/ninjaspinner.png","desc":"한카리아스 ex, 루카리오",
+    {"id":"ninjaspinner","name":"닌자스피너","code":"SV9a","lang":"kr","release":"2026-02","packs":30,"cpp":5,"price_kr":40000,"retail_price":30000,"price_jp":75000,"sold_out":True,"img":"/box-img/ninjaspinner.png","desc":"한카리아스 ex, 루카리오",
      "hits":[{"n":"한카리아스 ex SR","r":"SR","p":25000,"rate":"1/30"},{"n":"루카리오 SAR","r":"SAR","p":18000,"rate":"1/60"}]},
-    {"id":"151","name":"151","code":"SV3a","lang":"kr","release":"2025-09","packs":30,"cpp":5,"price_kr":50000,"retail_price":50000,"price_jp":90000,"sold_out":True,"img":"/static/box_images/151.png","desc":"관동 151종, 뮤츠 ex, 나옹",
+    {"id":"151","name":"151","code":"SV3a","lang":"kr","release":"2025-09","packs":30,"cpp":5,"price_kr":50000,"retail_price":50000,"price_jp":90000,"sold_out":True,"img":"/box-img/151.png","desc":"관동 151종, 뮤츠 ex, 나옹",
      "hits":[{"n":"뮤츠 ex SR","r":"SR","p":35000,"rate":"1/30"},{"n":"뮤츠 ex SAR","r":"SAR","p":80000,"rate":"1/90"},{"n":"나옹 SAR","r":"SAR","p":50000,"rate":"1/90"},{"n":"이브이 master","r":"master","p":200000,"rate":"1/300"}]},
-    {"id":"vstar","name":"VSTAR 유니버스","code":"S12a","lang":"kr","release":"2025-01","packs":30,"cpp":5,"price_kr":35000,"retail_price":50000,"price_jp":70000,"sold_out":True,"img":"/static/box_images/vstar.png","desc":"아르세우스 VSTAR, 리피아 VSTAR",
+    {"id":"vstar","name":"VSTAR 유니버스","code":"S12a","lang":"kr","release":"2025-01","packs":30,"cpp":5,"price_kr":35000,"retail_price":50000,"price_jp":70000,"sold_out":True,"img":"/box-img/vstar.png","desc":"아르세우스 VSTAR, 리피아 VSTAR",
      "hits":[{"n":"아르세우스 VSTAR SR","r":"SR","p":18000,"rate":"1/30"},{"n":"리피아 VSTAR SR","r":"SR","p":12000,"rate":"1/30"},{"n":"디안시 SR","r":"SR","p":2500,"rate":"1/30"}]},
-    {"id":"megadream","name":"MEGA 드림 ex","code":"SV9b","lang":"kr","release":"2026-02","packs":30,"cpp":5,"price_kr":15000,"retail_price":30000,"price_jp":35000,"sold_out":False,"img":"/static/box_images/megadream.png","desc":"메가리자몽X ex, 피카츄 ex",
+    {"id":"megadream","name":"MEGA 드림 ex","code":"SV9b","lang":"kr","release":"2026-02","packs":30,"cpp":5,"price_kr":15000,"retail_price":30000,"price_jp":35000,"sold_out":False,"img":"/box-img/megadream.png","desc":"메가리자몽X ex, 피카츄 ex",
      "hits":[{"n":"메가리자몽X ex SR","r":"SR","p":30000,"rate":"1/30"},{"n":"피카츄 ex SR","r":"SR","p":95000,"rate":"1/30"},{"n":"피카츄 ex SAR","r":"SAR","p":145000,"rate":"1/90"}]},
-    {"id":"rocket","name":"로켓단의 영광","code":"SV8a","lang":"kr","release":"2026-01","packs":30,"cpp":5,"price_kr":46000,"retail_price":30000,"price_jp":85000,"sold_out":True,"img":"/static/box_images/rocket.png","desc":"악비라르 ex, 블래키 VMAX",
+    {"id":"rocket","name":"로켓단의 영광","code":"SV8a","lang":"kr","release":"2026-01","packs":30,"cpp":5,"price_kr":46000,"retail_price":30000,"price_jp":85000,"sold_out":True,"img":"/box-img/rocket.png","desc":"악비라르 ex, 블래키 VMAX",
      "hits":[{"n":"악비라르 ex SR","r":"SR","p":22000,"rate":"1/30"},{"n":"블래키 VMAX R","r":"R","p":730000,"rate":"1/200"}]},
-    {"id":"terastal","name":"테라스탈 페스타 ex","code":"SV8","lang":"kr","release":"2025-12","packs":30,"cpp":5,"price_kr":50000,"retail_price":50000,"price_jp":60000,"sold_out":True,"img":"/static/box_images/terastal.png","desc":"님피아 ex, 테라스탈",
+    {"id":"terastal","name":"테라스탈 페스타 ex","code":"SV8","lang":"kr","release":"2025-12","packs":30,"cpp":5,"price_kr":50000,"retail_price":50000,"price_jp":60000,"sold_out":True,"img":"/box-img/terastal.png","desc":"님피아 ex, 테라스탈",
      "hits":[{"n":"님피아 ex SR","r":"SR","p":75000,"rate":"1/30"}]},
-    {"id":"ebreaker","name":"초전브레이커","code":"SV10","lang":"kr","release":"2026-03","packs":30,"cpp":5,"price_kr":44000,"retail_price":30000,"price_jp":85000,"sold_out":True,"img":"/static/box_images/ebreaker.png","desc":"피카츄 ex, 티탱크 ex",
+    {"id":"ebreaker","name":"초전브레이커","code":"SV10","lang":"kr","release":"2026-03","packs":30,"cpp":5,"price_kr":44000,"retail_price":30000,"price_jp":85000,"sold_out":True,"img":"/box-img/ebreaker.png","desc":"피카츄 ex, 티탱크 ex",
      "hits":[{"n":"피카츄 ex SR","r":"SR","p":145000,"rate":"1/30"},{"n":"피카츄 ex SAR","r":"SAR","p":200000,"rate":"1/90"}]},
 ]
 
@@ -474,7 +474,7 @@ def create_app():
     @app.route("/sw.js")
     def sw(): return send_file(os.path.join(sdir, "sw.js"), mimetype="application/javascript")
 
-    @app.route("/static/box_images/<path:filename>")
+    @app.route("/box-img/<path:filename>")
     def box_img(filename):
         from flask import abort
         p = os.path.join(sdir, "box_images", filename)
