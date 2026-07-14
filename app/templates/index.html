@@ -184,6 +184,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.95);backdrop-fi
 <h3 style="font-size:16px;font-weight:700;margin-bottom:12px">📦 인기 박스</h3>
 <div id="homeBoxes" class="box-grid"></div>
 </div>
+
+<div class="trend-section">
+<h3 style="font-size:16px;font-weight:700;margin-bottom:12px">✅ 최근 거래완료</h3>
+<div id="homeTrades" class="trend-list"></div>
+</div>
+
 </div>
 </div>
 
@@ -327,10 +333,11 @@ renderTrend(t.dataset.filter);
 // ═══ 데이터 로드 ═══
 async function initData(){
 try{
-const [br,hr,cr]=await Promise.all([
+const [br,hr,cr,tr]=await Promise.all([
 fetch('/api/boxes').then(r=>r.json()),
 fetch('/api/hit-cards').then(r=>r.json()),
 fetch('/api/collection/summary?device_id='+DEVICE_ID).then(r=>r.json()),
+fetch('/api/recent-trades').then(r=>r.json()),
 ]);
 allBoxes=br;allHits=hr;
 $('hBoxes').textContent=allBoxes.length;
@@ -339,6 +346,7 @@ $('hColl').textContent=cr.count;
 renderHomeBoxes();renderHomeHits();renderBanner();
 renderBoxes();
 renderTrend('all');
+renderTrades(tr);
 }catch(e){
 console.error('initData error:',e);
 $('homeHits').innerHTML='<div style="color:var(--muted);padding:20px;text-align:center">데이터 로드 실패: '+e.message+'</div>';
@@ -364,10 +372,15 @@ return (evb/b.price_kr)-(eva/a.price_kr);
 $('homeBoxes').innerHTML=sorted.map(b=>{
 const ev=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
 const ratio=Math.round(ev/b.price_kr*100);
-return `<div class="box-card" onclick="openBox('${b.id}')">
+const rp=b.retail_price||b.price_kr;
+const premium=b.price_kr>rp?`<span style="color:var(--orange);font-size:10px"> 시장가 +${Math.round((b.price_kr/rp-1)*100)}%</span>`:'';
+const so=b.sold_out?'<span style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:2px 6px;border-radius:4px">품절</span>':'';
+return `<div class="box-card" onclick="openBox('${b.id}')" style="position:relative">
+${b.img?`<img src="${b.img}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">${so}`:''}
 <div class="bn">${b.name}</div>
 <div class="bc">${b.code} · ${b.packs}팩</div>
-<div class="bp">${fmt(b.price_kr)}<small>원</small></div>
+<div class="bp">${fmt(b.price_kr)}<small>원</small>${premium}</div>
+${rp&&rp!==b.price_kr?`<div style="font-size:10px;color:var(--muted)">공식가 ${fmt(rp)}원</div>`:''}
 <div class="bev ${evClass(ratio)}">EV ${ratio}%</div>
 </div>`;
 }).join('');
@@ -379,6 +392,7 @@ $('homeHits').innerHTML=sorted.map((h,i)=>`
 <div class="trend-row">
 <div class="trend-rank">${i+1}</div>
 <div class="trend-name">${h.name}<small>${h.box_name} · ${h.pull_rate}</small></div>
+<div style="text-align:right"><span style="font-size:9px;color:var(--dim);background:var(--card);padding:1px 5px;border-radius:3px">추정가</span></div>
 <div class="trend-price">${fmt(h.est_price)}원</div>
 </div>`).join('');
 }
@@ -387,10 +401,14 @@ function renderBoxes(){
 $('boxesGrid').innerHTML=allBoxes.map(b=>{
 const ev=b.hits.reduce((s,h)=>{try{return s+h.p/parseInt(h.rate.split('/')[1])}catch{return s}},0);
 const ratio=Math.round(ev/b.price_kr*100);
-return `<div class="box-card" onclick="openBox('${b.id}')">
+const rp=b.retail_price||b.price_kr;
+const so=b.sold_out?'<span style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:2px 6px;border-radius:4px">품절</span>':'';
+return `<div class="box-card" onclick="openBox('${b.id}')" style="position:relative">
+${b.img?`<img src="${b.img}" style="width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:6px;margin-bottom:6px">${so}`:''}
 <div class="bn">${b.name}</div>
 <div class="bc">${b.code} · ${b.packs}팩</div>
 <div class="bp">${fmt(b.price_kr)}<small>원</small></div>
+${rp&&rp!==b.price_kr?`<div style="font-size:10px;color:var(--muted)">공식가 ${fmt(rp)}원</div>`:''}
 <div class="bev ${evClass(ratio)}">EV ${ratio}% · ${b.hits.length}히트</div>
 </div>`;
 }).join('');
@@ -403,8 +421,19 @@ $('trendList').innerHTML=sorted.map((h,i)=>`
 <div class="trend-row">
 <div class="trend-rank">${i+1}</div>
 <div class="trend-name">${h.name}<small>${h.box_name} · ${h.pull_rate}</small></div>
-<div style="text-align:right"><span class="hit-rarity r-${h.rarity}">${h.rarity}</span></div>
+<div style="text-align:right"><span class="hit-rarity r-${h.rarity}">${h.rarity}</span><br><span style="font-size:9px;color:var(--dim)">추정가</span></div>
 <div class="trend-price">${fmt(h.est_price)}원</div>
+</div>`).join('');
+}
+
+function renderTrades(trades){
+if(!trades||!trades.length){$('homeTrades').innerHTML='<div style="color:var(--muted);padding:12px;text-align:center">거래 내역이 없습니다</div>';return}
+$('homeTrades').innerHTML=trades.map(t=>`
+<div class="trend-row">
+<div style="color:var(--green);font-size:14px;width:24px;text-align:center">✓</div>
+<div class="trend-name">${t.name}<small>${t.lang} ${t.grade} · ${t.box}</small></div>
+<div style="text-align:right"><span style="font-size:10px;color:var(--dim);background:var(--card);padding:2px 6px;border-radius:4px">${t.source}</span></div>
+<div class="trend-price" style="color:var(--green)">${fmt(t.price)}원</div>
 </div>`).join('');
 }
 
@@ -417,22 +446,25 @@ b.hits.forEach(h=>{try{ev+=h.p/parseInt(h.rate.split('/')[1])}catch{}});
 const ratio=Math.round(ev/b.price_kr*100);
 $('boxModalContent').innerHTML=`
 <span class="close" onclick="closeBoxModal()">×</span>
-<h2 style="font-size:24px;font-weight:800;margin-bottom:4px">${b.name}</h2>
+${b.img?`<img src="${b.img}" style="width:100%;max-width:300px;aspect-ratio:5/7;object-fit:cover;border-radius:10px;margin:0 auto 16px;display:block">`:''}
+<h2 style="font-size:24px;font-weight:800;margin-bottom:4px">${b.name} ${b.sold_out?'<span style="font-size:12px;color:var(--red)">품절</span>':''}</h2>
 <p style="color:var(--muted);font-size:13px;margin-bottom:16px">${b.code} · ${b.lang==='kr'?'한국판':b.lang} · ${b.packs}팩 · ${b.cpp}장/팩 · ${b.release}</p>
 <p style="color:var(--text);margin-bottom:8px">${b.desc}</p>
 <div class="ev-box">
-<div class="ev-label">박스 기대값 (EV)</div>
+<div class="ev-label">박스 기대값 (EV) — 입력값 기준 지표</div>
 <div class="ev-val ${evClass(ratio)}">${ratio}%</div>
-<div style="color:var(--muted);font-size:12px">박스가 ${fmt(b.price_kr)}원일 때 히트카드 기대 수익 ${fmt(Math.round(ev))}원</div>
+<div style="color:var(--muted);font-size:12px">시장 시세 ${fmt(b.price_kr)}원 기준 히트카드 합산 추정 ${fmt(Math.round(ev))}원</div>
+${b.retail_price&&b.retail_price!==b.price_kr?`<div style="color:var(--dim);font-size:11px;margin-top:4px">공식 소매가 ${fmt(b.retail_price)}원 → 시장 프리미엄 +${Math.round((b.price_kr/b.retail_price-1)*100)}%</div>`:''}
 </div>
 <div style="display:flex;gap:12px;margin-bottom:16px">
 <div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--muted)">한국판 시세</div>
+<div style="font-size:11px;color:var(--muted)">시장 시세</div>
 <div style="font-size:18px;font-weight:700">${fmt(b.price_kr)}원</div>
 </div>
 <div style="flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--muted)">일본판 시세</div>
-<div style="font-size:18px;font-weight:700">${fmt(b.price_jp)}원</div>
+<div style="font-size:11px;color:var(--muted)">공식 소매가</div>
+<div style="font-size:18px;font-weight:700">${fmt(b.retail_price||b.price_kr)}원</div>
+${b.sold_out?'<div style="font-size:10px;color:var(--red)">품절</div>':'<div style="font-size:10px;color:var(--green)">재고있음</div>'}
 </div>
 </div>
 <h3 style="font-size:16px;font-weight:700;margin:16px 0 8px">🎯 히트카드 (${b.hits.length}종)</h3>
