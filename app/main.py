@@ -476,14 +476,15 @@ def create_app():
 
     @app.route("/api/box-image/<bid>")
     def box_image(bid):
-        from flask import abort, send_file
+        from flask import abort
         b = get_box(bid)
         if not b: abort(404)
         img_name = b.get("img","")
-        # img is "/box-img/blackbolt.png" -> filename = "blackbolt.png"
         fname = img_name.split("/")[-1] if img_name else f"{bid}.png"
-        p = os.path.join(sdir, "box_images", fname)
-        if not os.path.exists(p): abort(404)
+        sdir2 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+        p = os.path.join(sdir2, "box_images", fname)
+        if not os.path.exists(p):
+            return jsonify({"error":"img_not_found","path":p,"sdir":sdir2,"cwd":os.getcwd(),"file":os.path.abspath(__file__),"exists_static":os.path.exists(sdir2),"exists_box":os.path.exists(os.path.join(sdir2,"box_images"))}), 404
         return send_file(p)
 
     @app.route("/api/boxes")
