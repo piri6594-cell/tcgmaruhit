@@ -474,6 +474,13 @@ def create_app():
     @app.route("/sw.js")
     def sw(): return send_file(os.path.join(sdir, "sw.js"), mimetype="application/javascript")
 
+    @app.route("/static/box_images/<path:filename>")
+    def box_img(filename):
+        from flask import abort
+        p = os.path.join(sdir, "box_images", filename)
+        if not os.path.exists(p): abort(404)
+        return send_file(p)
+
     @app.route("/api/boxes")
     def api_boxes(): return jsonify(get_boxes())
 
