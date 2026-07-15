@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0a0a0b">
+<title>TCGMARUHIT — 포켓몬 카드 투자 도구</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root{
+  --bg:#0a0a0b;
+  --surface:#131316;
+  --surface2:#1a1a1e;
+  --border:#232328;
+  --border-light:#2e2e34;
+  --text:#f5f5f7;
+  --text2:#a0a0a8;
+  --text3:#666670;
+  --accent:#e8e8ed;
+  --gold:#c9a96e;
+  --green:#4ade80;
+  --red:#f87171;
+  --blue:#60a5fa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:"Pretendard","Malgun Gothic",sans-serif;
+  font-size:15px;line-height:1.6;letter-spacing:-0.01em;
+  -webkit-tap-highlight-color:transparent;
+  padding-bottom:60px;
+}
+a{color:inherit;text-decoration:none}
+button{background:none;border:none;color:inherit;cursor:pointer;font:inherit}
+
+/* ========== Layout ========== */
+.wrap{max-width:480px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{max-width:520px}}
+
+/* ========== Header ========== */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,11,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.header-in{max-width:520px;margin:0 auto;padding:0 16px;height:48px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:18px;letter-spacing:-0.03em;color:var(--accent)}
+.logo span{color:var(--gold)}
+.header-stats{display:flex;gap:10px;font-size:10px;color:var(--text3)}
+.header-stat b{font-size:13px;color:var(--text2);font-weight:600}
+
+/* ========== Bottom Nav ========== */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:60;
+  background:rgba(10,10,11,.95);backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
+  display:flex;justify-content:center;
+}
+.bottom-nav-in{max-width:520px;display:flex;width:100%;padding:0 8px}
+.nav-item{
+  flex:1;padding:10px 4px;text-align:center;
+  font-size:10px;color:var(--text3);
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  transition:color .15s;
+}
+.nav-item.active{color:var(--accent)}
+.nav-item:active{color:var(--gold)}
+.nav-icon{font-size:18px;line-height:1}
+
+/* ========== Tabs → panels ========== */
+.panel{display:none;padding:16px 0}
+.panel.active{display:block}
+
+/* ========== Hero ========== */
+.hero{padding:24px 0 16px}
+.hero h1{font-size:24px;font-weight:800;line-height:1.3;margin-bottom:6px}
+.hero p{font-size:13px;color:var(--text2);line-height:1.5}
+
+/* ========== Section ========== */
+.section{margin:28px 0}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.section-title{font-size:15px;font-weight:700;color:var(--text)}
+.section-link{font-size:11px;color:var(--text3)}
+
+/* ========== Box Card ========== */
+.box-list{display:flex;flex-direction:column;gap:10px}
+.box-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:14px;
+  display:flex;gap:12px;align-items:center;
+  transition:border-color .15s,transform .1s;
+  cursor:pointer;
+}
+.box-item:active{transform:scale(0.98);border-color:var(--border-light)}
+.box-item:hover{border-color:var(--border-light)}
+.box-img{
+  width:52px;height:72px;border-radius:6px;
+  background:var(--surface2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;overflow:hidden;
+}
+.box-img img{width:100%;height:100%;object-fit:cover}
+.box-info{flex:1;min-width:0}
+.box-name{font-weight:700;font-size:14px;margin-bottom:2px}
+.box-code{font-size:11px;color:var(--text3);margin-bottom:4px}
+.box-prices{display:flex;gap:8px;align-items:baseline}
+.box-price{font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+.box-retail{font-size:11px;color:var(--text3);text-decoration:line-through}
+.box-premium{font-size:11px;color:var(--green);font-weight:600}
+.box-ev{
+  flex-shrink:0;text-align:right;
+  display:flex;flex-direction:column;align-items:flex-end;gap:2px;
+}
+.ev-val{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
+.ev-label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em}
+.ev-good{color:var(--green)}.ev-mid{color:var(--gold)}.ev-bad{color:var(--red)}
+
+/* ========== Hit Card ========== */
+.hit-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:12px;overflow:hidden}
+.hit-item{
+  background:var(--surface);
+  padding:12px 14px;
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;transition:background .1s;
+}
+.hit-item:active{background:var(--surface2)}
+.hit-rank{width:20px;font-weight:800;font-size:13px;color:var(--text3);text-align:center;flex-shrink:0}
+.hit-thumb{
+  width:36px;height:50px;border-radius:4px;
+  background:var(--surface2);flex-shrink:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.hit-thumb img{width:100%;height:100%;object-fit:cover}
+.hit-info{flex:1;min-width:0}
+.hit-name{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hit-tags{display:flex;gap:4px;margin-top:2px}
+.hit-tag{
+  font-size:9px;padding:1px 6px;border-radius:3px;font-weight:600;
+}
+.t-SR{background:#2a2010;color:var(--gold)}
+.t-SAR{background:#1a1525;color:#b89ee8}
+.t-AR{background:#0e1820;color:var(--blue)}
+.t-R{background:#201a10;color:var(--gold)}
+.t-master{background:#251010;color:#ff6b6b}
+.hit-price{font-weight:800;font-size:14px;font-variant-numeric:tabular-nums;text-align:right;flex-shrink:0}
+.hit-pull{font-size:10px;color:var(--text3);text-align:right;margin-top:1px}
+
+/* ========== Trades ========== */
+.trade-list{display:flex;flex-direction:column;gap:6px}
+.trade-item{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 0;border-bottom:1px solid var(--border);
+}
+.trade-item:last-child{border:0}
+.trade-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.trade-name{flex:1;font-size:12px;color:var(--text2)}
+.trade-name b{color:var(--text);font-weight:600}
+.trade-price{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.trade-src{font-size:10px;color:var(--text3);min-width:40px;text-align:right}
+
+/* ========== Grade (진단) ========== */
+.grade-upload{
+  border:1.5px dashed var(--border-light);border-radius:14px;
+  padding:40px 20px;text-align:center;margin:16px 0;
+  transition:border-color .2s,background .2s;
+}
+.grade-upload:active,.grade-upload.dragover{border-color:var(--gold);background:var(--surface)}
+.grade-icon{font-size:32px;margin-bottom:8px}
+.grade-upload p{font-size:13px;color:var(--text2)}
+.grade-upload p small{display:block;color:var(--text3);font-size:11px;margin-top:4px}
+
+.grade-result{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:20px;margin:14px 0;
+}
+.grade-score{
+  text-align:center;padding:12px 0 20px;
+  border-bottom:1px solid var(--border);margin-bottom:16px;
+}
+.grade-letter{font-size:48px;font-weight:900;letter-spacing:-0.05em}
+.grade-letter.g-gem{color:var(--gold)}
+.grade-letter.g-good{color:var(--green)}
+.grade-letter.g-fair{color:var(--gold)}
+.grade-letter.g-poor{color:var(--red)}
+.grade-table{width:100%;border-collapse:collapse;font-size:12px}
+.grade-table th{text-align:left;color:var(--text3);font-weight:500;padding:6px 0;border-bottom:1px solid var(--border)}
+.grade-table td{text-align:right;padding:6px 0;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
+
+/* ========== Settle (정산) ========== */
+.settle-form{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.settle-row{display:flex;gap:8px}
+.settle-input{
+  flex:1;background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:10px 12px;color:var(--text);font:inherit;font-size:14px;
+}
+.settle-input:focus{outline:none;border-color:var(--gold)}
+.settle-input::placeholder{color:var(--text3)}
+.settle-btn{
+  background:var(--accent);color:var(--bg);
+  border-radius:8px;padding:10px 16px;font-weight:700;font-size:14px;
+  transition:opacity .15s;
+}
+.settle-btn:active{opacity:0.8}
+.settle-result{margin-top:14px}
+.settle-row-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:12px;margin-bottom:8px;
+}
+.settle-ch{font-weight:700;font-size:13px;margin-bottom:4px}
+.settle-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:12px}
+.settle-grid .lb{color:var(--text3)}
+.settle-grid .vl{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+
+/* ========== Collection ========== */
+.coll-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.coll-stat{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:12px 8px;text-align:center;
+}
+.coll-stat .vl{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+.coll-stat .lb{font-size:10px;color:var(--text3);margin-top:2px}
+
+/* ========== Subscription ========== */
+.sub-banner{
+  background:linear-gradient(135deg,var(--surface),var(--surface2));
+  border:1px solid var(--border-light);
+  border-radius:14px;padding:20px;text-align:center;margin:16px 0;
+}
+.sub-banner h3{font-size:16px;font-weight:800;margin-bottom:4px}
+.sub-banner p{font-size:12px;color:var(--text2);margin-bottom:12px}
+.sub-price{font-size:28px;font-weight:900;color:var(--gold)}
+.sub-price small{font-size:14px;color:var(--text3);font-weight:500}
+.sub-btn{
+  display:block;width:100%;padding:12px;margin-top:12px;
+  background:var(--accent);color:var(--bg);
+  border-radius:10px;font-weight:700;font-size:15px;text-align:center;
+}
+
+/* ========== Footer ========== */
+.footer{padding:20px 0;text-align:center;font-size:11px;color:var(--text3);border-top:1px solid var(--border);margin-top:32px}
+.footer a{color:var(--text2)}
+
+/* ========== Utility ========== */
+.skeleton{background:var(--surface);border-radius:8px;animation:pulse 1.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hidden{display:none!important}
+.fade-in{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="header-in">
+<div class="logo">TCGMARU<span>HIT</span></div>
+<div class="header-stats">
+<div class="header-stat"><b id="statBoxes">12</b>박스</div>
+<div class="header-stat"><b id="statHits">35</b>카드</div>
+</div>
+</div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ HOME ============ -->
+<div class="panel active" id="p-home">
+
+<div class="hero">
+<h1>포켓몬 카드,<br>투자처럼 분석하다</h1>
+<p>박스 기대가치(EV), 히트카드 확률, 정산 계산까지.<br>카드로 돈 버는 사람을 위한 도구.</p>
+</div>
+
+<div class="section">
+<div class="section-header">
+<div class="section-title">지금 주목할 박스</div>
+</div>
+<div class="box-list" id="homeBoxes">
+<div class="skeleton" style="height:88px;border-radius:12px"></div>
+<div class="skeleton" style="height:88px;border-radius:12px"></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<div class="section-title">히트카드 TOP</div>
+<div class="section-link" onclick="switchTab('trending')">전체보기 →</div>
+</div>
+<div class="hit-list" id="homeHits">
+<div class="skeleton" style="height:56px"></div>
+<div class="skeleton" style="height:56px"></div>
+<div class="skeleton" style="height:56px"></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-header">
+<div class="section-title">최근 거래완료</div>
+</div>
+<div class="trade-list" id="homeTrades"></div>
+</div>
+
+</div><!-- /home -->
+
+<!-- ============ BOXES ============ -->
+<div class="panel" id="p-boxes">
+<div class="hero">
+<h1>박스 분석</h1>
+<p>공식가 vs 시장가, EV(기대가치)로 박스 가치를 비교한다.</p>
+</div>
+<div class="box-list" id="allBoxes"></div>
+</div>
+
+<!-- ============ TRENDING ============ -->
+<div class="panel" id="p-trending">
+<div class="hero">
+<h1>히트카드 순위</h1>
+<p>예상 시세 기준, 가장 가치 있는 카드.</p>
+</div>
+<div style="display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none" id="trendFilters"></div>
+<div class="hit-list" id="trendList"></div>
+</div>
+
+<!-- ============ GRADE ============ -->
+<div class="panel" id="p-grade">
+<div class="hero">
+<h1>AI 카드 진단</h1>
+<p>카드 사진을 올리면 AI가 센터링, 모서리, 표면을 분석한다.</p>
+</div>
+<div class="grade-upload" id="gradeUpload" onclick="document.getElementById('gradeFile').click()">
+<div class="grade-icon">📸</div>
+<p>카드 사진 올리기<small>또는 드래그해서 놓기</small></p>
+</div>
+<input type="file" id="gradeFile" accept="image/*" class="hidden" onchange="handleGrade(this)">
+<div id="gradeResult"></div>
+</div>
+
+<!-- ============ SETTLE ============ -->
+<div class="panel" id="p-settle">
+<div class="hero">
+<h1>정산 계산기</h1>
+<p>판매가, 구입가를 넣으면 채널별 순수입을 계산한다.</p>
+</div>
+<div class="settle-form">
+<div class="settle-row">
+<input class="settle-input" id="salePrice" type="number" placeholder="판매가 (원)">
+</div>
+<div class="settle-row">
+<input class="settle-input" id="costPrice" type="number" placeholder="구입가 (원)">
+</div>
+<button class="settle-btn" onclick="calcSettle()">계산하기</button>
+</div>
+<div id="settleResult"></div>
+</div>
+
+<!-- ============ COLLECTION ============ -->
+<div class="panel" id="p-collection">
+<div class="hero">
+<h1>내 도감</h1>
+<p>보유 카드를 기록하고 수익률을 추적한다.</p>
+</div>
+<div class="coll-stats" id="collStats">
+<div class="coll-stat"><div class="vl">0</div><div class="lb">보유</div></div>
+<div class="coll-stat"><div class="vl">0원</div><div class="lb">원가</div></div>
+<div class="coll-stat"><div class="vl">0원</div><div class="lb">현재가치</div></div>
+</div>
+<div id="collList"></div>
+</div>
+
+<div class="footer">
+<p>데이터는 참고용이며 실제 거래가와 다를 수 있습니다.</p>
+<p style="margin-top:4px">© 2026 TCGMARUHIT · <a href="#">이용약관</a> · <a href="#">개인정보처리방침</a></p>
+</div>
+
+</div><!-- /wrap -->
+
+<!-- ============ Bottom Nav ============ -->
+<div class="bottom-nav">
+<div class="bottom-nav-in">
+<button class="nav-item active" data-t="home" onclick="switchTab('home')">
+<span class="nav-icon">🏠</span>홈
+</button>
+<button class="nav-item" data-t="boxes" onclick="switchTab('boxes')">
+<span class="nav-icon">📦</span>박스
+</button>
+<button class="nav-item" data-t="trending" onclick="switchTab('trending')">
+<span class="nav-icon">🔥</span>카드
+</button>
+<button class="nav-item" data-t="grade" onclick="switchTab('grade')">
+<span class="nav-icon">🔬</span>진단
+</button>
+<button class="nav-item" data-t="settle" onclick="switchTab('settle')">
+<span class="nav-icon">💰</span>정산
+</button>
+<button class="nav-item" data-t="collection" onclick="switchTab('collection')">
+<span class="nav-icon">📇</span>도감
+</button>
+</div>
+</div>
+
+<script>
+// ========== State ==========
+var BOXES=[], HITS=[], TRADES=[], DEVICE_ID=localStorage.getItem('tcg_did')||(function(){var d='d'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);localStorage.setItem('tcg_did',d);return d})();
+
+// ========== Tab switching ==========
+function switchTab(t){
+document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+var el=document.getElementById('p-'+t);
+if(el)el.classList.add('active');
+document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active')});
+var nav=document.querySelector('[data-t="'+t+'"]');
+if(nav)nav.classList.add('active');
+window.scrollTo(0,0);
+if(t==='collection')loadColl();
+if(t==='trending'&&!HITS.length)loadInit();
+}
+
+// ========== Init ==========
+function loadInit(){
+Promise.all([
+fetch('/api/boxes').then(function(r){return r.json()}),
+fetch('/api/hit-cards').then(function(r){return r.json()}),
+fetch('/api/recent-trades').then(function(r){return r.json()})
+]).then(function(res){
+BOXES=res[0]||[];HITS=res[1]||[];TRADES=res[2]||[];
+document.getElementById('statBoxes').textContent=BOXES.length;
+document.getElementById('statHits').textContent=HITS.length;
+renderHomeBoxes();renderHomeHits();renderTrades();
+renderAllBoxes();renderTrend();renderTrendFilters();
+}).catch(function(e){console.error('loadInit',e)});
+}
+
+// ========== Render: Home Boxes ==========
+function renderHomeBoxes(){
+var top=BOXES.slice().sort(function(a,b){return(b.ev_ratio||0)-(a.ev_ratio||0)}).slice(0,3);
+var html=top.map(function(b){return boxItemHTML(b)}).join('');
+document.getElementById('homeBoxes').innerHTML=html||'<p style="color:var(--text3);font-size:13px;text-align:center;padding:20px">데이터 없음</p>';
+}
+function boxItemHTML(b){
+var evClass=b.ev_ratio>=50?'ev-good':b.ev_ratio>=25?'ev-mid':'ev-bad';
+var prem=Math.round((b.price_kr-b.retail_price)/b.retail_price*100)||0;
+var img=b.box_img?('<img src="'+b.box_img+'" alt="'+b.name+'" loading="lazy">'):'📦';
+return '<div class="box-item fade-in" onclick="openBox(\''+b.id+'\')">'+
+'<div class="box-img">'+img+'</div>'+
+'<div class="box-info">'+
+'<div class="box-name">'+b.name+'</div>'+
+'<div class="box-code">'+b.code+' · '+b.packs+'팩 · 한국판</div>'+
+'<div class="box-prices">'+
+'<span class="box-price">'+(b.price_kr||0).toLocaleString()+'원</span>'+
+(b.retail_price?'<span class="box-retail">'+b.retail_price.toLocaleString()+'원</span>':'')+
+(prem>0?'<span class="box-premium">+'+prem+'%</span>':'')+
+'</div></div>'+
+'<div class="box-ev"><span class="ev-val '+evClass+'">'+(b.ev_ratio||0)+'%</span><span class="ev-label">EV</span></div>'+
+'</div>';
+}
+
+// ========== Render: Home Hits ==========
+function renderHomeHits(){
+var top=HITS.slice().sort(function(a,b){return(b.est_price||0)-(a.est_price||0)}).slice(0,5);
+var html=top.map(function(h,i){return hitItemHTML(h,i+1)}).join('');
+document.getElementById('homeHits').innerHTML=html;
+}
+function hitItemHTML(h,rank){
+var img=h.card_img?('<img src="'+h.card_img+'" loading="lazy">'):'🃏';
+return '<div class="hit-item" onclick="alert(\''+(h.name||'').replace(/'/g,'')+' — '+(h.est_price||0).toLocaleString()+'원 ['+(h.rarity||'')+']\')">'+
+'<div class="hit-rank">'+(rank||'')+'</div>'+
+'<div class="hit-thumb">'+img+'</div>'+
+'<div class="hit-info">'+
+'<div class="hit-name">'+h.name+'</div>'+
+'<div class="hit-tags">'+
+'<span class="hit-tag t-'+(h.rarity||'SR')+'">'+(h.rarity||'')+'</span>'+
+'<span class="hit-tag" style="background:var(--surface2);color:var(--text3)">'+(h.box_name||'')+'</span>'+
+'</div></div>'+
+'<div><div class="hit-price">'+(h.est_price||0).toLocaleString()+'원</div>'+
+'<div class="hit-pull">'+(h.pull_rate||'')+'</div></div>'+
+'</div>';
+}
+
+// ========== Render: Trades ==========
+function renderTrades(){
+var html=TRADES.slice(0,6).map(function(t){
+return '<div class="trade-item">'+
+'<div class="trade-dot"></div>'+
+'<div class="trade-name"><b>'+t.name+'</b> · '+t.grade+' · '+t.box+'</div>'+
+'<div class="trade-price">'+(t.price||0).toLocaleString()+'원</div>'+
+'<div class="trade-src">'+(t.source||'')+'</div>'+
+'</div>';
+}).join('');
+document.getElementById('homeTrades').innerHTML=html||'<p style="color:var(--text3);font-size:12px;padding:8px 0">거래 내역 없음</p>';
+}
+
+// ========== Render: All Boxes ==========
+function renderAllBoxes(){
+var html=BOXES.map(function(b){return boxItemHTML(b)}).join('');
+document.getElementById('allBoxes').innerHTML=html||'<p style="color:var(--text3);text-align:center">데이터 없음</p>';
+}
+
+// ========== Render: Trending ==========
+var trendFilter='ALL';
+function renderTrendFilters(){
+var rarities=['ALL','SR','SAR','AR','master','R'];
+var html=rarities.map(function(r){
+return '<button class="hit-tag '+(r===trendFilter?'t-SR':'')+'" style="background:'+(r===trendFilter?'':'var(--surface)')+';border:1px solid var(--border);padding:5px 12px;border-radius:8px;font-size:12px;color:'+(r===trendFilter?'var(--gold)':'var(--text3)')+'" onclick="setTrendFilter(\''+r+'\')">'+r+'</button>';
+}).join('');
+document.getElementById('trendFilters').innerHTML=html;
+}
+function setTrendFilter(r){trendFilter=r;renderTrendFilters();renderTrend();}
+function renderTrend(){
+var list=trendFilter==='ALL'?HITS:HITS.filter(function(h){return h.rarity===trendFilter});
+list=list.slice().sort(function(a,b){return(b.est_price||0)-(a.est_price||0)});
+var html=list.map(function(h,i){return hitItemHTML(h,i+1)}).join('');
+document.getElementById('trendList').innerHTML=html||'<p style="color:var(--text3);text-align:center;padding:20px">해당 카드 없음</p>';
+}
+
+// ========== Box Modal ==========
+function openBox(id){
+var b=BOXES.find(function(x){return x.id===id});
+if(!b)return;
+var hits=HITS.filter(function(h){return h.box_id===id});
+var ev=b.ev_ratio||0;
+var evClass=ev>=50?'ev-good':ev>=25?'ev-mid':'ev-bad';
+var m=document.createElement('div');
+m.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);overflow-y:auto';
+m.id='boxModal';
+m.onclick=function(e){if(e.target===m)m.remove()};
+var hitHTML=hits.map(function(h){return hitItemHTML(h,'')}).join('');
+m.innerHTML='<div style="max-width:480px;margin:20px auto;background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:20px 16px">'+
+'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'+
+'<div><div style="font-weight:800;font-size:18px">'+b.name+'</div><div style="font-size:12px;color:var(--text3)">'+b.code+' · '+b.packs+'팩 · '+(b.lang||'kr').toUpperCase()+'</div></div>'+
+'<button onclick="document.getElementById(\'boxModal\').remove()" style="font-size:22px;color:var(--text3);line-height:1">✕</button></div>'+
+'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">'+
+'<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--text3)">공식가</div><div style="font-weight:700;font-size:16px;margin-top:2px">'+(b.retail_price||'-').toLocaleString()+'원</div></div>'+
+'<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--text3)">시장가</div><div style="font-weight:700;font-size:16px;margin-top:2px">'+(b.price_kr||0).toLocaleString()+'원</div></div>'+
+'</div>'+
+'<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;margin-bottom:16px"><div style="font-size:24px;font-weight:900" class="'+evClass+'">'+ev+'%</div><div style="font-size:11px;color:var(--text3)">박스 EV (기대회수율)</div></div>'+
+'<div style="font-size:13px;font-weight:700;margin-bottom:8px">히트카드 ('+hits.length+')</div>'+
+(hitHTML||'<p style="color:var(--text3);font-size:12px;text-align:center;padding:12px">히트카드 데이터 없음</p>')+
+'</div>';
+document.body.appendChild(m);
+}
+
+// ========== Grade ==========
+function handleGrade(input){
+var file=input.files[0];if(!file)return;
+var fd=new FormData();fd.append('file',file);
+document.getElementById('gradeResult').innerHTML='<div class="skeleton" style="height:200px;border-radius:14px"></div>';
+fetch('/api/analyze',{method:'POST',body:fd}).then(function(r){return r.json()}).then(function(d){
+renderGrade(d);
+}).catch(function(e){
+document.getElementById('gradeResult').innerHTML='<p style="color:var(--red);font-size:13px;text-align:center;padding:12px">진단 실패. 잠시 후 다시 시도.</p>';
+});
+}
+function renderGrade(d){
+if(!d||d.error){document.getElementById('gradeResult').innerHTML='<p style="color:var(--red);font-size:13px">'+(d&&d.error||'오류')+'</p>';return;}
+var g=d.overall_grade_range||'?';
+var gc=g.startsWith('GEM')?'g-gem':g.startsWith('PSA')&&parseFloat(g.replace(/[^0-9.]/g,''))>=9?'g-good':g.startsWith('PSA')&&parseFloat(g.replace(/[^0-9.]/g,''))>=7?'g-fair':'g-poor';
+var html='<div class="grade-result fade-in">'+
+'<div class="grade-score"><div class="grade-letter '+gc+'">'+g+'</div><div style="font-size:12px;color:var(--text3);margin-top:4px">예상 등급 · 신뢰도 '+(d.overall_confidence||0)+'%</div></div>';
+if(d.centering){
+html+='<table class="grade-table"><tr><th>항목</th><th>측정값</th></tr>';
+if(d.centering.horizontal_ratio)html+='<tr><td>가로 센터링</td><td>'+d.centering.horizontal_ratio+'</td></tr>';
+if(d.centering.vertical_ratio)html+='<tr><td>세로 센터링</td><td>'+d.centering.vertical_ratio+'</td></tr>';
+if(d.quality)for(var k in d.quality)html+='<tr><td>'+k+'</td><td>'+d.quality[k]+'</td></tr>';
+html+='</table>';
+}
+if(d.card_name){
+html+='<div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px"><b>식별된 카드:</b> '+d.card_name+'</div>';
+}
+if(d.notes&&d.notes.length){
+html+='<div style="margin-top:12px;font-size:12px;color:var(--text2)"><b>분석 메모:</b><br>'+d.notes.join('<br>')+'</div>';
+}
+if(d.disclaimer)html+='<p style="margin-top:10px;font-size:10px;color:var(--text3)">'+d.disclaimer+'</p>';
+html+='</div>';
+document.getElementById('gradeResult').innerHTML=html;
+}
+
+// Drag & drop
+var gu=document.getElementById('gradeUpload');
+if(gu){
+gu.addEventListener('dragover',function(e){e.preventDefault();gu.classList.add('dragover')});
+gu.addEventListener('dragleave',function(e){gu.classList.remove('dragover')});
+gu.addEventListener('drop',function(e){e.preventDefault();gu.classList.remove('dragover');if(e.dataTransfer.files.length){document.getElementById('gradeFile').files=e.dataTransfer.files;handleGrade(document.getElementById('gradeFile'))}});
+}
+
+// ========== Settle ==========
+function calcSettle(){
+var sp=parseInt(document.getElementById('salePrice').value)||0;
+var cp=parseInt(document.getElementById('costPrice').value)||0;
+if(!sp){document.getElementById('settleResult').innerHTML='<p style="color:var(--text3);font-size:12px;text-align:center">판매가를 입력하세요</p>';return;}
+fetch('/api/settle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sale_price:sp,cost:cp})})
+.then(function(r){return r.json()}).then(function(d){
+if(!d||!d.length){document.getElementById('settleResult').innerHTML='<p style="color:var(--text3)">결과 없음</p>';return;}
+var html=d.map(function(c){
+var pc=c.profit>=0?'var(--green)':'var(--red)';
+return '<div class="settle-row-item"><div class="settle-ch">'+c.channel+'</div><div class="settle-grid"><span class="lb">판매가</span><span class="vl">'+c.sale_price.toLocaleString()+'원</span><span class="lb">수수료</span><span class="vl">-'+c.fee_total.toLocaleString()+'원</span><span class="lb">순수입</span><span class="vl">'+c.net_income.toLocaleString()+'원</span><span class="lb">수익</span><span class="vl" style="color:'+pc+'">'+(c.profit>=0?'+':'')+c.profit.toLocaleString()+'원 ('+c.roi+'%)</span></div></div>';
+}).join('');
+document.getElementById('settleResult').innerHTML='<div class="settle-result">'+html+'</div>';
+}).catch(function(e){
+document.getElementById('settleResult').innerHTML='<p style="color:var(--red);font-size:12px">계산 실패</p>';
+});
+}
+
+// ========== Collection ==========
+function loadColl(){
+fetch('/api/collection?device_id='+DEVICE_ID).then(function(r){return r.json()}).then(function(d){
+var cards=d.cards||[];
+var tc=cards.reduce(function(s,c){return s+(c.cost||0)},0);
+var tv=cards.reduce(function(s,c){return s+(c.current_price||0)},0);
+var tp=tv-tc;
+document.getElementById('collStats').innerHTML=
+'<div class="coll-stat"><div class="vl">'+cards.length+'</div><div class="lb">보유</div></div>'+
+'<div class="coll-stat"><div class="vl">'+tc.toLocaleString()+'원</div><div class="lb">원가</div></div>'+
+'<div class="coll-stat"><div class="vl" style="color:'+(tp>=0?'var(--green)':'var(--red)')+'">'+(tp>=0?'+':'')+tp.toLocaleString()+'원</div><div class="lb">수익</div></div>';
+var html=cards.map(function(c){
+return '<div class="hit-item"><div class="hit-rank"></div><div class="hit-thumb">🃏</div><div class="hit-info"><div class="hit-name">'+c.name+'</div><div class="hit-tags"><span class="hit-tag" style="background:var(--surface2);color:var(--text3)">'+(c.box||'')+'</span></div></div><div><div class="hit-price">'+(c.current_price||0).toLocaleString()+'원</div><div class="hit-pull">'+(c.cost||0).toLocaleString()+'원</div></div></div>';
+}).join('');
+document.getElementById('collList').innerHTML=html||'<p style="color:var(--text3);font-size:13px;text-align:center;padding:20px">아직 등록한 카드가 없습니다.</p>';
+}).catch(function(e){console.error('coll',e)});
+}
+
+// ========== Start ==========
+loadInit();
+</script>
+</body>
+</html>

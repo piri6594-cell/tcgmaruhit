@@ -1,27 +1,25 @@
 {
   "whiteflare|레시라무 ex SR|SR": {
-    "match_status": "exact_set_number_verified",
-    "image_status": "source_has_no_image",
-    "tcgdex_lang": "ja",
-    "tcgdex_set": "SV11W",
-    "local_id": "160",
-    "tcgdex_card_id": "SV11W-160",
-    "ja_name": "レシラムex",
-    "tcgdex_rarity": "Ultra Rare",
-    "img_small": "",
-    "source": "https://api.tcgdex.net/v2/ja/cards/SV11W-160"
+    "match_status": "pokemon_korea_cdn",
+    "image_status": "image_verified",
+    "set": "SV11W",
+    "local_id": "017",
+    "img_small": "https://cards.image.pokemonkorea.co.kr/data/wmimages/SV/SV11W/SV11W_017.png?w=360",
+    "img_large": "https://cards.image.pokemonkorea.co.kr/data/wmimages/SV/SV11W/SV11W_017.png?w=720",
+    "source": "pokemon_korea_cdn"
   },
   "whiteflare|수댕이 SAR|SAR": {
     "match_status": "card_number_found_app_rarity_review_needed",
-    "image_status": "source_has_no_image",
+    "image_status": "image_verified",
     "tcgdex_lang": "ja",
     "tcgdex_set": "SV11W",
     "local_id": "102",
-    "tcgdex_card_id": "SV11W-102",
+    "tcgdex_card_id": "SV10-078",
     "ja_name": "ミジュマル",
     "tcgdex_rarity": "Illustration rare",
-    "img_small": "",
-    "source": "https://api.tcgdex.net/v2/ja/cards/SV11W-102"
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV10/078/low.webp",
+    "source": "https://api.tcgdex.net/v2/ja/cards/SV11W-102",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV10/078/high.webp"
   },
   "infernox|리자몽 ex SR|SR": {
     "match_status": "exact_set_number_verified",
@@ -72,16 +70,158 @@
     "source": "https://api.tcgdex.net/v2/ja/cards/M2-091"
   },
   "ninjaspinner|한카리아스 ex SR|SR": {
-    "match_status": "exact_set_number_verified",
+    "match_status": "pokemon_korea_cdn",
     "image_status": "image_verified",
-    "tcgdex_lang": "ja",
-    "tcgdex_set": "SV9a",
-    "local_id": "080",
-    "tcgdex_card_id": "SV9a-080",
-    "ja_name": "シロナのガブリアスex",
-    "tcgdex_rarity": "Ultra Rare",
-    "img_small": "https://assets.tcgdex.net/ja/SV/SV9a/080/low.webp",
-    "img_large": "https://assets.tcgdex.net/ja/SV/SV9a/080/high.webp",
-    "source": "https://api.tcgdex.net/v2/ja/cards/SV9a-080"
+    "set": "SV9a",
+    "local_id": "044",
+    "img_small": "https://cards.image.pokemonkorea.co.kr/data/wmimages/SV/SV9a/SV9a_044.png?w=360",
+    "img_large": "https://cards.image.pokemonkorea.co.kr/data/wmimages/SV/SV9a/SV9a_044.png?w=720",
+    "source": "pokemon_korea_cdn"
+  },
+  "rocket|이브이 master|master": {
+    "image_status": "image_verified",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV8a/125/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV8a/125/high.webp",
+    "tcgdex_card_id": "SV8a-125",
+    "jp_name": "イーブイ"
+  },
+  "SV8a|나옹 SAR|SAR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV8a",
+    "local_id": "078",
+    "tcgdex_card_id": "SV8a-078",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV8a/078/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV8a/078/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "151|이브이 master|master": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV3a",
+    "local_id": "196",
+    "tcgdex_card_id": "SV3a-196",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV3a/196/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV3a/196/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "rocket|악비라르 ex SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV8a",
+    "local_id": "093",
+    "tcgdex_card_id": "SV8a-093",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV8a/093/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV8a/093/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "terastal|님피아 ex SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV8",
+    "local_id": "118",
+    "tcgdex_card_id": "SV8-118",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV8/118/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV8/118/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "ebreaker|피카츄 ex SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV10",
+    "local_id": "090",
+    "tcgdex_card_id": "SV10-090",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV10/090/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV10/090/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "ebreaker|피카츄 ex SAR|SAR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV10",
+    "local_id": "091",
+    "tcgdex_card_id": "SV10-091",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV10/091/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV10/091/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "151|뮤츠 ex SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV3a",
+    "local_id": "094",
+    "tcgdex_card_id": "SV3a-094",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV3a/094/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV3a/094/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "151|뮤츠 ex SAR|SAR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV3a",
+    "local_id": "095",
+    "tcgdex_card_id": "SV3a-095",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV3a/095/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV3a/095/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "151|나옹 SAR|SAR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV3a",
+    "local_id": "178",
+    "tcgdex_card_id": "SV3a-178",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV3a/178/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV3a/178/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "rocket|블래키 VMAX R|R": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "SV8a",
+    "local_id": "196",
+    "tcgdex_card_id": "SV8a-196",
+    "img_small": "https://assets.tcgdex.net/ja/SV/SV8a/196/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/SV/SV8a/196/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "vstar|아르세우스 VSTAR SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "S12a",
+    "local_id": "178",
+    "tcgdex_card_id": "S12a-178",
+    "img_small": "https://assets.tcgdex.net/ja/S/S12a/178/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/S/S12a/178/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "vstar|리피아 VSTAR SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "S12a",
+    "local_id": "166",
+    "tcgdex_card_id": "S12a-166",
+    "img_small": "https://assets.tcgdex.net/ja/S/S12a/166/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/S/S12a/166/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "vstar|디안시 SR|SR": {
+    "match_status": "tcgdex_image_linked",
+    "image_status": "image_verified",
+    "tcgdex_set": "S12a",
+    "local_id": "168",
+    "tcgdex_card_id": "S12a-168",
+    "img_small": "https://assets.tcgdex.net/ja/S/S12a/168/low.webp",
+    "img_large": "https://assets.tcgdex.net/ja/S/S12a/168/high.webp",
+    "source": "tcgdex_cdn"
+  },
+  "whiteflare|레시라무 ex AR|AR": {
+    "match_status": "pokemon_korea_cdn",
+    "image_status": "image_verified",
+    "set": "SV11W",
+    "local_id": "017",
+    "img_small": "https://cards.image.pokemonkorea.co.kr/data/wmimages/SV/SV11W/SV11W_017.png?w=360",
+    "img_large": "https://cards.image.pokemonkorea.co.kr/data/wmimages/SV/SV11W/SV11W_017.png?w=720",
+    "source": "pokemon_korea_cdn"
   }
 }

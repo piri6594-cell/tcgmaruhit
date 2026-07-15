@@ -94,17 +94,53 @@ RECENT_TRADES = [
 def get_boxes(): return BOXES
 def get_box(bid): return next((b for b in BOXES if b["id"] == bid), None)
 
+PK_CDN = "https://cards.image.pokemonkorea.co.kr/data/wmimages"
+PK_BOX_MAP = {
+    "blackbolt": ("SV","SV11B"), "whiteflare": ("SV","SV11W"),
+    "ninjaspinner": ("SV","SV9a"), "151": ("SV","SV3a"),
+    "rocket": ("SV","SV8a"), "terastal": ("SV","SV8"), "ebreaker": ("SV","SV10"),
+    "vstar": ("S","S12a"),
+}
+# TCGdex CDN for boxes not in PK
+TCGDEX_BOX_MAP = {
+    "infernox": ("SV","M2"), "abyss": ("SV","SV10b"), "megadream": ("SV","SV9b"),
+    "nihilzero": ("SV","SV12"),
+}
+
+def _auto_card_img(box_id, card_no_str=""):
+    """박스 ID와 카드번호로 포켓몬 코리아 또는 TCGdex CDN 이미지 URL 자동 생성"""
+    if not card_no_str:
+        return ""
+    # 3자리 패딩
+    num = card_no_str.strip().lstrip("0") or "0"
+    num3 = num.zfill(3)
+    if box_id in PK_BOX_MAP:
+        series, set_id = PK_BOX_MAP[box_id]
+        return f"{PK_CDN}/{series}/{set_id}/{set_id}_{num3}.png?w=360"
+    return ""
+
 def get_all_hits():
     out = []
     for b in BOXES:
         for h in b.get("hits", []):
             card_meta = _get_card_meta(h["n"], b["id"], b["code"], h["r"])
+            # 1순위: card_images_map에서 image_verified
+            mapped_img = _get_card_img(h["n"], b["id"], b["code"], h["r"])
+            # 2순위: 포켓몬 코리아 CDN 자동 생성 (카드번호가 있으면)
+            card_no = card_meta.get("local_id", "")
+            auto_img = _auto_card_img(b["id"], card_no) if not mapped_img else ""
+            final_img = mapped_img or auto_img
+            img_status = "image_verified" if final_img else "not_shown"
+            if mapped_img:
+                img_status = card_meta.get("image_status", "image_verified")
+            elif auto_img:
+                img_status = "auto_cdn"
             out.append({"name": h["n"], "rarity": h["r"], "est_price": h["p"], "pull_rate": h["rate"],
                         "box_id": b["id"], "box_name": b["name"], "code": b["code"], "box_img": b.get("img",""),
-                        "card_img": _get_card_img(h["n"], b["id"], b["code"], h["r"]),
-                        "card_no": card_meta.get("local_id", ""),
+                        "card_img": final_img,
+                        "card_no": card_no,
                         "tcgdex_set": card_meta.get("tcgdex_set", ""),
-                        "card_img_status": card_meta.get("image_status", "not_shown"),
+                        "card_img_status": img_status,
                         "card_match_status": card_meta.get("match_status", "unverified")})
     return out
 
@@ -219,6 +255,7 @@ class CardGrader:
                 "card_detected": card_detected,
                 "card_name": card_name,
                 "card_identified": card_identified,
+                "card_info": getattr(self, '_last_card_info', {}),
                 "quality": quality,
                 "disclaimer": "참고용이며 실제 PSA/BGS/CGC 결과와 다를 수 있습니다."}
 
@@ -248,14 +285,23 @@ class CardGrader:
         }
 
     def _identify_card(self, card_img):
-        """카드 텍스트를 읽어 포켓몬 이름 식별"""
+        """카드 사진을 분석하여 카드 이름, 세트, 번호, 레어리티 등 종합 정보 식별"""
         b64 = self._b64(card_img)
-        prompt = ("트레이딩 카드 전체 사진이다. 이 카드의 정보를 읽어라.\n"
-                  "1. 포켓몬 이름 (한국어)\n"
-                  "2. HP 숫자\n"
-                  "3. 카드에 적힌 번호 (예: 054/088)\n"
-                  "형식:\n이름:(이름)\nHP:(숫자)\n번호:(번호)\n"
-                  "모르면 '불가'라고 써라.")
+        prompt = (
+            "이것은 포켓몬 트레이딩 카드 게임 카드 사진이다. 카드에 보이는 모든 정보를 정확하게 읽어라.\n"
+            "카드 이미지, 텍스트, 기호, 번호를 모두 확인하고 아래 형식으로 답해라.\n\n"
+            "형식:\n"
+            "이름:(포켓몬 이름, 카드에 적힌 언어 그대로)\n"
+            "HP:(HP 숫자, 숫자만)\n"
+            "번호:(카드 번호, 예: 054/088)\n"
+            "레어리티:(카드의 레어리티 기호 - C, U, R, RR, SR, SAR, AR, UR, master, R 등. 마크가 보이면 그에 해당하는 약자)\n"
+            "세트코드:(카드 하단이나 좌측 하단에 적힌 세트 식별 코드나 기호. 예: SV9a, SV11B, M5 등)\n"
+            "언어:(카드에 적힌 언어 - 한국어, 일본어, 영어 등)\n"
+            "포켓몬타입:( Grass, Fire, Water, Lightning, Psychic, Fighting, Darkness, Metal, Dragon, Fairy, Colorless 중 하나)\n"
+            "진화:(기본 포켓몬인지 진화 포켓몬인지. 예: 피카츄는 기본, 라이츄는 1진화)\n"
+            "특수:(ex, V, VMAX, VSTAR, 메가, GX 등 특수 카드 표기)\n\n"
+            "모르는 항목은 '불가'라고 적어라. 추측하지 말고 보이는 것만 적어라."
+        )
         try:
             if self.backend == "gemini":
                 url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.gemini_model}:generateContent?key={self.gemini_key}"
@@ -264,7 +310,7 @@ class CardGrader:
                         {"text": prompt},
                         {"inline_data": {"mime_type": "image/jpeg", "data": b64}}
                     ]}],
-                    "generationConfig": {"temperature": 0.1, "maxOutputTokens": 100}
+                    "generationConfig": {"temperature": 0.1, "maxOutputTokens": 300}
                 }
                 r = requests.post(url, json=payload, timeout=60)
                 data = r.json()
@@ -276,17 +322,29 @@ class CardGrader:
                         {"type": "text", "text": "<|think_off|>\n" + prompt},
                         {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}
                     ]}],
-                    "max_tokens": 100, "temperature": 0.1
+                    "max_tokens": 300, "temperature": 0.1
                 }, timeout=60)
                 text = r.json().get("choices", [{}])[0].get("message", {}).get("content", "")
-            # 이름 추출
+
+            # 구조화된 정보 추출
+            info = {}
             for line in text.strip().split("\n"):
-                if "이름:" in line or "이름 :" in line:
-                    name = line.split(":")[-1].strip()
-                    if name and name != "불가":
-                        return name
-            return ""
+                if ":" in line:
+                    key, val = line.split(":", 1)
+                    key = key.strip().lower()
+                    val = val.strip()
+                    if val and val != "불가":
+                        info[key] = val
+
+            # 이름 반환 (기존 호환성)
+            name = info.get("이름", "")
+
+            # 구조화된 식별 정보를 전체 반환에 포함하기 위해 인스턴스 변수에 저장
+            self._last_card_info = info
+
+            return name
         except:
+            self._last_card_info = {}
             return ""
 
     def _detect(self, img):
@@ -540,6 +598,32 @@ def create_app():
         if not b: return jsonify({"error":"박스 없음"}), 404
         return jsonify({**b, **box_ev(b)})
 
+    @app.route("/api/boxes/<bid>/cards")
+    def api_box_cards(bid):
+        """박스별 전체 카드 목록 반환"""
+        b = get_box(bid)
+        if not b: return jsonify({"error":"박스 없음"}), 404
+        # TCGdex 매핑에서 카드 목록 로드
+        cards_path = os.path.join(BASE_DIR, "data", "box_cards.json")
+        all_cards = {}
+        if os.path.exists(cards_path):
+            try:
+                with open(cards_path, "r", encoding="utf-8") as f:
+                    all_cards = json.load(f)
+            except:
+                pass
+        box_cards = all_cards.get(bid, {}).get("cards", [])
+        hits = get_all_hits()
+        hit_names = {h.get("name","") for h in hits if h.get("box_id") == bid}
+        for c in box_cards:
+            c["is_hit"] = c.get("name","") in hit_names or any(c.get("name","") in h.get("name","") for h in hits if h.get("box_id")==bid)
+            # 한국어 이름 매칭 (히트카드에서)
+            for h in hits:
+                if h.get("box_id") == bid:
+                    # TCGdex 일본어 이름과 히트카드 한국어 이름 매칭은 향후 매핑 테이블 필요
+                    pass
+        return jsonify({"box_id": bid, "box_name": b.get("name",""), "code": b.get("code",""), "total": len(box_cards), "cards": box_cards})
+
     @app.route("/api/hit-cards")
     def api_hits(): return jsonify(get_all_hits())
 
@@ -638,32 +722,81 @@ def create_app():
             "remaining_free": max(0, FREE_LIMIT - len(cards)) if not premium else -1,
         })
 
+    # ── Toss Payments 결제 검증 ──────────────────────────────
+    import os as _os
+    TOSS_SECRET = _os.environ.get("TOSS_PAYMENTS_SECRET_KEY", "")
+    TOSS_API_BASE = "https://api.tosspayments.com/v1"
+
+    def _verify_toss_payment(payment_key, order_id, amount):
+        """Toss Payments 결제 조회 API로 실제 결제를 검증한다."""
+        if not TOSS_SECRET:
+            return False, "TOSS_SECRET_NOT_SET"
+        try:
+            import urllib.request, base64, json as _json
+            url = f"{TOSS_API_BASE}/payments/{payment_key}"
+            req = urllib.request.Request(url, method="GET")
+            credentials = base64.b64encode(TOSS_SECRET.encode()).decode()
+            req.add_header("Authorization", f"Basic {credentials}")
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = _json.loads(resp.read())
+            if data.get("orderId") == order_id and data.get("totalAmount") == amount and data.get("status") == "DONE":
+                return True, data
+            return False, f"MISMATCH: order={data.get('orderId')}, amount={data.get('totalAmount')}, status={data.get('status')}"
+        except Exception as e:
+            return False, f"TOSS_API_ERROR: {e}"
+
     @app.route("/api/subscription/activate", methods=["POST"])
     def sub_activate():
-        """Toss Payments 웹훅 또는 수동 활성화."""
+        """Toss Payments 결제 검증 후 프리미엄 활성화."""
         d = request.json or {}
         device_id = d.get("device_id", "")
+        payment_key = d.get("paymentKey", "")
+        order_id = d.get("orderId", "")
+        amount = d.get("amount", 0)
         if not device_id:
             return jsonify({"error":"device_id 필요"}), 400
-        # 실결제 연동 시 여기서 Toss 결제 검증 (orderId, paymentKey, amount)
-        # 지금은 웹훅 기반 활성화만 처리
+        if not payment_key or not order_id or amount <= 0:
+            return jsonify({"error":"결제 정보 누락: paymentKey, orderId, amount 필요"}), 400
+        ok, detail = _verify_toss_payment(payment_key, order_id, amount)
+        if not ok:
+            return jsonify({"error":"결제 검증 실패", "detail": detail}), 403
         user = _get_user(device_id)
         user["premium"] = True
         from datetime import timedelta
         user["premium_until"] = (datetime.now() + timedelta(days=30)).isoformat()
         user["activated_at"] = datetime.now().isoformat()
+        user["payment_key"] = payment_key
+        user["order_id"] = order_id
+        user["verified_amount"] = amount
         _set_user(device_id, user)
         return jsonify({"status":"ok","device_id":device_id,"premium":True,"premium_until":user["premium_until"]})
 
     @app.route("/api/subscription/webhook", methods=["POST"])
     def toss_webhook():
-        """Toss Payments 웹훅 수신."""
+        """Toss Payments 웹훅 수신 (서명 검증 포함)."""
         d = request.json or {}
-        # Toss 결제 완료 콜백: orderId에 device_id 인코딩
+        # Toss 웹훅 서명 검증: x-toss-signature 헤더가 요청 바디의 HMAC-SHA256 이어야 함
+        signature = request.headers.get("x-toss-signature", "")
+        raw_body = request.get_data(as_text=True)
+        if not signature:
+            return jsonify({"error":"서명 누락"}), 403
+        import hmac, hashlib
+        if TOSS_SECRET:
+            expected = hmac.new(TOSS_SECRET.encode(), raw_body.encode(), hashlib.sha256).hexdigest()
+            if not hmac.compare_digest(signature, expected):
+                return jsonify({"error":"서명 검증 실패"}), 403
+        else:
+            return jsonify({"error":"TOSS_SECRET_NOT_SET"}), 503
+        # 결제 완료 콜백: orderId에 device_id 인코딩
         # orderId 형식: "tcg_{device_id}_{timestamp}"
         order_id = d.get("orderId", "")
         status = d.get("status", "")
+        payment_key = d.get("paymentKey", "")
         if status == "DONE" and order_id.startswith("tcg_"):
+            # 추가 검증: payment_key로 Toss API 재확인
+            ok, verify_detail = _verify_toss_payment(payment_key, order_id, d.get("totalAmount", 0))
+            if not ok:
+                return jsonify({"error":"결제 재검증 실패", "detail": verify_detail}), 403
             parts = order_id.split("_", 2)
             if len(parts) >= 3:
                 device_id = parts[1]
@@ -671,7 +804,7 @@ def create_app():
                 user["premium"] = True
                 from datetime import timedelta
                 user["premium_until"] = (datetime.now() + timedelta(days=30)).isoformat()
-                user["payment_key"] = d.get("paymentKey","")
+                user["payment_key"] = payment_key
                 user["amount"] = d.get("totalAmount", 0)
                 _set_user(device_id, user)
                 return jsonify({"status":"ok","activated":True,"device_id":device_id})
