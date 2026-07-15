@@ -100,6 +100,8 @@ PK_BOX_MAP = {
     "ninjaspinner": ("SV","SV9a"), "151": ("SV","SV3a"),
     "rocket": ("SV","SV8a"), "terastal": ("SV","SV8"), "ebreaker": ("SV","SV10"),
     "vstar": ("S","S12a"),
+    "infernox": ("MEGA","M2a"), "nihilzero": ("MEGA","M3"),
+    "abyss": ("MEGA","M5"), "megadream": ("MEGA","MC"),
 }
 # TCGdex CDN for boxes not in PK
 TCGDEX_BOX_MAP = {

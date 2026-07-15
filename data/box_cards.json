@@ -2811,582 +2811,814 @@
       {
         "id": "M2-001",
         "name": "ナゾノクサ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_001.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_001.png?w=720"
       },
       {
         "id": "M2-002",
         "name": "クサイハナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_002.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_002.png?w=720"
       },
       {
         "id": "M2-003",
         "name": "ラフレシア",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_003.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_003.png?w=720"
       },
       {
         "id": "M2-004",
         "name": "メガヘラクロスex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_004.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_004.png?w=720"
       },
       {
         "id": "M2-005",
         "name": "ハスボー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_005.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_005.png?w=720"
       },
       {
         "id": "M2-006",
         "name": "ハスブレロ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_006.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_006.png?w=720"
       },
       {
         "id": "M2-007",
         "name": "ルンパッパ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_007.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_007.png?w=720"
       },
       {
         "id": "M2-008",
         "name": "ゲノセクト",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_008.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_008.png?w=720"
       },
       {
         "id": "M2-009",
         "name": "マメバッタ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_009.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_009.png?w=720"
       },
       {
         "id": "M2-010",
         "name": "エクスレッグ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_010.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_010.png?w=720"
       },
       {
         "id": "M2-011",
         "name": "ヒトカゲ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_011.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_011.png?w=720"
       },
       {
         "id": "M2-012",
         "name": "リザード",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_012.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_012.png?w=720"
       },
       {
         "id": "M2-013",
         "name": "メガリザードンXex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_013.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_013.png?w=720"
       },
       {
         "id": "M2-014",
         "name": "ファイヤー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_014.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_014.png?w=720"
       },
       {
         "id": "M2-015",
         "name": "ダルマッカ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_015.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_015.png?w=720"
       },
       {
         "id": "M2-016",
         "name": "ヒヒダルマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_016.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_016.png?w=720"
       },
       {
         "id": "M2-017",
         "name": "レシラム",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_017.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_017.png?w=720"
       },
       {
         "id": "M2-018",
         "name": "オドリドリex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_018.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_018.png?w=720"
       },
       {
         "id": "M2-019",
         "name": "カルボウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_019.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_019.png?w=720"
       },
       {
         "id": "M2-020",
         "name": "ソウブレイズ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_020.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_020.png?w=720"
       },
       {
         "id": "M2-021",
         "name": "パウワウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_021.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_021.png?w=720"
       },
       {
         "id": "M2-022",
         "name": "ジュゴン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_022.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_022.png?w=720"
       },
       {
         "id": "M2-023",
         "name": "ウリムー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_023.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_023.png?w=720"
       },
       {
         "id": "M2-024",
         "name": "イノムー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_024.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_024.png?w=720"
       },
       {
         "id": "M2-025",
         "name": "マンムー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_025.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_025.png?w=720"
       },
       {
         "id": "M2-026",
         "name": "スイクン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_026.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_026.png?w=720"
       },
       {
         "id": "M2-027",
         "name": "ポッチャマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_027.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_027.png?w=720"
       },
       {
         "id": "M2-028",
         "name": "ポッタイシ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_028.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_028.png?w=720"
       },
       {
         "id": "M2-029",
         "name": "ロトムex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_029.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_029.png?w=720"
       },
       {
         "id": "M2-030",
         "name": "ワンパチ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_030.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_030.png?w=720"
       },
       {
         "id": "M2-031",
         "name": "パルスワン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_031.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_031.png?w=720"
       },
       {
         "id": "M2-032",
         "name": "パモ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_032.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_032.png?w=720"
       },
       {
         "id": "M2-033",
         "name": "パモット",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_033.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_033.png?w=720"
       },
       {
         "id": "M2-034",
         "name": "パーモット",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_034.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_034.png?w=720"
       },
       {
         "id": "M2-035",
         "name": "ムウマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_035.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_035.png?w=720"
       },
       {
         "id": "M2-036",
         "name": "ムウマージex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_036.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_036.png?w=720"
       },
       {
         "id": "M2-037",
         "name": "モンメン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_037.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_037.png?w=720"
       },
       {
         "id": "M2-038",
         "name": "エルフーン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_038.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_038.png?w=720"
       },
       {
         "id": "M2-039",
         "name": "ザシアン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_039.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_039.png?w=720"
       },
       {
         "id": "M2-040",
         "name": "アノクサ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_040.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_040.png?w=720"
       },
       {
         "id": "M2-041",
         "name": "アノホラグサ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_041.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_041.png?w=720"
       },
       {
         "id": "M2-042",
         "name": "パルデア ケンタロス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_042.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_042.png?w=720"
       },
       {
         "id": "M2-043",
         "name": "グライガー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_043.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_043.png?w=720"
       },
       {
         "id": "M2-044",
         "name": "グライオン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_044.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_044.png?w=720"
       },
       {
         "id": "M2-045",
         "name": "ナックラー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_045.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_045.png?w=720"
       },
       {
         "id": "M2-046",
         "name": "ビブラーバ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_046.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_046.png?w=720"
       },
       {
         "id": "M2-047",
         "name": "フライゴン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_047.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_047.png?w=720"
       },
       {
         "id": "M2-048",
         "name": "ニューラ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_048.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_048.png?w=720"
       },
       {
         "id": "M2-049",
         "name": "マニューラ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_049.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_049.png?w=720"
       },
       {
         "id": "M2-050",
         "name": "キバニア",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_050.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_050.png?w=720"
       },
       {
         "id": "M2-051",
         "name": "メガサメハダーex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_051.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_051.png?w=720"
       },
       {
         "id": "M2-052",
         "name": "ハブネーク",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_052.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_052.png?w=720"
       },
       {
         "id": "M2-053",
         "name": "メグロコ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_053.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_053.png?w=720"
       },
       {
         "id": "M2-054",
         "name": "ワルビル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_054.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_054.png?w=720"
       },
       {
         "id": "M2-055",
         "name": "ワルビアル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_055.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_055.png?w=720"
       },
       {
         "id": "M2-056",
         "name": "エレズン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_056.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_056.png?w=720"
       },
       {
         "id": "M2-057",
         "name": "ストリンダー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_057.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_057.png?w=720"
       },
       {
         "id": "M2-058",
         "name": "エンペルトex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_058.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_058.png?w=720"
       },
       {
         "id": "M2-059",
         "name": "ドーミラー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_059.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_059.png?w=720"
       },
       {
         "id": "M2-060",
         "name": "ドータクン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_060.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_060.png?w=720"
       },
       {
         "id": "M2-061",
         "name": "トゲデマル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_061.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_061.png?w=720"
       },
       {
         "id": "M2-062",
         "name": "ジュラルドン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_062.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_062.png?w=720"
       },
       {
         "id": "M2-063",
         "name": "ブリジュラス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_063.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_063.png?w=720"
       },
       {
         "id": "M2-064",
         "name": "プリン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_064.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_064.png?w=720"
       },
       {
         "id": "M2-065",
         "name": "プクリン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_065.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_065.png?w=720"
       },
       {
         "id": "M2-066",
         "name": "エイパム",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_066.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_066.png?w=720"
       },
       {
         "id": "M2-067",
         "name": "エテボース",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_067.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_067.png?w=720"
       },
       {
         "id": "M2-068",
         "name": "ドーブル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_068.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_068.png?w=720"
       },
       {
         "id": "M2-069",
         "name": "ジグザグマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_069.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_069.png?w=720"
       },
       {
         "id": "M2-070",
         "name": "マッスグマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_070.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_070.png?w=720"
       },
       {
         "id": "M2-071",
         "name": "ミミロル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_071.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_071.png?w=720"
       },
       {
         "id": "M2-072",
         "name": "メガミミロップex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_072.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_072.png?w=720"
       },
       {
         "id": "M2-073",
         "name": "ジャンボアイス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_073.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_073.png?w=720"
       },
       {
         "id": "M2-074",
         "name": "ヒートバーナー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_074.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_074.png?w=720"
       },
       {
         "id": "M2-075",
         "name": "せいなるおまもり",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_075.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_075.png?w=720"
       },
       {
         "id": "M2-076",
         "name": "ギーマの一手",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_076.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_076.png?w=720"
       },
       {
         "id": "M2-077",
         "name": "ヒカリ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_077.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_077.png?w=720"
       },
       {
         "id": "M2-078",
         "name": "ひふきやろう",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_078.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_078.png?w=720"
       },
       {
         "id": "M2-079",
         "name": "バトルコロシアム",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_079.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_079.png?w=720"
       },
       {
         "id": "M2-080",
         "name": "めまいの谷",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_080.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_080.png?w=720"
       },
       {
         "id": "M2-081",
         "name": "ルンパッパ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_081.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_081.png?w=720"
       },
       {
         "id": "M2-082",
         "name": "マメバッタ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_082.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_082.png?w=720"
       },
       {
         "id": "M2-083",
         "name": "カルボウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_083.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_083.png?w=720"
       },
       {
         "id": "M2-084",
         "name": "ジュゴン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_084.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_084.png?w=720"
       },
       {
         "id": "M2-085",
         "name": "ポッチャマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_085.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_085.png?w=720"
       },
       {
         "id": "M2-086",
         "name": "ワンパチ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_086.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_086.png?w=720"
       },
       {
         "id": "M2-087",
         "name": "ザシアン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_087.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_087.png?w=720"
       },
       {
         "id": "M2-088",
         "name": "フライゴン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_088.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_088.png?w=720"
       },
       {
         "id": "M2-089",
         "name": "ストリンダー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_089.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_089.png?w=720"
       },
       {
         "id": "M2-090",
         "name": "トゲデマル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_090.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_090.png?w=720"
       },
       {
         "id": "M2-091",
         "name": "プクリン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_091.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_091.png?w=720"
       },
       {
         "id": "M2-092",
         "name": "エテボース",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_092.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_092.png?w=720"
       },
       {
         "id": "M2-093",
         "name": "メガヘラクロスex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_093.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_093.png?w=720"
       },
       {
         "id": "M2-094",
         "name": "メガリザードンXex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_094.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_094.png?w=720"
       },
       {
         "id": "M2-095",
         "name": "オドリドリex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_095.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_095.png?w=720"
       },
       {
         "id": "M2-096",
         "name": "ロトムex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_096.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_096.png?w=720"
       },
       {
         "id": "M2-097",
         "name": "ムウマージex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_097.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_097.png?w=720"
       },
       {
         "id": "M2-098",
         "name": "メガサメハダーex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_098.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_098.png?w=720"
       },
       {
         "id": "M2-099",
         "name": "エンペルトex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_099.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_099.png?w=720"
       },
       {
         "id": "M2-100",
         "name": "メガミミロップex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_100.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_100.png?w=720"
       },
       {
         "id": "M2-101",
         "name": "ヒートバーナー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_101.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_101.png?w=720"
       },
       {
         "id": "M2-102",
         "name": "ポケモンいれかえ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_102.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_102.png?w=720"
       },
       {
         "id": "M2-103",
         "name": "せいなるおまもり",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_103.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_103.png?w=720"
       },
       {
         "id": "M2-104",
         "name": "パンクメット",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_104.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_104.png?w=720"
       },
       {
         "id": "M2-105",
         "name": "ギーマの一手",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_105.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_105.png?w=720"
       },
       {
         "id": "M2-106",
         "name": "ヒカリ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_106.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_106.png?w=720"
       },
       {
         "id": "M2-107",
         "name": "ひふきやろう",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_107.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_107.png?w=720"
       },
       {
         "id": "M2-108",
         "name": "バトルコロシアム",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_108.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_108.png?w=720"
       },
       {
         "id": "M2-109",
         "name": "イグニッションエネルギー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_109.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_109.png?w=720"
       },
       {
         "id": "M2-110",
         "name": "メガリザードンXex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_110.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_110.png?w=720"
       },
       {
         "id": "M2-111",
         "name": "オドリドリex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_111.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_111.png?w=720"
       },
       {
         "id": "M2-112",
         "name": "ロトムex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_112.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_112.png?w=720"
       },
       {
         "id": "M2-113",
         "name": "メガサメハダーex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_113.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_113.png?w=720"
       },
       {
         "id": "M2-114",
         "name": "メガミミロップex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_114.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_114.png?w=720"
       },
       {
         "id": "M2-115",
         "name": "ヒカリ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_115.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_115.png?w=720"
       },
       {
         "id": "M2-116",
         "name": "メガリザードンXex",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_116.png?w=360",
+        "image_high": "https://cards.image.pokemonkorea.co.kr/data/wmimages/MEGA/M2a/M2a_116.png?w=720"
       }
     ]
   },
@@ -4906,1272 +5138,1780 @@
       {
         "id": "S12a-001",
         "name": "パラス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/001/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/001/high.webp"
       },
       {
         "id": "S12a-002",
         "name": "パラセクト",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/002/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/002/high.webp"
       },
       {
         "id": "S12a-003",
         "name": "ヒスイ ビリリダマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/003/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/003/high.webp"
       },
       {
         "id": "S12a-004",
         "name": "ヒスイ マルマイン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/004/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/004/high.webp"
       },
       {
         "id": "S12a-005",
         "name": "ヒスイ マルマインV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/005/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/005/high.webp"
       },
       {
         "id": "S12a-006",
         "name": "ナエトル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/006/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/006/high.webp"
       },
       {
         "id": "S12a-007",
         "name": "ハヤシガメ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/007/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/007/high.webp"
       },
       {
         "id": "S12a-008",
         "name": "ドダイトス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/008/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/008/high.webp"
       },
       {
         "id": "S12a-009",
         "name": "コロボーシ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/009/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/009/high.webp"
       },
       {
         "id": "S12a-010",
         "name": "コロトック",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/010/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/010/high.webp"
       },
       {
         "id": "S12a-011",
         "name": "リーフィアV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/011/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/011/high.webp"
       },
       {
         "id": "S12a-012",
         "name": "リーフィアVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/012/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/012/high.webp"
       },
       {
         "id": "S12a-013",
         "name": "リザードンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/013/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/013/high.webp"
       },
       {
         "id": "S12a-014",
         "name": "リザードンVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/014/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/014/high.webp"
       },
       {
         "id": "S12a-015",
         "name": "かがやくリザードン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/015/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/015/high.webp"
       },
       {
         "id": "S12a-016",
         "name": "ブーバー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/016/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/016/high.webp"
       },
       {
         "id": "S12a-017",
         "name": "ブーバーン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/017/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/017/high.webp"
       },
       {
         "id": "S12a-018",
         "name": "ファイヤー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/018/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/018/high.webp"
       },
       {
         "id": "S12a-019",
         "name": "エンテイV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/019/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/019/high.webp"
       },
       {
         "id": "S12a-020",
         "name": "バオッキーV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/020/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/020/high.webp"
       },
       {
         "id": "S12a-021",
         "name": "バオッキーVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/021/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/021/high.webp"
       },
       {
         "id": "S12a-022",
         "name": "オドリドリ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/022/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/022/high.webp"
       },
       {
         "id": "S12a-023",
         "name": "ラプラス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/023/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/023/high.webp"
       },
       {
         "id": "S12a-024",
         "name": "スイクンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/024/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/024/high.webp"
       },
       {
         "id": "S12a-025",
         "name": "レジアイス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/025/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/025/high.webp"
       },
       {
         "id": "S12a-026",
         "name": "ネオラントV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/026/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/026/high.webp"
       },
       {
         "id": "S12a-027",
         "name": "オリジンパルキアV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/027/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/027/high.webp"
       },
       {
         "id": "S12a-028",
         "name": "オリジンパルキアVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/028/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/028/high.webp"
       },
       {
         "id": "S12a-029",
         "name": "マナフィ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/029/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/029/high.webp"
       },
       {
         "id": "S12a-030",
         "name": "ヒスイ バスラオ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/030/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/030/high.webp"
       },
       {
         "id": "S12a-031",
         "name": "ヒスイ イダイトウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/031/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/031/high.webp"
       },
       {
         "id": "S12a-032",
         "name": "ケルディオ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/032/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/032/high.webp"
       },
       {
         "id": "S12a-033",
         "name": "かがやくゲッコウガ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/033/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/033/high.webp"
       },
       {
         "id": "S12a-034",
         "name": "エレブー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/034/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/034/high.webp"
       },
       {
         "id": "S12a-035",
         "name": "エレキブル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/035/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/035/high.webp"
       },
       {
         "id": "S12a-036",
         "name": "メリープ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/036/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/036/high.webp"
       },
       {
         "id": "S12a-037",
         "name": "モココ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/037/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/037/high.webp"
       },
       {
         "id": "S12a-038",
         "name": "ライコウV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/038/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/038/high.webp"
       },
       {
         "id": "S12a-039",
         "name": "かがやくデンヂムシ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/039/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/039/high.webp"
       },
       {
         "id": "S12a-040",
         "name": "ゼラオラV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/040/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/040/high.webp"
       },
       {
         "id": "S12a-041",
         "name": "ゼラオラVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/041/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/041/high.webp"
       },
       {
         "id": "S12a-042",
         "name": "ゼラオラVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/042/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/042/high.webp"
       },
       {
         "id": "S12a-043",
         "name": "エレズン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/043/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/043/high.webp"
       },
       {
         "id": "S12a-044",
         "name": "ストリンダー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/044/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/044/high.webp"
       },
       {
         "id": "S12a-045",
         "name": "レジエレキ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/045/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/045/high.webp"
       },
       {
         "id": "S12a-046",
         "name": "ゴース",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/046/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/046/high.webp"
       },
       {
         "id": "S12a-047",
         "name": "ゴースト",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/047/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/047/high.webp"
       },
       {
         "id": "S12a-048",
         "name": "ゲンガー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/048/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/048/high.webp"
       },
       {
         "id": "S12a-049",
         "name": "ガラル フリーザー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/049/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/049/high.webp"
       },
       {
         "id": "S12a-050",
         "name": "ミュウツーV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/050/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/050/high.webp"
       },
       {
         "id": "S12a-051",
         "name": "ミュウツーVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/051/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/051/high.webp"
       },
       {
         "id": "S12a-052",
         "name": "ミュウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/052/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/052/high.webp"
       },
       {
         "id": "S12a-053",
         "name": "ミュウV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/053/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/053/high.webp"
       },
       {
         "id": "S12a-054",
         "name": "ミュウVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/054/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/054/high.webp"
       },
       {
         "id": "S12a-055",
         "name": "かがやくサーナイト",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/055/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/055/high.webp"
       },
       {
         "id": "S12a-056",
         "name": "ルナトーン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/056/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/056/high.webp"
       },
       {
         "id": "S12a-057",
         "name": "ヨマワル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/057/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/057/high.webp"
       },
       {
         "id": "S12a-058",
         "name": "サマヨール",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/058/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/058/high.webp"
       },
       {
         "id": "S12a-059",
         "name": "ヨノワール",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/059/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/059/high.webp"
       },
       {
         "id": "S12a-060",
         "name": "デオキシス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/060/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/060/high.webp"
       },
       {
         "id": "S12a-061",
         "name": "バケッチャ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/061/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/061/high.webp"
       },
       {
         "id": "S12a-062",
         "name": "パンプジン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/062/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/062/high.webp"
       },
       {
         "id": "S12a-063",
         "name": "ディアンシー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/063/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/063/high.webp"
       },
       {
         "id": "S12a-064",
         "name": "キュワワー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/064/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/064/high.webp"
       },
       {
         "id": "S12a-065",
         "name": "ブリムオンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/065/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/065/high.webp"
       },
       {
         "id": "S12a-066",
         "name": "ブリムオンVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/066/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/066/high.webp"
       },
       {
         "id": "S12a-067",
         "name": "ザシアンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/067/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/067/high.webp"
       },
       {
         "id": "S12a-068",
         "name": "ラブトロスV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/068/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/068/high.webp"
       },
       {
         "id": "S12a-069",
         "name": "ヒスイ ガーディ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/069/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/069/high.webp"
       },
       {
         "id": "S12a-070",
         "name": "ヒスイ ウインディ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/070/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/070/high.webp"
       },
       {
         "id": "S12a-071",
         "name": "カイリキーV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/071/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/071/high.webp"
       },
       {
         "id": "S12a-072",
         "name": "カイリキーVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/072/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/072/high.webp"
       },
       {
         "id": "S12a-073",
         "name": "ガラル サンダー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/073/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/073/high.webp"
       },
       {
         "id": "S12a-074",
         "name": "ソルロック",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/074/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/074/high.webp"
       },
       {
         "id": "S12a-075",
         "name": "レジロック",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/075/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/075/high.webp"
       },
       {
         "id": "S12a-076",
         "name": "リオル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/076/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/076/high.webp"
       },
       {
         "id": "S12a-077",
         "name": "ルカリオ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/077/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/077/high.webp"
       },
       {
         "id": "S12a-078",
         "name": "かがやくルチャブル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/078/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/078/high.webp"
       },
       {
         "id": "S12a-079",
         "name": "ガラル ファイヤー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/079/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/079/high.webp"
       },
       {
         "id": "S12a-080",
         "name": "ガラル ファイヤーV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/080/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/080/high.webp"
       },
       {
         "id": "S12a-081",
         "name": "ポチエナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/081/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/081/high.webp"
       },
       {
         "id": "S12a-082",
         "name": "グラエナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/082/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/082/high.webp"
       },
       {
         "id": "S12a-083",
         "name": "アブソル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/083/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/083/high.webp"
       },
       {
         "id": "S12a-084",
         "name": "ミカルゲ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/084/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/084/high.webp"
       },
       {
         "id": "S12a-085",
         "name": "ドラピオンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/085/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/085/high.webp"
       },
       {
         "id": "S12a-086",
         "name": "ヒスイ ダイケンキV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/086/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/086/high.webp"
       },
       {
         "id": "S12a-087",
         "name": "ヒスイ ダイケンキVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/087/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/087/high.webp"
       },
       {
         "id": "S12a-088",
         "name": "チョロネコ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/088/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/088/high.webp"
       },
       {
         "id": "S12a-089",
         "name": "レパルダス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/089/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/089/high.webp"
       },
       {
         "id": "S12a-090",
         "name": "ゾロア",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/090/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/090/high.webp"
       },
       {
         "id": "S12a-091",
         "name": "ゾロアーク",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/091/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/091/high.webp"
       },
       {
         "id": "S12a-092",
         "name": "クスネ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/092/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/092/high.webp"
       },
       {
         "id": "S12a-093",
         "name": "フォクスライ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/093/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/093/high.webp"
       },
       {
         "id": "S12a-094",
         "name": "コイル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/094/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/094/high.webp"
       },
       {
         "id": "S12a-095",
         "name": "レアコイル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/095/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/095/high.webp"
       },
       {
         "id": "S12a-096",
         "name": "ジバコイル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/096/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/096/high.webp"
       },
       {
         "id": "S12a-097",
         "name": "レジスチル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/097/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/097/high.webp"
       },
       {
         "id": "S12a-098",
         "name": "ドーミラー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/098/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/098/high.webp"
       },
       {
         "id": "S12a-099",
         "name": "ドータクン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/099/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/099/high.webp"
       },
       {
         "id": "S12a-100",
         "name": "オリジンディアルガV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/100/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/100/high.webp"
       },
       {
         "id": "S12a-101",
         "name": "オリジンディアルガVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/101/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/101/high.webp"
       },
       {
         "id": "S12a-102",
         "name": "ゲノセクトV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/102/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/102/high.webp"
       },
       {
         "id": "S12a-103",
         "name": "ザマゼンタV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/103/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/103/high.webp"
       },
       {
         "id": "S12a-104",
         "name": "チルタリス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/104/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/104/high.webp"
       },
       {
         "id": "S12a-105",
         "name": "ラティアス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/105/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/105/high.webp"
       },
       {
         "id": "S12a-106",
         "name": "ラティオス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/106/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/106/high.webp"
       },
       {
         "id": "S12a-107",
         "name": "レックウザV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/107/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/107/high.webp"
       },
       {
         "id": "S12a-108",
         "name": "レックウザVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/108/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/108/high.webp"
       },
       {
         "id": "S12a-109",
         "name": "ガブリアスV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/109/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/109/high.webp"
       },
       {
         "id": "S12a-110",
         "name": "ギラティナV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/110/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/110/high.webp"
       },
       {
         "id": "S12a-111",
         "name": "ギラティナVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/111/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/111/high.webp"
       },
       {
         "id": "S12a-112",
         "name": "ヌメラ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/112/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/112/high.webp"
       },
       {
         "id": "S12a-113",
         "name": "ヒスイ ヌメイル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/113/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/113/high.webp"
       },
       {
         "id": "S12a-114",
         "name": "ヒスイ ヌメルゴン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/114/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/114/high.webp"
       },
       {
         "id": "S12a-115",
         "name": "かがやくムゲンダイナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/115/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/115/high.webp"
       },
       {
         "id": "S12a-116",
         "name": "レジドラゴ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/116/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/116/high.webp"
       },
       {
         "id": "S12a-117",
         "name": "メタモン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/117/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/117/high.webp"
       },
       {
         "id": "S12a-118",
         "name": "ノコッチ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/118/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/118/high.webp"
       },
       {
         "id": "S12a-119",
         "name": "ミルタンク",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/119/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/119/high.webp"
       },
       {
         "id": "S12a-120",
         "name": "チルット",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/120/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/120/high.webp"
       },
       {
         "id": "S12a-121",
         "name": "ビッパ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/121/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/121/high.webp"
       },
       {
         "id": "S12a-122",
         "name": "ビーダル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/122/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/122/high.webp"
       },
       {
         "id": "S12a-123",
         "name": "レジギガス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/123/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/123/high.webp"
       },
       {
         "id": "S12a-124",
         "name": "レジギガスV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/124/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/124/high.webp"
       },
       {
         "id": "S12a-125",
         "name": "レジギガスVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/125/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/125/high.webp"
       },
       {
         "id": "S12a-126",
         "name": "アルセウスV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/126/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/126/high.webp"
       },
       {
         "id": "S12a-127",
         "name": "アルセウスVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/127/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/127/high.webp"
       },
       {
         "id": "S12a-128",
         "name": "ヒスイ ゾロアークV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/128/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/128/high.webp"
       },
       {
         "id": "S12a-129",
         "name": "ヒスイ ゾロアークVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/129/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/129/high.webp"
       },
       {
         "id": "S12a-130",
         "name": "ヤレユータンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/130/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/130/high.webp"
       },
       {
         "id": "S12a-131",
         "name": "アヤシシV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/131/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/131/high.webp"
       },
       {
         "id": "S12a-132",
         "name": "うねりの扇",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/132/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/132/high.webp"
       },
       {
         "id": "S12a-133",
         "name": "ガッツのつるはし",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/133/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/133/high.webp"
       },
       {
         "id": "S12a-134",
         "name": "霧の水晶",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/134/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/134/high.webp"
       },
       {
         "id": "S12a-135",
         "name": "ダークパッチ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/135/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/135/high.webp"
       },
       {
         "id": "S12a-136",
         "name": "ダメージポンプ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/136/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/136/high.webp"
       },
       {
         "id": "S12a-137",
         "name": "トレッキングシューズ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/137/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/137/high.webp"
       },
       {
         "id": "S12a-138",
         "name": "ハイパーボール",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/138/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/138/high.webp"
       },
       {
         "id": "S12a-139",
         "name": "パワータブレット",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/139/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/139/high.webp"
       },
       {
         "id": "S12a-140",
         "name": "ヒスイのヘビーボール",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/140/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/140/high.webp"
       },
       {
         "id": "S12a-141",
         "name": "ミラージュゲート",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/141/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/141/high.webp"
       },
       {
         "id": "S12a-142",
         "name": "レスキューキャリー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/142/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/142/high.webp"
       },
       {
         "id": "S12a-143",
         "name": "レベルボール",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/143/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/143/high.webp"
       },
       {
         "id": "S12a-144",
         "name": "ロストスイーパー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/144/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/144/high.webp"
       },
       {
         "id": "S12a-145",
         "name": "こだわりベルト",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/145/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/145/high.webp"
       },
       {
         "id": "S12a-146",
         "name": "空の封印石",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/146/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/146/high.webp"
       },
       {
         "id": "S12a-147",
         "name": "葉隠れポンチョ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/147/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/147/high.webp"
       },
       {
         "id": "S12a-148",
         "name": "アクロマの実験",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/148/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/148/high.webp"
       },
       {
         "id": "S12a-149",
         "name": "カイ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/149/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/149/high.webp"
       },
       {
         "id": "S12a-150",
         "name": "カミツレのきらめき",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/150/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/150/high.webp"
       },
       {
         "id": "S12a-151",
         "name": "キバナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/151/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/151/high.webp"
       },
       {
         "id": "S12a-152",
         "name": "ザクロ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/152/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/152/high.webp"
       },
       {
         "id": "S12a-153",
         "name": "シロナの覇気",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/153/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/153/high.webp"
       },
       {
         "id": "S12a-154",
         "name": "シンオウの仲間たち",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/154/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/154/high.webp"
       },
       {
         "id": "S12a-155",
         "name": "セキ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/155/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/155/high.webp"
       },
       {
         "id": "S12a-156",
         "name": "チェレンの気くばり",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/156/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/156/high.webp"
       },
       {
         "id": "S12a-157",
         "name": "ツツジ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/157/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/157/high.webp"
       },
       {
         "id": "S12a-158",
         "name": "ナタネの活気",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/158/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/158/high.webp"
       },
       {
         "id": "S12a-159",
         "name": "博士の研究（ナナカマド博士）",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/159/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/159/high.webp"
       },
       {
         "id": "S12a-160",
         "name": "ヒスイの仲間たち",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/160/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/160/high.webp"
       },
       {
         "id": "S12a-161",
         "name": "ボスの指令（アカギ）",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/161/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/161/high.webp"
       },
       {
         "id": "S12a-162",
         "name": "メロン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/162/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/162/high.webp"
       },
       {
         "id": "S12a-163",
         "name": "モミ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/163/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/163/high.webp"
       },
       {
         "id": "S12a-164",
         "name": "嵐の山脈",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/164/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/164/high.webp"
       },
       {
         "id": "S12a-165",
         "name": "頂への雪道",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/165/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/165/high.webp"
       },
       {
         "id": "S12a-166",
         "name": "大口の沼",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/166/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/166/high.webp"
       },
       {
         "id": "S12a-167",
         "name": "崩れたスタジアム",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/167/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/167/high.webp"
       },
       {
         "id": "S12a-168",
         "name": "コトブキムラ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/168/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/168/high.webp"
       },
       {
         "id": "S12a-169",
         "name": "シンオウ神殿",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/169/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/169/high.webp"
       },
       {
         "id": "S12a-170",
         "name": "マグマの滝壺",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/170/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/170/high.webp"
       },
       {
         "id": "S12a-171",
         "name": "ダブルターボエネルギー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/171/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/171/high.webp"
       },
       {
         "id": "S12a-172",
         "name": "フュージョンエネルギー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/172/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/172/high.webp"
       },
       {
         "id": "S12a-173",
         "name": "ヒスイ ビリリダマ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/173/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/173/high.webp"
       },
       {
         "id": "S12a-174",
         "name": "コロトック",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/174/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/174/high.webp"
       },
       {
         "id": "S12a-175",
         "name": "ブーバーン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/175/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/175/high.webp"
       },
       {
         "id": "S12a-176",
         "name": "オドリドリ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/176/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/176/high.webp"
       },
       {
         "id": "S12a-177",
         "name": "ラプラス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/177/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/177/high.webp"
       },
       {
         "id": "S12a-178",
         "name": "マナフィ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/178/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/178/high.webp"
       },
       {
         "id": "S12a-179",
         "name": "ケルディオ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/179/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/179/high.webp"
       },
       {
         "id": "S12a-180",
         "name": "エレキブル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/180/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/180/high.webp"
       },
       {
         "id": "S12a-181",
         "name": "ストリンダー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/181/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/181/high.webp"
       },
       {
         "id": "S12a-182",
         "name": "ガラル フリーザー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/182/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/182/high.webp"
       },
       {
         "id": "S12a-183",
         "name": "ミュウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/183/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/183/high.webp"
       },
       {
         "id": "S12a-184",
         "name": "ルナトーン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/184/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/184/high.webp"
       },
       {
         "id": "S12a-185",
         "name": "デオキシス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/185/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/185/high.webp"
       },
       {
         "id": "S12a-186",
         "name": "ディアンシー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/186/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/186/high.webp"
       },
       {
         "id": "S12a-187",
         "name": "キュワワー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/187/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/187/high.webp"
       },
       {
         "id": "S12a-188",
         "name": "ガラル サンダー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/188/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/188/high.webp"
       },
       {
         "id": "S12a-189",
         "name": "ソルロック",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/189/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/189/high.webp"
       },
       {
         "id": "S12a-190",
         "name": "ガラル ファイヤー",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/190/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/190/high.webp"
       },
       {
         "id": "S12a-191",
         "name": "アブソル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/191/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/191/high.webp"
       },
       {
         "id": "S12a-192",
         "name": "フォクスライ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/192/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/192/high.webp"
       },
       {
         "id": "S12a-193",
         "name": "ジバコイル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/193/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/193/high.webp"
       },
       {
         "id": "S12a-194",
         "name": "チルタリス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/194/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/194/high.webp"
       },
       {
         "id": "S12a-195",
         "name": "ラティアス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/195/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/195/high.webp"
       },
       {
         "id": "S12a-196",
         "name": "ヒスイ ヌメルゴン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/196/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/196/high.webp"
       },
       {
         "id": "S12a-197",
         "name": "メタモン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/197/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/197/high.webp"
       },
       {
         "id": "S12a-198",
         "name": "ノコッチ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/198/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/198/high.webp"
       },
       {
         "id": "S12a-199",
         "name": "ミルタンク",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/199/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/199/high.webp"
       },
       {
         "id": "S12a-200",
         "name": "ビーダル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/200/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/200/high.webp"
       },
       {
         "id": "S12a-201",
         "name": "リオル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/201/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/201/high.webp"
       },
       {
         "id": "S12a-202",
         "name": "チルット",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/202/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/202/high.webp"
       },
       {
         "id": "S12a-203",
         "name": "ヨマワル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/203/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/203/high.webp"
       },
       {
         "id": "S12a-204",
         "name": "ビッパ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/204/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/204/high.webp"
       },
       {
         "id": "S12a-205",
         "name": "ピカチュウ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/205/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/205/high.webp"
       },
       {
         "id": "S12a-206",
         "name": "ナエトル",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/206/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/206/high.webp"
       },
       {
         "id": "S12a-207",
         "name": "パラス",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/207/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/207/high.webp"
       },
       {
         "id": "S12a-208",
         "name": "ポチエナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/208/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/208/high.webp"
       },
       {
         "id": "S12a-209",
         "name": "メリープ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/209/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/209/high.webp"
       },
       {
         "id": "S12a-210",
         "name": "リーフィアVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/210/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/210/high.webp"
       },
       {
         "id": "S12a-211",
         "name": "リザードンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/211/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/211/high.webp"
       },
       {
         "id": "S12a-212",
         "name": "リザードンVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/212/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/212/high.webp"
       },
       {
         "id": "S12a-213",
         "name": "エンテイV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/213/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/213/high.webp"
       },
       {
         "id": "S12a-214",
         "name": "バオッキーVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/214/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/214/high.webp"
       },
       {
         "id": "S12a-215",
         "name": "スイクンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/215/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/215/high.webp"
       },
       {
         "id": "S12a-216",
         "name": "ネオラントV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/216/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/216/high.webp"
       },
       {
         "id": "S12a-217",
         "name": "グレイシアVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/217/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/217/high.webp"
       },
       {
         "id": "S12a-218",
         "name": "ライコウV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/218/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/218/high.webp"
       },
       {
         "id": "S12a-219",
         "name": "ゼラオラVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/219/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/219/high.webp"
       },
       {
         "id": "S12a-220",
         "name": "ゼラオラVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/220/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/220/high.webp"
       },
       {
         "id": "S12a-221",
         "name": "ミュウツーVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/221/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/221/high.webp"
       },
       {
         "id": "S12a-222",
         "name": "デオキシスVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/222/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/222/high.webp"
       },
       {
         "id": "S12a-223",
         "name": "デオキシスVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/223/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/223/high.webp"
       },
       {
         "id": "S12a-224",
         "name": "ブリムオンVMAX",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/224/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/224/high.webp"
       },
       {
         "id": "S12a-225",
         "name": "ザシアンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/225/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/225/high.webp"
       },
       {
         "id": "S12a-226",
         "name": "ルカリオVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/226/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/226/high.webp"
       },
       {
         "id": "S12a-227",
         "name": "ドラピオンV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/227/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/227/high.webp"
       },
       {
         "id": "S12a-228",
         "name": "ダークライVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/228/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/228/high.webp"
       },
       {
         "id": "S12a-229",
         "name": "ヒスイ ダイケンキV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/229/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/229/high.webp"
       },
       {
         "id": "S12a-230",
         "name": "ヒスイ ダイケンキVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/230/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/230/high.webp"
       },
       {
         "id": "S12a-231",
         "name": "フーパV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/231/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/231/high.webp"
       },
       {
         "id": "S12a-232",
         "name": "ザマゼンタV",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/232/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/232/high.webp"
       },
       {
         "id": "S12a-233",
         "name": "レジギガスVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/233/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/233/high.webp"
       },
       {
         "id": "S12a-234",
         "name": "ヒスイ ゾロアークVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/234/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/234/high.webp"
       },
       {
         "id": "S12a-235",
         "name": "アクロマの実験",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/235/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/235/high.webp"
       },
       {
         "id": "S12a-236",
         "name": "カイ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/236/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/236/high.webp"
       },
       {
         "id": "S12a-237",
         "name": "キバナ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/237/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/237/high.webp"
       },
       {
         "id": "S12a-238",
         "name": "ザクロ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/238/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/238/high.webp"
       },
       {
         "id": "S12a-239",
         "name": "シロナの覇気",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/239/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/239/high.webp"
       },
       {
         "id": "S12a-240",
         "name": "セキ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/240/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/240/high.webp"
       },
       {
         "id": "S12a-241",
         "name": "チェレンの気くばり",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/241/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/241/high.webp"
       },
       {
         "id": "S12a-242",
         "name": "ツツジ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/242/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/242/high.webp"
       },
       {
         "id": "S12a-243",
         "name": "ナタネの活気",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/243/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/243/high.webp"
       },
       {
         "id": "S12a-244",
         "name": "メロン",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/244/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/244/high.webp"
       },
       {
         "id": "S12a-245",
         "name": "ウォロ",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/245/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/245/high.webp"
       },
       {
         "id": "S12a-246",
         "name": "カミツレのきらめき",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/246/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/246/high.webp"
       },
       {
         "id": "S12a-247",
         "name": "シンオウの仲間たち",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/247/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/247/high.webp"
       },
       {
         "id": "S12a-248",
         "name": "博士の研究（ナナカマド博士）",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/248/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/248/high.webp"
       },
       {
         "id": "S12a-249",
         "name": "ヒスイの仲間たち",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/249/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/249/high.webp"
       },
       {
         "id": "S12a-250",
         "name": "ボスの指令（アカギ）",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/250/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/250/high.webp"
       },
       {
         "id": "S12a-259",
         "name": "オリジンパルキアVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/259/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/259/high.webp"
       },
       {
         "id": "S12a-260",
         "name": "オリジンディアルガVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/260/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/260/high.webp"
       },
       {
         "id": "S12a-261",
         "name": "ギラティナVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/261/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/261/high.webp"
       },
       {
         "id": "S12a-262",
         "name": "アルセウスVSTAR",
-        "rarity": ""
+        "rarity": "",
+        "image_low": "https://assets.tcgdex.net/ja/S/S12a/262/low.webp",
+        "image_high": "https://assets.tcgdex.net/ja/S/S12a/262/high.webp"
       }
     ]
   },
