@@ -205,6 +205,9 @@ class CardGrader:
             pass
         if not self.qwen and self.gemini_key:
             self.backend = "gemini"
+        # 카드 DB
+        db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "tcg_card_db.sqlite")
+        self.card_db = db_path if os.path.exists(db_path) else None
 
     @property
     def active_model(self):
@@ -260,6 +263,8 @@ class CardGrader:
                 "card_info": getattr(self, '_last_card_info', {}),
                 "quality": quality,
                 "disclaimer": "참고용이며 실제 PSA/BGS/CGC 결과와 다를 수 있습니다."}
+        if self.card_db and card_name and isinstance(card_name, dict):
+            result["market_price"] = self._lookup_price(card_name)
 
     def _check_quality(self, img):
         """이미지 품질 체크 — 빛 반사, 해상도, 흐림"""
@@ -496,6 +501,43 @@ class CardGrader:
         tl = text.lower()
         for kw, g in sorted(self.GMAP.items(), key=lambda x: -len(x[0])):
             if kw in tl: return g
+        return None
+
+    def _lookup_price(self, card_name):
+        """카드 DB에서 가격 정보 조회"""
+        if not self.card_db or not card_name:
+            return None
+        import sqlite3
+        try:
+            conn = sqlite3.connect(self.card_db)
+            conn.row_factory = sqlite3.Row
+            name = card_name.get('이름', '') or card_name.get('name', '')
+            rows = conn.execute("""
+                SELECT name, name_kr, set_name, rarity, number,
+                       tcgplayer_price, image_small
+                FROM cards 
+                WHERE (name LIKE ? OR name_kr LIKE ?)
+                ORDER BY tcgplayer_price DESC LIMIT 5
+            """, (f'%{name}%', f'%{name}%')).fetchall()
+            conn.close()
+            if rows:
+                best = rows[0]
+                price_usd = best['tcgplayer_price']
+                rarity_en = best['rarity'] or ''
+                result = {
+                    'name': best['name'], 'name_kr': best['name_kr'],
+                    'price_usd': price_usd, 'rarity': rarity_en,
+                    'set': best['set_name'], 'image': best['image_small'],
+                }
+                if price_usd:
+                    from app.kr_price import estimate_krw
+                    krw = estimate_krw(price_usd, rarity_en)
+                    if krw:
+                        result['krw_estimated'] = krw['krw_estimated']
+                        result['krw_range'] = f"{krw['krw_range_low']:,}~{krw['krw_range_high']:,}"
+                return result
+        except Exception:
+            pass
         return None
 
     @staticmethod

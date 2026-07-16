@@ -14,6 +14,23 @@ Railway (Flask 서버)
         └── 2순위: Gemini Flash-Lite API (회당 0.13센트)
 ```
 
+## 데이터베이스와 결제 상태
+
+컬렉션과 구독 상태는 SQLAlchemy Core의 schema version 1 테이블에 저장한다. Railway에서는 반드시 `TCG_DATABASE_URL`을 PostgreSQL URL로 설정한다. production mode에서 이 변수가 없으면 정적 API와 health만 유지되고 컬렉션·구독 변경 API는 `503 TCG_DATABASE_URL_REQUIRED`로 fail-closed 한다.
+
+`payment_intents`는 서버가 생성한 random `orderId`와 device owner·금액·만료시각을 저장한다. activate와 Toss webhook은 DB intent를 확인한 뒤 네트워크 검증을 수행하고, 검증 결과와 premium 갱신만 짧은 transaction에서 처리한다. `paymentKey`와 `orderId`는 각각 unique라 webhook 재전송은 같은 구독 결과를 반환한다.
+
+기존 JSON은 원본을 덮어쓰지 않고 다음처럼 확인·적용한다.
+
+```powershell
+python scripts/migrate_json_to_db.py --dry-run --database-url $env:TCG_DATABASE_URL
+python scripts/migrate_json_to_db.py --apply --database-url $env:TCG_DATABASE_URL
+python scripts/migrate_json_to_db.py --verify --database-url $env:TCG_DATABASE_URL
+python scripts/migrate_json_to_db.py --export-rollback --output-dir .\rollback-export --database-url $env:TCG_DATABASE_URL
+```
+
+PostgreSQL pool은 `pool_size=1`, `max_overflow=1`, `pool_timeout=5`, `pool_pre_ping=True`로 제한하고 SQLite에는 PostgreSQL pool 옵션을 적용하지 않는다.
+
 ## 1단계: GitHub에 코드 올리기 (내가 함)
 
 ```bash
